@@ -17,3 +17,5 @@ body.v2-about .ab-header{display:none}body.v2-about .ab-main{max-width:none;padd
 body.single-project{background:var(--paper)!important;color:var(--ink)!important}body.single-project .sequence-number{color:var(--muted)!important}.project-sequence{border-radius:0!important}.project-sequence .sequence-link{border-radius:0!important}
 
 :root[data-theme=dark]{color-scheme:dark;--paper:#101010;--ink:#efefef;--muted:#aaa;--line:#343434}:root[data-theme=dark] .grid-cover{background:#1b1b1b!important}
+body.resume-navigation .unified-navigation{display:none!important}
+
