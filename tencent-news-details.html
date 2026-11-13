@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><link rel="stylesheet" href="assets/css/language.css?v=20261102-zh-only"><script src="assets/js/language.js?v=20261102-zh-only"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050706">
+  <title>Tencent News Internship — Kiran Zhang</title>
+  <meta name="description" content="Kiran Zhang 的腾讯新闻实习项目：微信插件全链路体验与 AI 海报裁切审美探索。">
+  <link rel="stylesheet" href="assets/css/project-detail.css?v=20261017-1">
+<link rel="stylesheet" href="assets/css/project-glass.css?v=20261017-1"><link rel="stylesheet" href="assets/css/navigation-system.css?v=20261017-1"><script src="assets/js/navigation-system.js?v=20261028-about" defer></script><link rel="stylesheet" href="assets/css/project-grid.css?v=20261019-1"><link rel="stylesheet" href="assets/css/project-hierarchy.css?v=20261026-stable-hover"><script src="assets/js/project-hierarchy.js?v=20261026-compact" defer></script><script>if(location.hash==='#explore')location.replace('tencent-news-crop.html');</script><link rel="stylesheet" href="assets/css/v2-inner.css"><script>try{if(localStorage.getItem("kiran-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}</script></head>
+<body><div class="v2-global" role="navigation" aria-label="网站主导航"><a class="v2-brand" href="index.html#home">kiranzhang</a><a href="index.html#home">Home</a><a href="index.html#projects">Projects</a><a href="about.html">About</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></div>
+  <div class="reading-progress" aria-hidden="true"><i></i></div>
+  <header class="case-header glass-surface-adapt">
+    <div class="detail-nav-shell">
+      <div class="primary-island">
+        <a class="island-orb" href="index.html#projects" aria-label="Back to selected projects"><img height="1080" width="1080" decoding="async" src="assets/index-previews/orb.webp" alt=""></a>
+        <nav class="case-nav" aria-label="Primary navigation">
+          <a href="index.html#home">Home</a>
+          <a class="is-active" href="index.html#projects" aria-current="page">Projects</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+      <div class="case-switcher" role="tablist" aria-label="Tencent News project categories">
+        <button id="business-tab" class="case-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="business-panel" data-case="business" data-index="01"><span>Business Requirements</span></button>
+        <button id="explore-tab" class="case-tab" type="button" role="tab" aria-selected="false" aria-controls="explore-panel" data-case="explore" data-index="02"><span>Explore Requirements</span></button>
+      </div>
+    </div>
+  </header>
+
+  <a class="collection-back" href="tencent-news.html" style="position:relative;display:block;padding:125px 4vw 0;color:inherit">← 返回项目列表</a><main class="case-stage">
+    <section id="business-panel" class="case-panel is-active" role="tabpanel" aria-labelledby="business-tab" data-panel="business">
+      <section class="case-hero-live detail-reveal" aria-labelledby="project-one-title">
+        <div class="hero-live-copy">
+          <h1 id="project-one-title" class="project-typewriter-title typewriter-title">Project 1.</h1>
+          <h2>微信插件</h2>
+          <h3>主/客态全链路体验设计</h3>
+          <p>Role: Interaction Design / UX Strategy / Prototype / Spec / Experiment</p>
+        </div>
+        <div class="hero-live-meta" aria-label="Project timeline">
+          <article style="--order:0"><span>01</span><strong>接入CP信息主页-客态</strong><time>7.21–8.1</time><small>10天</small></article>
+          <article style="--order:1"><span>02</span><strong>接入CP信息主页-主态</strong><time>10.13–10.17</time><small>5天</small></article>
+          <article style="--order:2"><span>03</span><strong>沉浸流右侧抽屉栏聚合设置功能与主态入口</strong><time>7.28–8.8</time><small>10天</small></article>
+        </div>
+      </section>
+
+      <section class="context-live detail-reveal" aria-labelledby="context-title">
+        <p class="chapter-mark"><span>01</span> / CONTEXT</p>
+        <div class="context-live-layout">
+          <div class="context-metric">
+            <strong><span data-count-up="85">0</span><b>%</b></strong>
+            <p>的新用户次日仍通过微信<br>再次拉起腾讯新闻App</p>
+            <i aria-hidden="true"></i>
+          </div>
+          <div class="context-flow">
+            <h2 id="context-title" class="typewriter-title">微信不是一次性的<br>流量<em>入口</em><span class="type-caret" aria-hidden="true"></span></h2>
+            <div class="context-orbit-cut">
+              <img height="330" width="660" loading="eager" fetchpriority="high" decoding="async" class="context-flow-cut" src="assets/project-detail/context-flow-original.reading.webp" alt="微信与腾讯新闻 App 之间的进入和返回路径">
+              <img height="180" width="180" loading="lazy" decoding="async" class="context-logo-hover flow-logo-wechat" src="assets/project-detail/context-wechat-node.reading.webp" alt="" aria-hidden="true">
+              <img height="180" width="180" loading="lazy" decoding="async" class="context-logo-hover flow-logo-app" src="assets/project-detail/context-app-node.reading.webp" alt="" aria-hidden="true">
+            </div>
+          </div>
+        </div>
+        <p class="context-conclusion">插件不再只是一次性跳转工具，而是用户持续回访的<em>重要入口</em></p>
+      </section>
+
+      <figure class="figma-frame-section diagnosis-sequence reveal" aria-label="02 Diagnosis：空间、认知与状态连续性诊断">
+        <img height="810" width="1440" loading="lazy" decoding="async" src="assets/project-detail/business-03-diagnosis.reading.webp" alt="用户已经跨端完成任务，体验却仍按端割裂">
+        <p class="frame-chapter-mark"><span>02</span> / DIAGNOSIS</p><i class="frame-line-grow" aria-hidden="true"></i>
+        <i class="diagnosis-mask space-screen-a" style="--delay:.20s"></i><i class="diagnosis-mask space-arrow" style="--delay:.42s"></i><i class="diagnosis-mask space-screen-b" style="--delay:.64s"></i><i class="diagnosis-mask space-copy" style="--delay:.94s"></i>
+        <i class="diagnosis-mask cognition-screens" style="--delay:.28s"></i><i class="diagnosis-mask cognition-copy" style="--delay:.76s"></i>
+        <i class="diagnosis-mask state-card" style="--delay:.18s"></i><i class="diagnosis-mask state-plugin-a" style="--delay:.50s"></i><i class="diagnosis-mask state-arrow-a" style="--delay:.68s"></i><i class="diagnosis-mask state-app" style="--delay:.86s"></i><i class="diagnosis-mask state-arrow-b" style="--delay:1.04s"></i><i class="diagnosis-mask state-plugin-b" style="--delay:1.22s"></i><i class="diagnosis-mask state-copy" style="--delay:1.52s"></i>
+      </figure>
+
+      <section class="story-section story-04 detail-reveal" aria-labelledby="story-04-title">
+        <header class="story-heading"><p><span>03</span> / CURRENT ISSUE</p><h2 id="story-04-title"><em>空间断裂：</em>半屏容器限制体验增长</h2><span>现有工具能力与内容消费共享同一纵向空间，导致遮挡、扩展受限与操作效率下降</span></header>
+        <div class="issue-component-stage">
+          <img height="122" width="273" loading="lazy" decoding="async" class="issue-ribbon issue-ribbon-left" src="assets/project-detail/vector-19.reading.webp" alt="" aria-hidden="true">
+          <img height="122" width="273" loading="lazy" decoding="async" class="issue-ribbon issue-ribbon-right" src="assets/project-detail/vector-20.reading.webp" alt="" aria-hidden="true">
+          <figure class="issue-component issue-component-left" style="--order:0"><div><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/issue-phone-01.reading.webp" alt="插件端播放设置"><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/issue-phone-02.reading.webp" alt="插件端反馈设置"></div><figcaption>插件端底端半屏形式</figcaption><small>剩余空间不足</small></figure>
+          <figure class="issue-component issue-component-center" style="--order:1"><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/issue-phone-03.reading.webp" alt="客户端抽屉现状"><figcaption>客户端抽屉现状</figcaption><small>破半屏桎梏，纳更多功能</small></figure>
+          <figure class="issue-component issue-component-right" style="--order:2"><div><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/issue-phone-04.reading.webp" alt="客户端侧边抽屉"><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/issue-phone-05.reading.webp" alt="客户端侧边页面"></div><figcaption>侧边抽屉页面的形式</figcaption><small>纵向空间 100% 利用</small></figure>
+        </div>
+      </section>
+
+      <section class="story-section story-05 detail-reveal" aria-labelledby="story-05-title">
+        <header class="story-heading"><p><span>04</span> / CURRENT ISSUE</p><h2 id="story-05-title">主/客态现网问题：身份承载在插件与客户端中<em>不连续</em></h2><span>同一身份对象在不同端缺乏一致结构，插件侧也缺少稳定的主态承载</span></header>
+        <div class="identity-component-stage">
+          <figure class="identity-phones story-piece" style="--order:0"><img height="44" width="319" loading="lazy" decoding="async" class="identity-arc" src="assets/project-detail/identity-same-object.reading.webp" alt="同一身份对象，结构与信息承载方式不一致"><div><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/identity-phone-share.reading.webp" alt="插件端客态主页"><img height="393" width="182" loading="lazy" decoding="async" src="assets/project-detail/identity-phone-home.reading.webp" alt="客户端主页样式"></div><figcaption><img height="51" width="158" loading="lazy" decoding="async" src="assets/project-detail/identity-tag-plugin.reading.webp" alt="插件端客态主页"><img height="51" width="158" loading="lazy" decoding="async" src="assets/project-detail/identity-tag-client.reading.webp" alt="客户端主页样式"></figcaption></figure>
+          <div class="identity-problems story-piece" style="--order:1"><h3>身份结构断裂</h3><div class="identity-link"><figure><img height="48" width="172" loading="lazy" decoding="async" src="assets/project-detail/identity-entry-feed.reading.webp" alt="沉浸流或图文底层"><span>点击 CP 头像</span></figure><img height="31" width="165" loading="lazy" decoding="async" class="identity-broken-link" src="assets/project-detail/identity-broken-link.reading.webp" alt="链路断开"><figure><img height="48" width="172" loading="lazy" decoding="async" src="assets/project-detail/identity-entry-home.reading.webp" alt="主态主页"><span>无承载页 / 缺主态入口</span></figure></div><div class="identity-problem-cards"><img height="120" width="290" loading="lazy" decoding="async" src="assets/project-detail/identity-problem-mind.reading.webp" alt="心智裂、难迁移、学习成本高"><img height="120" width="290" loading="lazy" decoding="async" src="assets/project-detail/identity-problem-state.reading.webp" alt="缺主态、难留存、拉端效率低"></div></div>
+        </div>
+      </section>
+
+      <section class="story-section story-06 detail-reveal" aria-labelledby="story-06-title">
+        <header class="story-heading"><p><span>05</span> / KEY DIAGNOSIS</p><h2 id="story-06-title">关键链路深挖：关注行为跨端后<em>无法闭环</em></h2><span>页面可以跨端跳转，但用户状态必须连续</span></header>
+        <div class="story-grid story-grid-split story-grid-journey">
+          <figure class="story-piece" style="--order:0"><img height="490" width="703" loading="lazy" decoding="async" src="assets/project-detail/detail-06-journey.reading.webp" alt="插件到分享页的关注链路"></figure>
+          <figure class="story-piece" style="--order:1"><img height="505" width="540" loading="lazy" decoding="async" src="assets/project-detail/detail-06-break.reading.webp" alt="状态断裂及反馈闭环缺失"></figure>
+        </div>
+        <p class="story-conclusion">页面可以跨端跳转，但<em>用户状态必须连续</em></p>
+      </section>
+
+      <section class="story-section story-07 detail-reveal" aria-labelledby="story-07-title">
+        <header class="story-heading"><p><span>06</span> / STRATEGY</p><h2 id="story-07-title">从「跨端断裂」到「<em>身份与资产连续</em>」</h2><span>围绕效率、心智、连续性与增长，建立主/客态与沉浸场景的一体化体验方向</span></header>
+        <div class="strategy-component-stage">
+          <div class="strategy-side story-piece" style="--order:0"><img height="216" width="234" loading="lazy" decoding="async" src="assets/project-detail/strategy-goal.reading.webp" alt="业务目标"><img height="101" width="234" loading="lazy" decoding="async" src="assets/project-detail/strategy-metrics.reading.webp" alt="量化指标"><img height="70" width="234" loading="lazy" decoding="async" src="assets/project-detail/strategy-factors.reading.webp" alt="关键因素"></div>
+          <div class="strategy-board story-piece" style="--order:1">
+            <div class="strategy-route"><img height="54" width="919" loading="lazy" decoding="async" src="assets/project-detail/strategy-route-bg.reading.webp" alt=""><p><span>沉浸流</span><i>→</i><span>抽屉</span><i>→</i><span>主/客态</span><i>→</i><span>App</span></p></div>
+            <div class="strategy-row strategy-row-two"><img height="137" width="450" loading="lazy" decoding="async" src="assets/project-detail/strategy-goal-short.reading.webp" alt="个人资产可查可管，重建跨端信任"><img height="137" width="450" loading="lazy" decoding="async" src="assets/project-detail/strategy-goal-mid.reading.webp" alt="将端内能力顺滑迁移，拉动 App 活跃"></div>
+            <i class="strategy-down" aria-hidden="true"></i>
+            <div class="strategy-row strategy-row-two"><img height="101" width="450" loading="lazy" decoding="async" src="assets/project-detail/strategy-metric-left.reading.webp" alt="资产使用率、到达一致性、首屏即用完成率"><img height="101" width="450" loading="lazy" decoding="async" src="assets/project-detail/strategy-metric-right.reading.webp" alt="跨端位置恢复成功率、深链同意率"></div>
+            <i class="strategy-down" aria-hidden="true"></i>
+            <div class="strategy-row strategy-row-four"><img height="70" width="211" loading="lazy" decoding="async" src="assets/project-detail/strategy-factor-01.reading.webp" alt="决策提效"><img height="70" width="211" loading="lazy" decoding="async" src="assets/project-detail/strategy-factor-02.reading.webp" alt="心智对齐"><img height="70" width="211" loading="lazy" decoding="async" src="assets/project-detail/strategy-factor-03.reading.webp" alt="空间连续性"><img height="70" width="211" loading="lazy" decoding="async" src="assets/project-detail/strategy-factor-04.reading.webp" alt="增长协同"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section story-08 detail-reveal" aria-labelledby="story-08-title">
+        <header class="story-heading"><p><span>07</span> / DESIGN 01 DRAWER</p><h2 id="story-08-title">从「半屏容器」到「<em>侧边工具空间</em>」</h2><span>将工具能力从内容纵向空间中释放，让用户在不退出当前视频的情况下完成操作</span></header>
+        <div class="design-scenes">
+          <figure class="design-scene story-piece" style="--order:0"><img height="585" width="1276" loading="lazy" decoding="async" src="assets/project-detail/design-07-scene-a.reading.webp" alt="从底部半屏改为侧边工具空间的设计决策"></figure>
+          <div class="after-scene">
+            <p class="after-scene-label">AFTER / 侧边工具空间</p>
+            <div class="after-devices">
+              <div class="after-device-group after-device-left"><img height="364" width="248" loading="lazy" decoding="async" src="assets/project-detail/after-phone-entry.reading.webp" alt="修改后的入口"><img height="365" width="266" loading="lazy" decoding="async" src="assets/project-detail/after-phone-drawer.reading.webp" alt="侧边工具抽屉"></div>
+              <div class="after-device-group after-device-right"><img height="364" width="169" loading="lazy" decoding="async" src="assets/project-detail/after-phone-settings.reading.webp" alt="隐私设置"><img height="364" width="169" loading="lazy" decoding="async" src="assets/project-detail/after-phone-favorites.reading.webp" alt="我的收藏"><img height="364" width="169" loading="lazy" decoding="async" src="assets/project-detail/after-phone-following.reading.webp" alt="我的关注"><img height="364" width="169" loading="lazy" decoding="async" src="assets/project-detail/after-phone-history.reading.webp" alt="我的浏览历史"></div>
+            </div>
+            <div class="after-benefits"><img height="54" width="186" loading="lazy" decoding="async" src="assets/project-detail/after-benefit-integrate.reading.webp" alt="功能整合"><img height="54" width="234" loading="lazy" decoding="async" src="assets/project-detail/after-benefit-space.reading.webp" alt="空间合理利用"><img height="58" width="189" loading="lazy" decoding="async" src="assets/project-detail/after-benefit-assets.reading.webp" alt="资产沉淀"></div>
+            <p class="after-conclusion">让内容继续，<em>操作并行</em></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section story-09 detail-reveal" aria-labelledby="story-09-title">
+        <header class="story-heading"><p><span>08</span> / DESIGN 02</p><h2 id="story-09-title">从「认识别人」到「<em>回到自己</em>」</h2><span>统一主客态身份承载，让关系沉淀为可管理的个人资产</span></header>
+        <div class="story-wide-piece story-piece" style="--order:0"><img height="350" width="1276" loading="lazy" decoding="async" src="assets/project-detail/detail-09-phones.reading.webp" alt="统一主客态页面与内容模块"></div>
+        <div class="story-wide-piece story-piece" style="--order:1"><img height="120" width="1270" loading="lazy" decoding="async" src="assets/project-detail/detail-09-benefits.reading.webp" alt="生态同构、降低学习成本与快速熟悉业务链路"></div>
+        <p class="story-conclusion">让关系在插件内沉淀，而不是在跨端跳转中流失</p>
+      </section>
+
+      <section class="project-original-boards" aria-label="CP 信息主页补充成果"><h2>CP 信息主页 · 完整成果</h2><a href="assets/tencent-growth/f4adce1bddda4d3d083ee372e96e09bd.jpg" target="_blank" rel="noopener"><img height="1080" width="1920" loading="lazy" src="assets/tencent-growth/f4adce1bddda4d3d083ee372e96e09bd.reading.webp" alt="CP 信息主页端外场景统一改造完整流程"></a></section>
+<section class="project-next detail-reveal" aria-label="Next work">
+        <p><span>02</span> / NEXT WORK</p>
+        <a href="tencent-news-refresh.html"><span><small>BUSINESS REQUIREMENT</small><strong>沉浸流下拉刷新</strong></span><i aria-hidden="true">→</i></a>
+      </section>
+    </section>
+
+
+  </main>
+
+  <footer id="project-contact" class="case-footer">
+    <div class="footer-kicker"><span>End of case study</span><span>01 / Tencent News</span></div>
+    <a class="footer-home" href="index.html#home"><span>Back to homepage</span><i aria-hidden="true">↗</i></a>
+    <div class="footer-bottom"><a href="mailto:zhangqingran02@163.com">zhangqingran02@163.com</a><small>© 2026 Kiran Zhang</small></div>
+  </footer>
+  <script src="assets/js/project-detail.js?v=20261016-2"></script>
+</body>
+</html>
+

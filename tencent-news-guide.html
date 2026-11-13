@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><link rel="stylesheet" href="assets/css/language.css?v=20261102-zh-only"><script src="assets/js/language.js?v=20261102-zh-only"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050706">
+  <title>Immersive Feed Swipe Guidance — Kiran Zhang</title>
+  <meta name="description" content="腾讯新闻微信插件沉浸流上滑引导样式调整。">
+  <link rel="stylesheet" href="assets/css/project-detail.css?v=20261017-1">
+<link rel="stylesheet" href="assets/css/project-glass.css?v=20261017-1"><link rel="stylesheet" href="assets/css/navigation-system.css?v=20261017-1"><script src="assets/js/navigation-system.js?v=20261028-about" defer></script><link rel="stylesheet" href="assets/css/project-hierarchy.css?v=20261026-stable-hover"><script src="assets/js/project-hierarchy.js?v=20261026-compact" defer></script><link rel="stylesheet" href="assets/css/v2-inner.css"><script>try{if(localStorage.getItem("kiran-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}</script></head>
+<body><div class="v2-global" role="navigation" aria-label="网站主导航"><a class="v2-brand" href="index.html#home">kiranzhang</a><a href="index.html#home">Home</a><a href="index.html#projects">Projects</a><a href="about.html">About</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></div>
+  <div class="reading-progress" aria-hidden="true"><i></i></div>
+  <header class="case-header glass-surface-adapt">
+    <div class="detail-nav-shell">
+      <div class="primary-island">
+        <a class="island-orb" href="index.html#projects" aria-label="Back to selected projects"><img height="1080" width="1080" decoding="async" src="assets/index-previews/orb.webp" alt=""></a>
+        <nav class="case-nav" aria-label="Primary navigation">
+          <a href="index.html#home">Home</a>
+          <a class="is-active" href="index.html#projects" aria-current="page">Projects</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+      <nav class="case-switcher" aria-label="Tencent News project categories">
+        <a class="case-tab is-active" href="tencent-news.html#business"><span>Business Requirements</span></a>
+        <a class="case-tab" href="tencent-news.html#explore"><span>Explore Requirements</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case-stage">
+    <section class="case-panel is-active" data-panel="business">
+      <section class="work-two-hero guide-hero detail-reveal" aria-labelledby="project-three-title">
+        <div class="work-two-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <a class="work-two-back" href="tencent-news-refresh.html">← Previous Work</a>
+        <div class="work-two-heading">
+          <p>03 / BUSINESS REQUIREMENT</p>
+          <h1 id="project-three-title" class="typewriter-title">Project 3.</h1>
+          <h2>微信插件</h2>
+          <h3>沉浸流上滑引导样式调整</h3>
+        </div>
+        <div class="work-two-summary">
+          <p>项目背景：微信容器底部原生控件暗示“不能上滑”，推荐流触达受阻。</p>
+          <dl><div><dt>周期</dt><dd>8.4—8.8</dd></div><div><dt>角色</dt><dd>Interaction Design</dd></div><div><dt>交付</dt><dd>UX Flow / Visual Spec / Experiment</dd></div></dl>
+        </div>
+        <span class="work-two-scroll">SCROLL TO EXPLORE <i aria-hidden="true">↓</i></span>
+      </section>
+
+      <section class="guide-section guide-problem detail-reveal" aria-labelledby="guide-problem-title">
+        <header class="story-heading">
+          <p><span>01</span> / CONTEXT</p>
+          <h2 id="guide-problem-title">项目背景：微信容器底部原生控件暗示“不能上滑”，推荐流<em>触达受阻</em></h2>
+        </header>
+        <div class="guide-problem-grid">
+          <figure class="guide-phone-card story-piece" style="--order:0">
+            <span>现网首条内容</span>
+            <img height="812" width="376" loading="eager" fetchpriority="high" decoding="async" src="assets/project-detail/guide-issue-left.reading.webp" alt="首条视频底部控件造成不能上滑的暗示">
+            <figcaption>受微信底部原生控件影响，部分用户误以为“不能上滑”，只消费首条视频即退出</figcaption>
+          </figure>
+          <div class="guide-problem-center story-piece" style="--order:1">
+            <p><b>“不能上滑”</b><span>微信底部原生控件带来的错误暗示</span></p>
+            <img loading="lazy" decoding="async" class="guide-problem-arrow" src="assets/project-detail/guide-arrow-down.svg" alt="" aria-hidden="true">
+            <p><b>推荐流触达受阻</b><span>部分用户只消费首条视频即退出</span></p>
+            <strong>更明确，拉流量，提兴趣</strong>
+          </div>
+          <figure class="guide-phone-card story-piece" style="--order:2">
+            <span>现有教程式引导</span>
+            <img height="2400" width="1107" loading="lazy" decoding="async" src="assets/project-detail/guide-issue-right-c.reading.webp" alt="遮挡底部信息的上滑教程引导">
+            <figcaption>现在端上有教程类的上拉引导，遮挡底部信息文字，信息密度低</figcaption>
+          </figure>
+        </div>
+        <p class="story-conclusion"><em>更明确</em>，拉流量，提兴趣</p>
+      </section>
+
+      <section class="guide-section guide-solution detail-reveal" aria-labelledby="guide-solution-title">
+        <header class="story-heading">
+          <p><span>02</span> / DESIGN SOLUTION</p>
+          <h2 id="guide-solution-title">设计方案</h2>
+          <span>保留插件原生手势，去掉插件强反馈蓝条。</span>
+        </header>
+        <div class="guide-solution-layout">
+          <div class="guide-before-after">
+            <img loading="lazy" decoding="async" class="guide-transition-curve" src="assets/project-detail/guide-curve-solution.svg" alt="" aria-hidden="true">
+            <figure class="story-piece" style="--order:0"><img height="812" width="375" loading="lazy" decoding="async" src="assets/project-detail/guide-solution-panel.reading.webp" alt="调整前的沉浸视频页"><figcaption>停留 5s</figcaption></figure>
+            <img loading="lazy" decoding="async" class="guide-side-arrow" src="assets/project-detail/guide-arrow-side.svg" alt="" aria-hidden="true">
+            <figure class="story-piece" style="--order:1"><img height="812" width="375" loading="lazy" decoding="async" src="assets/project-detail/guide-solution-extra.reading.webp" alt="增加下一条内容引导后的沉浸视频页"><figcaption>信息条上推</figcaption></figure>
+          </div>
+          <div class="guide-preview story-piece" style="--order:2">
+            <span class="guide-preview-kicker">更强引导，更多信息</span>
+            <div class="guide-swipe-icon" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/project-detail/guide-chevron-up.svg" alt=""></div>
+            <h3>向上滑动</h3>
+            <div class="guide-next-card"><img height="524" width="574" loading="lazy" decoding="async" src="assets/project-detail/guide-next-cover.reading.webp" alt="下一条视频封面"><p><small>上滑播放下一条视频</small><strong>气候变化对健康的威胁创历史新高，呼吁…</strong></p><b aria-hidden="true">×</b></div>
+            <dl><div><dt>下一条封面</dt></div><div><dt>下一条信息内容</dt><dd>吸引阅读兴趣</dd></div><div><dt>自主关闭</dt></div></dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section guide-outcome detail-reveal" aria-labelledby="guide-outcome-title">
+        <header class="story-heading">
+          <p><span>03</span> / OUTCOME</p>
+          <h2 id="guide-outcome-title">成果</h2>
+          <span>信息量充足、更优使用体验、个性化推荐。</span>
+        </header>
+        <div class="guide-outcome-grid">
+          <article class="story-piece" style="--order:0"><span>01</span><h3>信息量充足</h3></article>
+          <article class="story-piece" style="--order:1"><span>02</span><h3>更优使用体验</h3></article>
+          <article class="story-piece" style="--order:2"><span>03</span><h3>个性化推荐</h3></article>
+        </div>
+        <div class="guide-data story-piece" style="--order:3"><p>上线数据</p><div><strong>+9.7369%</strong><span>分享点击 UV</span></div><div><strong>+2.2204%</strong><span>赞点击 UV</span></div><small>消费指标暂未见显著变化：总消费 PVVV +0.2190%，沉浸页有效时长 VV +0.2057%，人均播放时长 +0.2411%。</small></div>
+      </section>
+    </section>
+  </main>
+
+  <footer id="project-contact" class="case-footer">
+    <div class="footer-kicker"><span>End of case study</span><span>03 / Tencent News</span></div>
+    <a class="footer-home" href="index.html#home"><span>Back to homepage</span><i aria-hidden="true">↗</i></a>
+    <div class="footer-bottom"><a href="mailto:zhangqingran02@163.com">zhangqingran02@163.com</a><small>© 2026 Kiran Zhang</small></div>
+  </footer>
+  <script src="assets/js/project-detail.js?v=20261016-2"></script>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><link rel="stylesheet" href="assets/css/language.css?v=20261102-zh-only"><script src="assets/js/language.js?v=20261102-zh-only"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050706">
+  <title>Immersive Feed Refresh — Kiran Zhang</title>
+  <meta name="description" content="腾讯新闻微信插件沉浸流首条视频下拉刷新体验设计。">
+  <link rel="stylesheet" href="assets/css/project-detail.css?v=20261017-1">
+<link rel="stylesheet" href="assets/css/project-glass.css?v=20261017-1"><link rel="stylesheet" href="assets/css/navigation-system.css?v=20261017-1"><script src="assets/js/navigation-system.js?v=20261028-about" defer></script><link rel="stylesheet" href="assets/css/project-grid.css?v=20261019-1"><link rel="stylesheet" href="assets/css/project-hierarchy.css?v=20261026-stable-hover"><script src="assets/js/project-hierarchy.js?v=20261026-compact" defer></script><link rel="stylesheet" href="assets/css/v2-inner.css"><script>try{if(localStorage.getItem("kiran-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}</script></head>
+<body><div class="v2-global" role="navigation" aria-label="网站主导航"><a class="v2-brand" href="index.html#home">kiranzhang</a><a href="index.html#home">Home</a><a href="index.html#projects">Projects</a><a href="about.html">About</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></div>
+  <div class="reading-progress" aria-hidden="true"><i></i></div>
+  <header class="case-header glass-surface-adapt">
+    <div class="detail-nav-shell">
+      <div class="primary-island">
+        <a class="island-orb" href="index.html#projects" aria-label="Back to selected projects"><img height="1080" width="1080" decoding="async" src="assets/index-previews/orb.webp" alt=""></a>
+        <nav class="case-nav" aria-label="Primary navigation">
+          <a href="index.html#home">Home</a>
+          <a class="is-active" href="index.html#projects" aria-current="page">Projects</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+      <nav class="case-switcher" aria-label="Tencent News project categories">
+        <a class="case-tab is-active" href="tencent-news.html#business"><span>Business Requirements</span></a>
+        <a class="case-tab" href="tencent-news.html#explore"><span>Explore Requirements</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case-stage">
+    <section class="case-panel is-active" data-panel="business">
+      <section id="work-two" class="work-two-hero detail-reveal" aria-labelledby="project-two-title">
+        <div class="work-two-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <a class="work-two-back" href="tencent-news.html#business">← Previous Work</a>
+        <div class="work-two-heading">
+          <p>02 / BUSINESS REQUIREMENT</p>
+          <h1 id="project-two-title" class="typewriter-title">Project 2.</h1>
+          <h2>微信插件</h2>
+          <h3>沉浸流首条视频增加下拉刷新</h3>
+        </div>
+        <div class="work-two-summary">
+          <p>当首条内容无法建立兴趣时，为用户增加主动换新的入口，同时不破坏沉浸观看。</p>
+          <dl><div><dt>周期</dt><dd>7.21—7.25</dd></div><div><dt>角色</dt><dd>Interaction Design</dd></div><div><dt>交付</dt><dd>UX Flow / Prototype / Spec</dd></div></dl>
+        </div>
+        <span class="work-two-scroll">SCROLL TO EXPLORE <i aria-hidden="true">↓</i></span>
+      </section>
+
+      <section class="refresh-section refresh-context detail-reveal" aria-labelledby="refresh-context-title">
+        <header class="story-heading">
+          <p><span>01</span> / CONTEXT</p>
+          <h2 id="refresh-context-title">首条内容不感兴趣时，用户缺少<em>主动换新</em>的入口</h2>
+          <span>同一插件内存在两种内容形态，但一级页支持下拉刷新，沉浸流首条视频却只能被动接受推荐。</span>
+        </header>
+        <div class="refresh-comparison">
+          <figure class="refresh-phone refresh-phone-feed story-piece" style="--order:0">
+            <img height="393" width="182" loading="eager" fetchpriority="high" decoding="async" class="refresh-device" src="assets/project-detail/refresh-feed.reading.webp" alt="支持下拉刷新的插件一级页">
+            <img height="51" width="122" loading="lazy" decoding="async" class="refresh-tag" src="assets/project-detail/refresh-tag-feed.reading.webp" alt="插件一级页">
+            <figcaption><b>01</b><span>支持下拉刷新</span></figcaption>
+          </figure>
+          <figure class="refresh-logic story-piece" style="--order:1">
+            <span class="refresh-logic-label">EXPERIENCE GAP</span>
+            <img height="286" width="542" loading="lazy" decoding="async" src="assets/project-detail/refresh-contrast.reading.webp" alt="支持下拉刷新与不支持下拉刷新的体验差异">
+            <p>用户已经形成“下拉即可换新”的操作预期，进入沉浸流后却失去控制权。</p>
+          </figure>
+          <figure class="refresh-phone refresh-phone-video story-piece" style="--order:2">
+            <img height="393" width="182" loading="lazy" decoding="async" class="refresh-device" src="assets/project-detail/refresh-immersive.reading.webp" alt="不支持下拉刷新的插件沉浸视频页">
+            <img height="51" width="167" loading="lazy" decoding="async" class="refresh-tag" src="assets/project-detail/refresh-tag-immersive.reading.webp" alt="插件沉浸视频页">
+            <figcaption><b>02</b><span>只能接受当前推荐</span></figcaption>
+          </figure>
+        </div>
+        <p class="story-conclusion">问题不只是“不能刷新”，而是首条内容失配后<em>没有恢复路径</em></p>
+      </section>
+
+      <section class="refresh-section refresh-principles detail-reveal" aria-labelledby="refresh-principles-title">
+        <header class="story-heading">
+          <p><span>02</span> / DESIGN PRINCIPLE</p>
+          <h2 id="refresh-principles-title">让刷新成为一种<em>轻量纠偏</em>，而不是打断沉浸</h2>
+          <span>沿用用户已有手势心智，在首条内容场景中增加可发现、可撤回、低打扰的换新机制。</span>
+        </header>
+        <div class="refresh-principle-grid">
+          <article class="story-piece" style="--order:0"><span>01</span><i aria-hidden="true">↕</i><h3>手势复用</h3><p>沿用一级页下拉动作，不增加新的学习成本。</p></article>
+          <article class="story-piece" style="--order:1"><span>02</span><i aria-hidden="true">◎</i><h3>只在首条生效</h3><p>限制触发范围，避免滑动浏览过程中误触刷新。</p></article>
+          <article class="story-piece" style="--order:2"><span>03</span><i aria-hidden="true">↺</i><h3>反馈可感知</h3><p>用短促状态反馈说明内容正在换新，维持观看连续性。</p></article>
+        </div>
+        <div class="refresh-flow" aria-label="Pull to refresh interaction flow">
+          <span>首条内容失配</span><i aria-hidden="true"></i><span>下拉表达换新意图</span><i aria-hidden="true"></i><span>刷新并续接沉浸流</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <section class="project-original-boards" aria-label="设计方案与成果"><a href="assets/tencent-growth/9b04e227bbbda6bad01a2b15bfb05434.jpg" target="_blank" rel="noopener"><img height="1080" width="1920" loading="lazy" src="assets/tencent-growth/9b04e227bbbda6bad01a2b15bfb05434.reading.webp" alt="沉浸流下拉刷新设计方案与成果" decoding="async"></a></section><footer id="project-contact" class="case-footer">
+    <div class="footer-kicker"><span>End of case study</span><span>02 / Tencent News</span></div>
+    <a class="footer-home" href="index.html#home"><span>Back to homepage</span><i aria-hidden="true">↗</i></a>
+    <div class="footer-bottom"><a href="mailto:zhangqingran02@163.com">zhangqingran02@163.com</a><small>© 2026 Kiran Zhang</small></div>
+  </footer>
+  <script src="assets/js/project-detail.js?v=20261016-2"></script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+name: Publish portfolio v2
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: portfolio-v2-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Import original content once, preserving the new design
+        run: node scripts/import-original.mjs
+      - name: Store the complete independent source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve original portfolio content and assets in v2'
+            git push origin HEAD:main
+          fi
+      - name: Validate homepage code and local references
+        run: |
+          node --check assets/js/v2.js
+          node scripts/check-v2.mjs
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ --exclude='.git' --exclude='.github' --exclude='.v2' --exclude='_site' --exclude='scripts' --exclude='docs' --exclude='AGENTS.md' --exclude='DESIGN.md' --exclude='README.md'
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy new Pages site
+        id: deployment
+        uses: actions/deploy-pages@v4
