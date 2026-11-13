@@ -1,0 +1,20 @@
+/* Card Swap flat preset: 48px horizontal, 46px vertical, 0 skew, 20px corners. */
+body{margin:0;background:#080909;color:#f6f6f2;overflow-x:hidden}
+.swap-gallery{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:155px 76px 60px;gap:42px}
+.swap-stage{position:relative;width:min(900px,calc(100vw - 152px));height:clamp(320px,54vh,580px);perspective:1600px;isolation:isolate}
+.swap-card{position:absolute;inset:0;display:flex;flex-direction:column;border-radius:20px;border:1px solid #ffffff38;background:#171a19;overflow:hidden;box-shadow:0 34px 75px #0008;cursor:grab;touch-action:pan-y;user-select:none;will-change:transform;transform:translate3d(0,0,0);z-index:2;transition:transform .7s cubic-bezier(.22,.8,.25,1),filter .7s}
+.swap-card[data-front=false]{transform:translate3d(48px,-46px,-90px);z-index:1;filter:brightness(.65)}
+.swap-card header{padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #ffffff20}
+.swap-card h1{font:400 clamp(16px,2.1vw,27px)/1.3 Arial,'Microsoft YaHei',sans-serif;margin:0;letter-spacing:0}
+.swap-card header>span,.swap-card footer>span{font:10px monospace;letter-spacing:2px;color:#b6bdb8}
+.swap-card>img{display:block;width:100%;min-height:0;flex:1;object-fit:cover;pointer-events:none}
+.swap-card#sentaiment>img{object-fit:contain;background:#000}
+.swap-card footer{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;margin:0;border:0}
+.swap-card a{color:#f5f7f3;border:1px solid #ffffff50;border-radius:30px;padding:10px 19px;text-decoration:none;font:13px sans-serif;cursor:pointer}
+.swap-card a:hover{background:#f5f7f3;color:#111}
+.swap-controls{display:flex;align-items:center;gap:22px;font:11px monospace;color:#aeb8b1}
+.swap-controls button{border:1px solid #ffffff35;background:#171a19;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;font:18px sans-serif}
+.swap-controls button:hover{background:#303631}
+.swap-card a:focus-visible,.swap-controls button:focus-visible{outline:2px solid #ddd5a6;outline-offset:4px}
+@media(max-width:600px){.swap-gallery{padding:150px 38px 40px;gap:32px}.swap-stage{width:calc(100vw - 76px);height:min(490px,60svh)}.swap-card[data-front=false]{transform:translate3d(24px,-30px,-90px)}.swap-card header{padding:18px;display:block}.swap-card header>span{display:block;margin-bottom:12px}.swap-card footer{padding:16px}.swap-card footer>span{font-size:8px;letter-spacing:0}.swap-card a{font-size:11px;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.swap-card{transition:none}}

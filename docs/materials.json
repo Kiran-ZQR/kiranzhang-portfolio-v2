@@ -1,0 +1,299 @@
+[
+  {
+    "id": "00-k-a",
+    "position": 0,
+    "letter": "K",
+    "variant": "a",
+    "label": "光谱柔光 K",
+    "file": "assets/00-k-a.webp",
+    "prompt": "Use case: stylized-concept. Create one original uppercase K for KIRAN ZHANG as a refined translucent light-box glyph: broad modern grotesk construction, milky cyan glass body, concentrated hot-pink core, narrow orange-yellow spectral edge and restrained blue bloom. Both diagonals must be fully formed. Pure-black website context; one isolated letter, genuine transparent alpha, complete silhouette, 12% safe margin, no extra text, logo, watermark or crop."
+  },
+  {
+    "id": "00-k-b",
+    "position": 0,
+    "letter": "K",
+    "variant": "b",
+    "label": "技术网点 K",
+    "file": "assets/00-k-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase K as a crisp editorial print glyph: pale-cyan solid body, vermilion contour, cobalt halftone shadow, tiny acid-yellow pixel interruptions, controlled registration offset and fine grain. Preserve the full stem and arms. Transparent alpha, complete silhouette and safe margins; no scene, extra text, logo, watermark or crop."
+  },
+  {
+    "id": "01-i-a",
+    "position": 1,
+    "letter": "I",
+    "variant": "a",
+    "label": "荧光灯箱 I",
+    "file": "assets/01-i-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase I as a glowing translucent light-box object: tall simplified slab with soft rounded terminals, hot-magenta core, cyan rim, orange-yellow spectral bloom, subtle grain and thermal softness. Strong capital I silhouette, complete object, transparent alpha, 12% safe margin, no background card, words, logo or watermark."
+  },
+  {
+    "id": "01-i-b",
+    "position": 1,
+    "letter": "I",
+    "variant": "b",
+    "label": "双色 Riso I",
+    "file": "assets/01-i-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase I in crisp two-color risograph print: monumental condensed slab-serif I, pale-cyan halftone fill, vermilion contour, overprinted registration shift, sparse technical hatch lines and abstract calibration ticks contained within the glyph. True transparent alpha, no paper rectangle, extra letters, logo or watermark."
+  },
+  {
+    "id": "02-r-a",
+    "position": 2,
+    "letter": "R",
+    "variant": "a",
+    "label": "全息金属 R",
+    "file": "assets/02-r-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase R sculpted from a continuous holographic chrome ribbon: prismatic red-orange-blue reflections, clean luminous edge, controlled star glints, elegant broad bowl and decisive diagonal leg. Transparent alpha, complete silhouette, minimal perspective, no backdrop, text, logo or watermark."
+  },
+  {
+    "id": "02-r-b",
+    "position": 2,
+    "letter": "R",
+    "variant": "b",
+    "label": "编辑拼贴 R",
+    "file": "assets/02-r-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase R as a precise layered geometric glyph: deep-burgundy main letter, translucent powder-blue circular bowl, coral diagonal leg, mint ellipse behind and a cobalt halftone crescent. Preserve a clear counter and decisive leg. Transparent alpha, full silhouette, no scene, words, logo or watermark."
+  },
+  {
+    "id": "03-a-a",
+    "position": 3,
+    "letter": "A",
+    "variant": "a",
+    "label": "全息丝带 A",
+    "file": "assets/03-a-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase A from a continuous polished holographic ribbon: prismatic cobalt, hot-magenta, orange and white reflections, clean triangular counter, integrated crossbar and two restrained star glints. Transparent alpha, complete silhouette and safe margin; no backdrop, extra text, logo or watermark."
+  },
+  {
+    "id": "03-a-b",
+    "position": 3,
+    "letter": "A",
+    "variant": "b",
+    "label": "包豪斯几何 A",
+    "file": "assets/03-a-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase A from overlapping flat Bauhaus paper shapes: coral triangle, lemon semicircle, translucent powder-blue rectangle, deep-burgundy arch and tiny green square. Negative space forms an unmistakable A and crossbar. Subtle screenprint grain, transparent alpha, no page or extra text."
+  },
+  {
+    "id": "04-n-a",
+    "position": 4,
+    "letter": "N",
+    "variant": "a",
+    "label": "热成像 N",
+    "file": "assets/04-n-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase N as a soft thermal-scan specimen: peach-orange translucent membrane surrounding cyan and lemon heat islands, with the capital N revealed through blue-violet thermal channels and negative space. Clear at small size, transparent beyond the glow, no labels, numbers, logo or watermark."
+  },
+  {
+    "id": "04-n-b",
+    "position": 4,
+    "letter": "N",
+    "variant": "b",
+    "label": "技术网点 N",
+    "file": "assets/04-n-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase N in an elegant two-ink riso system: pale-cyan broad stems, vermilion contour, cobalt halftone diagonal and restrained acid-yellow pixel nodes. Both verticals and the connecting diagonal remain obvious. Transparent alpha, full silhouette, no scene, words, logo or watermark."
+  },
+  {
+    "id": "05-z-a",
+    "position": 5,
+    "letter": "Z",
+    "variant": "a",
+    "label": "光谱亚克力 Z",
+    "file": "assets/05-z-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase Z as a translucent luminous acrylic glyph: milky hot-pink center, cobalt-violet shadow core, thin cyan edge and amber spectral bloom. Crisp top and bottom bars joined by a decisive diagonal. Transparent alpha, full silhouette, no background, text, logo or watermark."
+  },
+  {
+    "id": "05-z-b",
+    "position": 5,
+    "letter": "Z",
+    "variant": "b",
+    "label": "像素网点 Z",
+    "file": "assets/05-z-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase Z assembled from blocky pixel clusters and coarse halftone gradients: sky-blue square cells, peach-orange spectral blur and acid-yellow nodes, with deliberate missing pixels at the edges. Readable Z, transparent alpha, no page, grid, extra text, logo or watermark."
+  },
+  {
+    "id": "06-h-a",
+    "position": 6,
+    "letter": "H",
+    "variant": "a",
+    "label": "热成像 H",
+    "file": "assets/06-h-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase H as a thermal-scan glyph: rounded peach-orange membrane, electric-blue channels tracing two verticals and a clear crossbar, lemon heat islands and pink transitions. Balanced typographic structure, transparent alpha, full silhouette, no scene, words, logo or watermark."
+  },
+  {
+    "id": "06-h-b",
+    "position": 6,
+    "letter": "H",
+    "variant": "b",
+    "label": "全息丝带 H",
+    "file": "assets/06-h-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase H from a polished holographic ribbon folded into two verticals and a centered crossbar, with prismatic cobalt, magenta, orange and white reflections, restrained depth and two small star glints. Transparent alpha, full silhouette, no backdrop, words, logo or watermark."
+  },
+  {
+    "id": "07-a-a",
+    "position": 7,
+    "letter": "A",
+    "variant": "a",
+    "label": "光谱像素 A",
+    "file": "assets/07-a-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase A as a spectral pixel-print glyph: powder-blue block clusters form two legs, coral-to-orange halftone reinforces the apex, and an electric-yellow crossbar preserves a clean triangular counter. Transparent alpha, full silhouette, no scene, extra text, logo or watermark."
+  },
+  {
+    "id": "07-a-b",
+    "position": 7,
+    "letter": "A",
+    "variant": "b",
+    "label": "复古字形拼贴 A",
+    "file": "assets/07-a-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase A as an eccentric vintage type collage: tall burgundy serif A interlocked with a cobalt halftone crescent, salmon geometric notch, mint oval and uneven magenta registration shadow. Clear triangular counter and crossbar, transparent alpha, no page or extra text."
+  },
+  {
+    "id": "08-n-a",
+    "position": 8,
+    "letter": "N",
+    "variant": "a",
+    "label": "全息丝带 N",
+    "file": "assets/08-n-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase N from an elegant holographic metal ribbon folded into two upright stems and one decisive diagonal, with prismatic cobalt, magenta, orange and white highlights, shallow relief and restrained glints. Transparent alpha, no backdrop, text, logo or watermark."
+  },
+  {
+    "id": "08-n-b",
+    "position": 8,
+    "letter": "N",
+    "variant": "b",
+    "label": "磨砂灯箱 N",
+    "file": "assets/08-n-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase N as a translucent frosted light-box glyph with an icy cyan body, magenta spectral core, amber edge pools and a cobalt inner shadow along the diagonal. Both stems remain visible. Transparent alpha, full silhouette, no scene, words, logo or watermark."
+  },
+  {
+    "id": "09-g-a",
+    "position": 9,
+    "letter": "G",
+    "variant": "a",
+    "label": "编辑拼贴 G",
+    "file": "assets/09-g-a.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase G as a refined editorial collage: deep-burgundy main glyph, translucent powder-blue circular layer, coral horizontal spur, mint ellipse behind, cobalt halftone crescent and magenta registration shadow. Preserve the open aperture. Transparent alpha, no extra text, logo or watermark."
+  },
+  {
+    "id": "09-g-b",
+    "position": 9,
+    "letter": "G",
+    "variant": "b",
+    "label": "发光凝胶玻璃 G",
+    "file": "assets/09-g-b.webp",
+    "prompt": "Use case: stylized-concept. Create one uppercase G as a luminous translucent gel-glass glyph: milky cyan rim, hot-magenta core, cobalt-violet depth and amber light pools, with broad geometric construction, open aperture and crisp horizontal spur. Transparent alpha, full silhouette, no backdrop, text, logo or watermark."
+  },
+  {
+    "id": "00-k-c",
+    "position": 0,
+    "letter": "K",
+    "variant": "c",
+    "label": "冷蓝几何印刷 K",
+    "file": "assets/00-k-c.webp",
+    "prompt": "Uppercase K built from pale cobalt and periwinkle airbrushed architectural fragments, soft geometric blocks and small square pixels, with subtle risograph grain. Clear vertical stem and two diagonals, transparent background."
+  },
+  {
+    "id": "01-i-c",
+    "position": 1,
+    "letter": "I",
+    "variant": "c",
+    "label": "珊瑚有机渐变 I",
+    "file": "assets/01-i-c.webp",
+    "prompt": "Uppercase I formed from translucent coral, vermilion, peach and warm amber organic lobes with softly layered print grain, a clear central body and restrained terminals, transparent background."
+  },
+  {
+    "id": "02-r-c",
+    "position": 2,
+    "letter": "R",
+    "variant": "c",
+    "label": "青粉绿叠印 R",
+    "file": "assets/02-r-c.webp",
+    "prompt": "Uppercase R using airy cyan, vivid magenta, lime and emerald translucent geometric overlaps with risograph softness; clear stem, bowl and diagonal leg, transparent background."
+  },
+  {
+    "id": "03-a-c",
+    "position": 3,
+    "letter": "A",
+    "variant": "c",
+    "label": "几何木兰 A",
+    "file": "assets/03-a-c.webp",
+    "prompt": "Uppercase A arranged from near-black angular branches, olive and spring-green leaves, translucent pink magnolia petals and buds; two diagonal supports and visible crossbar, transparent background."
+  },
+  {
+    "id": "04-n-c",
+    "position": 4,
+    "letter": "N",
+    "variant": "c",
+    "label": "液态骨架 N",
+    "file": "assets/04-n-c.webp",
+    "prompt": "Uppercase N made from translucent teal-silver liquid chrome membranes, organic perforations, taut webbing and copper iridescent highlights; two uprights and a decisive diagonal, transparent background."
+  },
+  {
+    "id": "05-z-c",
+    "position": 5,
+    "letter": "Z",
+    "variant": "c",
+    "label": "暗色光球 Z",
+    "file": "assets/05-z-c.webp",
+    "prompt": "Uppercase Z sculpted from deep glossy near-black bands with red-orange glow, ultraviolet and cobalt accents; clear top, diagonal and bottom strokes, transparent background."
+  },
+  {
+    "id": "06-h-c",
+    "position": 6,
+    "letter": "H",
+    "variant": "c",
+    "label": "晶体翼 H",
+    "file": "assets/06-h-c.webp",
+    "prompt": "Uppercase H built from two icy silver crystalline wing columns with feather-like perforations and a luminous central membrane crossbar, transparent background."
+  },
+  {
+    "id": "07-a-c",
+    "position": 7,
+    "letter": "A",
+    "variant": "c",
+    "label": "液态金属 A",
+    "file": "assets/07-a-c.webp",
+    "prompt": "Uppercase A as a symmetrical translucent teal-silver liquid chrome sculpture with copper iridescence, stretched holes and fine tendrils; pointed apex and strong crossbar, transparent background."
+  },
+  {
+    "id": "08-n-c",
+    "position": 8,
+    "letter": "N",
+    "variant": "c",
+    "label": "昆虫翼线网 N",
+    "file": "assets/08-n-c.webp",
+    "prompt": "Uppercase N constructed from luminous ivory and pale-silver cicada-wing vein networks with restrained electric-blue and coral accents; clear uprights and diagonal, transparent background."
+  },
+  {
+    "id": "09-g-c",
+    "position": 9,
+    "letter": "G",
+    "variant": "c",
+    "label": "反光碎片 G",
+    "file": "assets/09-g-c.webp",
+    "prompt": "Uppercase G arranged from mirrored CD shards, iridescent glass, chrome fragments, translucent acrylic and warm bulb highlights; open right side and short inward spur, transparent background."
+  },
+  {
+    "id": "00-k-d",
+    "position": 0,
+    "letter": "K",
+    "variant": "d",
+    "label": "苔藓花园 K",
+    "file": "assets/00-k-d.webp",
+    "prompt": "Uppercase K built from bright tufted moss, fuzzy pale-mint yarn, tiny embroidered wildflowers and pink star sequins; clear stem and diagonal arms, transparent background."
+  },
+  {
+    "id": "05-z-d",
+    "position": 5,
+    "letter": "Z",
+    "variant": "d",
+    "label": "蓝白流体旋涡 Z",
+    "file": "assets/05-z-d.webp",
+    "prompt": "Uppercase Z made from cobalt-blue and luminous ivory calligraphic tubes, cloud-like curls, spiral terminals and fluid ink loops; clear horizontal and diagonal structure, transparent background."
+  },
+  {
+    "id": "06-h-d",
+    "position": 6,
+    "letter": "H",
+    "variant": "d",
+    "label": "粉线编织 H",
+    "file": "assets/06-h-d.webp",
+    "prompt": "Uppercase H constructed from hand-stitched coral and blush cross-lattice embroidery with repeating X-shaped thread loops, loose tails and a clear centered crossbar, transparent background."
+  }
+]

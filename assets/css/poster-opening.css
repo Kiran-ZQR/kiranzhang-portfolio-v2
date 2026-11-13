@@ -1,0 +1,12 @@
+.thread-opening{--art-width:min(100vw,235.741738svh);display:grid;grid-template-columns:1fr;place-items:center;background:linear-gradient(90deg,#200b06 0 calc(50% - var(--art-width)*.0831),#f5f5f0 calc(50% - var(--art-width)*.0831) 100%);padding:0;opacity:1;position:fixed;inset:0;z-index:10000;overflow:hidden}
+.opening-poster{position:relative;width:var(--art-width);max-width:none;aspect-ratio:1926/817;overflow:visible;background:none}
+.opening-artwork{display:block;width:100%;height:auto;aspect-ratio:1926/817;object-fit:contain}
+/* Invisible semantic button aligned exactly with the button printed in the artwork. */
+.thread-opening .poster-enter{position:absolute;left:3.43%;top:83.35%;width:11.94%;height:10.16%;right:auto;bottom:auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;cursor:pointer;transform:none}
+.poster-enter span{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.thread-opening .poster-enter:focus-visible{outline:2px solid #ffe943;outline-offset:5px}
+.thread-opening .poster-enter:hover{background:#ffe94312}
+.thread-opening .poster-mobile-enter{display:none}
+body.skip-intro main,body.skip-intro .multimedia-navigation{animation:none!important;transition:none!important}
+@media(max-width:600px){.thread-opening{background:#200b06}.thread-opening .poster-mobile-enter{display:block;position:absolute;left:50%;right:auto;top:calc(50% + 27.907vw + 28px);bottom:auto;transform:translateX(-50%);min-height:48px;padding:12px 24px;background:#200b06;color:#ffe943;border:1px solid #ffe943;border-radius:0;font:16px Arial,sans-serif;white-space:nowrap;cursor:pointer}.poster-mobile-enter:focus-visible{outline:2px solid #ffe943;outline-offset:5px}}
+@media(max-width:600px) and (max-height:500px){.thread-opening .poster-mobile-enter{display:none}.thread-opening .poster-enter{min-height:44px}}

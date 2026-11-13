@@ -1,0 +1,7 @@
+.category-nav{position:sticky;top:0;z-index:30;display:flex;justify-content:center;padding:14px 20px;background:linear-gradient(#080908e8,#080908b0);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.category-nav nav{display:flex;gap:5px;padding:6px;border:1px solid #ffffff20;border-radius:99px;background:#171817cc;box-shadow:0 6px 24px #00000012}
+.category-nav a{color:#aaa;text-decoration:none;font:14px/1.4 Arial,sans-serif;padding:12px 30px;border-radius:99px;transition:background .2s,color .2s}
+.category-nav a:hover,.category-nav a[aria-current]{background:#303130;color:#fff}.category-nav a:focus-visible{outline:2px solid #aaa;outline-offset:2px}
+.category-nav.light{background:#f8f7f2ca}.category-nav.light nav{background:#ffffffb8;border-color:#353c2915}.category-nav.light a{color:#6f7369}.category-nav.light a:hover,.category-nav.light a[aria-current]{background:#e9ece2;color:#293a29}
+.category-nav + .academic-header{position:relative;inset:auto;background:transparent}.category-nav ~ main .academic-hero{min-height:calc(100svh - 160px);padding-top:80px}
+@media(max-width:600px){.category-nav{padding:10px}.category-nav nav{width:100%;justify-content:center}.category-nav a{padding:10px 17px;font-size:12px}}

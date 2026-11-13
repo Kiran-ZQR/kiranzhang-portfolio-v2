@@ -1,0 +1,7 @@
+.sent-case .academic-header{position:relative;inset:auto;padding-top:115px;background:transparent}
+.sent-case .works{padding-top:40px}.sent-case .work-heading{margin-top:0}
+.sent-intro{font-size:15px;line-height:1.9;color:#b1b1ac;margin:22px 0 36px;max-width:640px}
+.sent-case .work-board-list{max-width:100%;gap:48px}.sent-case .board-sheet{width:min(100%,1500px);margin:0 auto}
+.sent-case .source-note{max-width:640px;margin:30px auto 0;font-size:12px}
+.sent-case .board-sheet .sent-crop img{max-width:none}
+@media(max-width:600px){.sent-case .academic-header{padding-top:90px}.sent-case .works{padding-top:25px}.sent-intro{font-size:13px}}

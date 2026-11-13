@@ -1,0 +1,96 @@
+@font-face{font-family:Instrument;src:url(../fonts/instrument-sans-latin.woff2) format("woff2");font-weight:400 700;font-display:swap}
+/* Flat, opaque controls match Home. No glass, highlights, or extra shell. */
+body .unified-navigation .primary-island,body .unified-navigation .primary-island:hover,body .unified-navigation .primary-island:focus-within,body .unified-navigation .primary-island.is-open,body .unified-navigation .detail-nav-shell>.case-switcher{background:#050506!important;border:1px solid #303033!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body .unified-navigation .case-tab.is-active,body .unified-navigation .case-tab:hover,body .unified-navigation .case-nav a:hover{background:#29292b!important;color:#fff!important;box-shadow:none!important}
+body .unified-navigation .case-tab,body .unified-navigation .case-nav a{color:#d3d2cf!important}
+body .unified-navigation .primary-island.is-open .case-nav{background:#050506!important;box-shadow:none!important;backdrop-filter:none!important}
+body .unified-navigation .island-orb img{filter:none!important}
+body.category-index-page .unified-navigation{width:min(700px,calc(100vw - 40px))!important}
+body.category-index-page .detail-nav-shell{grid-template-columns:minmax(0,1fr)!important}
+body.category-with-home .unified-navigation{width:min(784px,calc(100vw - 40px))!important}
+body.category-with-home .detail-nav-shell{grid-template-columns:auto minmax(0,1fr)!important}
+@media(max-width:600px){body.category-with-home .unified-navigation{width:calc(100vw - 24px)!important}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.grid-cover.cover-first img{object-fit:cover;object-position:center top}
+body.single-project{margin:0;background:#000;color:#eee;font-family:Instrument,Arial,"Microsoft YaHei",sans-serif}
+body.project-detail-page .academic-hero,body.project-detail-page .aigc-hero,body.project-detail-page .academic-header,body.project-detail-page .work-heading,body.project-detail-page .sent-intro,body.project-detail-page .aigc-description,body.project-detail-page .case-hero-live,body.project-detail-page .work-two-hero{display:none!important}
+body.project-detail-page .growth-detail>h1,body.project-detail-page .growth-detail>p,body.project-detail-page .growth-detail>a:not(.project-back){display:none}
+body.project-detail-page main{padding-top:128px!important}
+body.project-detail-page .single-project-content{max-width:1440px;margin:auto;padding:128px 28px 50px}
+body.project-detail-page .works{padding:0!important;margin:0!important;max-width:none!important}
+body.project-detail-page .work-card{opacity:1!important;transform:none!important;padding-top:0!important;margin-top:0!important}
+body.project-detail-page .work-board-list{margin-top:0!important;padding-top:0!important}
+body.project-detail-page .single-project-content .explore-frame{margin:0 0 20px}
+body.project-detail-page .single-project-content .explore-frame img{display:block;width:100%;height:auto}
+.project-back{display:block;width:fit-content;margin:0 0 30px;padding:10px 0;color:inherit;text-decoration:none;font:400 13px/1.4 Instrument,Arial,"Microsoft YaHei",sans-serif;letter-spacing:.02em;border-bottom:1px solid #ffffff35}
+.project-back:hover,.project-back:focus-visible{color:#56dfe5}
+body .project-sequence{padding:32px 0;margin:40px 0 0;background:none;border-top:1px solid #ffffff26}
+body .sequence-link{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;max-width:680px;min-height:64px;padding:16px 20px;border:1px solid #ffffff35;border-radius:0;background:transparent;color:inherit;text-decoration:none;font:500 16px/1.4 Instrument,Arial,"Microsoft YaHei",sans-serif}
+.sequence-label{font:400 10px/1.4 monospace;letter-spacing:.08em;color:#999}.sequence-link i{font-style:normal}
+.sequence-link::after{content:"";position:absolute;inset:-1px;pointer-events:none;opacity:0;border:1px solid transparent;border-image:linear-gradient(110deg,#ff5e9d,#56dfe5,#a77bff,#f4cf55) 1;background:linear-gradient(#ff5e9d,#ff5e9d) left top/6px 6px no-repeat,linear-gradient(#56dfe5,#56dfe5) right top/6px 6px no-repeat,linear-gradient(#f4cf55,#f4cf55) left bottom/6px 6px no-repeat,linear-gradient(#a77bff,#a77bff) right bottom/6px 6px no-repeat;transition:opacity .2s}
+.sequence-link:hover::after,.sequence-link:focus-visible::after{opacity:1}
+body.light-project .project-back,body.light-project .project-sequence,body.light-project .sequence-link{border-color:#0003}
+body .weave-back{display:none}
+@media(max-width:600px){body.category-index-page .unified-navigation{width:calc(100vw - 24px)!important}body.project-detail-page main,body.project-detail-page .single-project-content{padding-top:92px!important}body.project-detail-page .single-project-content{padding-inline:16px}body .sequence-link{gap:12px;font-size:14px;grid-template-columns:1fr auto}.sequence-label{grid-column:1/-1}.project-back{font-size:12px;margin-bottom:20px}}
+@media(prefers-reduced-motion:reduce){.sequence-link::after{transition:none}}
+/* Compact rectilinear navigation, including the supplementary project boards. */
+body .sequence-link{max-width:520px;min-height:52px;padding:12px 16px;font-size:14px}
+body .project-sequence{margin-top:28px;padding:24px 0}
+body .unified-navigation .primary-island.is-open .case-nav{-webkit-backdrop-filter:none!important}
+body.project-detail-page .unified-navigation:has(.is-open) .case-switcher,
+body.project-detail-page .unified-navigation .case-switcher{overflow-x:auto;scrollbar-width:none}
+body.project-detail-page .unified-navigation .case-switcher::-webkit-scrollbar{display:none}
+body.project-detail-page .unified-navigation:has(.is-open) .case-switcher{grid-template-columns:repeat(var(--tab-count),minmax(90px,1fr))!important}
+@media(max-width:900px){body.project-detail-page .unified-navigation .case-switcher{grid-template-columns:repeat(var(--tab-count),minmax(96px,1fr))!important}body.project-detail-page .unified-navigation .case-tab{white-space:nowrap!important}}
+/* Explicitly override the old high-specificity inset highlight on selected tabs. */
+body .unified-navigation .detail-nav-shell>.case-switcher .case-tab,
+body .unified-navigation .primary-island .case-nav a{box-shadow:none!important;background-image:none!important;text-shadow:none!important;filter:none!important}
+body .unified-navigation .case-tab::after,body .unified-navigation .case-nav a::after{box-shadow:none!important;background-image:none!important}
+body .project-sequence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-bottom:100px}
+body .project-sequence .sequence-link{max-width:none}
+body .project-back.sequence-link{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:90;width:auto;max-width:calc(100vw - 32px);min-height:48px;margin:0;padding:12px 16px;background:#050506;color:#eee;border:1px solid #ffffff35;grid-template-columns:auto auto auto;gap:14px}
+body .project-back.sequence-link:hover{color:#fff}
+body .project-back.weave-back{display:grid}
+@media(max-width:600px){body .project-sequence{grid-template-columns:1fr}body .project-back.sequence-link{right:16px;bottom:max(16px,env(safe-area-inset-bottom));font-size:12px}body .project-back .sequence-label{display:none}}
+/* Light pages keep the same flat geometry, without inheriting dark surfaces. */
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))){--project-control-surface:#fff;--project-control-edge:#d9dce3;--project-control-ink:#24262c;--project-control-muted:#626771;--project-control-active:#e8eaf0}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .primary-island,
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .detail-nav-shell>.case-switcher,
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .primary-island.is-open .case-nav{background:var(--project-control-surface)!important;border-color:var(--project-control-edge)!important;box-shadow:none!important}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .detail-nav-shell>.case-switcher .case-tab,
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .primary-island .case-nav a{color:var(--project-control-muted)!important;background:transparent!important}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .detail-nav-shell>.case-switcher .case-tab:is(.is-active,:hover,:focus-visible),
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation .primary-island .case-nav a:is(.is-active,:hover,:focus-visible){background:var(--project-control-active)!important;color:var(--project-control-ink)!important;box-shadow:none!important}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .project-back.sequence-link{background:var(--project-control-surface);color:var(--project-control-ink);border-color:var(--project-control-edge)}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .project-sequence{border-color:var(--project-control-edge)}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .project-sequence .sequence-link{color:var(--project-control-ink);border-color:var(--project-control-edge)}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .sequence-label{color:var(--project-control-muted)}
+
+/* Spacious disclosure for the eight Tencent business cases. */
+body .unified-navigation.has-project-picker{width:min(460px,calc(100vw - 32px))!important;--picker-surface:#080809;--picker-edge:#303033;--picker-ink:#eee;--picker-muted:#929298;--picker-active:#252528}
+body .unified-navigation.has-project-picker .detail-nav-shell>.case-switcher{display:block!important;overflow:visible!important;padding:7px!important;grid-template-columns:none!important}
+.project-picker-toggle{display:flex;align-items:center;gap:14px;width:100%;height:100%;padding:0 18px;background:transparent;border:0;border-radius:999px;color:var(--picker-ink);font:400 16px/1.3 Instrument,Arial,"Microsoft YaHei",sans-serif;cursor:pointer;text-align:left;transition:background .2s}
+.project-picker-toggle:hover,.project-picker-toggle[aria-expanded="true"]{background:var(--picker-active)}
+.project-picker-count{font:11px/1 monospace;letter-spacing:.02em;color:var(--picker-muted);white-space:nowrap}.project-picker-current{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.project-picker-hint{color:var(--picker-muted);font-size:11px}.project-picker-arrow{font:22px/1 Arial;transform:translateY(-3px);transition:transform .2s}.project-picker-toggle[aria-expanded="true"] .project-picker-arrow{transform:rotate(180deg) translateY(-2px)}
+.project-picker-panel{position:absolute;top:calc(var(--site-nav-height) + 12px);left:0;right:0;padding:22px;background:var(--picker-surface);color:var(--picker-ink);border:1px solid var(--picker-edge);border-radius:24px;box-shadow:0 22px 64px #0005;max-height:calc(100dvh - var(--site-nav-height) - var(--site-nav-top) - 28px);overflow-y:auto;overscroll-behavior:contain;animation:project-picker-in .22s cubic-bezier(.2,.8,.2,1)}
+.project-picker-panel[hidden]{display:none!important}.project-picker-heading{margin:0 0 16px;padding:0 6px;font:11px/1.5 Instrument,Arial,"Microsoft YaHei",sans-serif;letter-spacing:.08em;color:var(--picker-muted)}.project-picker-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.project-picker-link{display:flex;align-items:center;gap:12px;min-height:58px;padding:14px;border:1px solid transparent;border-radius:15px;text-decoration:none;color:var(--picker-ink);font:400 14px/1.4 Instrument,Arial,"Microsoft YaHei",sans-serif;white-space:nowrap;transition:background .15s,border-color .15s}.project-picker-link:hover{background:var(--picker-active)}.project-picker-link[aria-current="page"]{background:var(--picker-active);border-color:var(--picker-edge)}.project-picker-number{font:10px/1 monospace;color:var(--picker-muted)}.project-picker-check{margin-left:auto;font-size:12px}.project-picker-all{display:block;margin-top:18px;border-top:1px solid var(--picker-edge);padding:16px 6px 0;color:var(--picker-muted);font:12px/1.5 Instrument,Arial,"Microsoft YaHei",sans-serif;text-decoration:none}.project-picker-all:hover{color:var(--picker-ink)}
+body:is(.light-project,:has(.multimedia-navigation:not(.nav-dark))) .unified-navigation.has-project-picker{--picker-surface:#fff;--picker-edge:#d9dce3;--picker-ink:#24262c;--picker-muted:#626771;--picker-active:#e8eaf0}
+@keyframes project-picker-in{from{opacity:0;transform:translateY(-7px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:600px){body .unified-navigation.has-project-picker{width:calc(100vw - 24px)!important}.project-picker-toggle{gap:10px;padding:0 12px;font-size:14px}.project-picker-count{font-size:10px}.project-picker-panel{padding:16px;border-radius:20px}.project-picker-link{gap:9px;padding:12px 10px;min-height:54px;font-size:13px}.project-picker-hint{font-size:10px}}
+@media(max-width:350px){.project-picker-hint{display:none}.project-picker-links{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.project-picker-panel{animation:none}.project-picker-toggle,.project-picker-arrow,.project-picker-link{transition:none}}
+
+/* Rounded optical chevron, independent of platform font glyphs. */
+.project-picker-arrow{display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;font-size:0;color:var(--picker-muted);transform:none;transition:transform .36s cubic-bezier(.22,1,.36,1),color .2s}
+.project-picker-arrow::before{content:"";width:18px;height:18px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.5 7.75 4.5 4.5 4.5-4.5' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.project-picker-toggle[aria-expanded="true"] .project-picker-arrow{transform:rotate(180deg);color:var(--picker-ink)}
+@media(prefers-reduced-motion:reduce){.project-picker-arrow{transition:none}}
+
+/* Keep the avatar navigation inside its original horizontal capsule. */
+body .unified-navigation.has-project-picker:has(.primary-island.is-open){width:min(744px,calc(100vw - 24px))!important}
+body .unified-navigation.has-project-picker .primary-island.is-open{width:356px!important;overflow:hidden!important}
+body .unified-navigation.has-project-picker .primary-island .case-nav{position:static!important;flex:0 0 274px!important;width:274px!important;height:calc(var(--site-nav-height) - 18px)!important;margin:0 5px!important;padding:0!important;border:0!important}
+@media(max-width:600px){body .unified-navigation.has-project-picker:has(.primary-island.is-open) .detail-nav-shell{grid-template-columns:minmax(0,1fr)!important}body .unified-navigation.has-project-picker .primary-island.is-open{width:100%!important}body .unified-navigation.has-project-picker .primary-island .case-nav{flex:1 1 auto!important;width:auto!important;min-width:0!important}body .unified-navigation.has-project-picker:has(.primary-island.is-open) .detail-nav-shell>.case-switcher{display:none!important}}
+
+/* Keep the hover target anchored while the capsule grows to the right. */
+@media(min-width:601px){body .unified-navigation.has-project-picker:has(.primary-island.is-open){width:min(744px,calc(50vw + 214px))!important;transform:translateX(-230px)!important}}

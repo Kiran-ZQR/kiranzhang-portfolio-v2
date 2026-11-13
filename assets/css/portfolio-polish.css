@@ -1,0 +1,16 @@
+/* Four-corner selection frames, matching the hero letters. */
+.floating-tag{border-radius:0;background:rgba(0,0,0,.45);border:1px solid #ffffff2e;transform:none;padding:11px 17px;color:#d7d7da;letter-spacing:.025em}
+.floating-tag::before{content:"";position:absolute;inset:-1px;pointer-events:none;background:linear-gradient(#ff5e9d,#ff5e9d) left top/9px 1px no-repeat,linear-gradient(#ff5e9d,#ff5e9d) left top/1px 9px no-repeat,linear-gradient(#56dfe5,#56dfe5) right top/9px 1px no-repeat,linear-gradient(#56dfe5,#56dfe5) right top/1px 9px no-repeat,linear-gradient(#f4cf55,#f4cf55) left bottom/9px 1px no-repeat,linear-gradient(#f4cf55,#f4cf55) left bottom/1px 9px no-repeat,linear-gradient(#a77bff,#a77bff) right bottom/9px 1px no-repeat,linear-gradient(#a77bff,#a77bff) right bottom/1px 9px no-repeat}
+.project-card:any-link{color:inherit;text-decoration:none}
+.project-card{transition:transform .7s cubic-bezier(.22,1,.36,1),background .7s ease,box-shadow .7s ease;scale:1;will-change:auto}
+.project-card.reveal-card{scale:1;filter:none;translate:0 40px;clip-path:none}
+.project-card.reveal-card.is-visible{animation:project-card-enter 1s cubic-bezier(.22,1,.36,1) both}
+@keyframes project-card-enter{from{opacity:0;translate:0 40px;scale:.985}to{opacity:1;translate:0 0;scale:1}}
+.project-card.reveal-card.has-revealed{animation:none;translate:0 0;clip-path:none;scale:1}
+.project-card .project-visual img{transition:transform 1.1s cubic-bezier(.22,1,.36,1);transform:scale(1.015);will-change:auto}
+.project-card .project-copy{transform:none;will-change:auto}
+.project-card::after{content:"↗";position:absolute;right:26px;bottom:26px;width:36px;height:36px;display:grid;place-items:center;border:1px solid #ffffff30;border-radius:50%;color:#ddd;background:#ffffff0a;font:20px Arial;opacity:0;translate:-5px 5px;transition:opacity .4s ease,translate .6s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){.project-card:is(:hover,:focus-visible){scale:1;transform:translate3d(0,-5px,0);box-shadow:0 24px 50px #0005}.project-card:is(:hover,:focus-visible) .project-visual img{transform:scale(1.045)}.project-card:is(:hover,:focus-visible)::after{opacity:1;translate:0 0}}
+.project-card:focus-visible{outline:2px solid #ddd;outline-offset:6px}
+@media(max-width:620px){.floating-tag{padding:8px 11px;font-size:9px}.project-card::after{right:16px;bottom:16px;width:28px;height:28px;font-size:16px;opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.project-card,.project-card::after,.project-card .project-visual img{transition:none!important;transform:none!important}.project-card.reveal-card{animation:none!important;opacity:1;translate:0 0;scale:1}}

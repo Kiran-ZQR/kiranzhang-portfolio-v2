@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="425.526" height="89.1983" viewBox="0 0 425.526 89.1983" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Subtract" filter="url(#filter0_fg_0_4)">
+<path d="M381.522 14.0049C398.09 14.0049 411.521 27.4364 411.522 44.0049V45.1934C411.522 61.7619 398.09 75.1934 381.522 75.1934H44.0049C27.4364 75.1934 14.0049 61.7619 14.0049 45.1934V44.0049C14.005 27.4364 27.4364 14.0049 44.0049 14.0049H381.522Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_fg_0_4" x="0" y="0" width="425.526" height="89.1983" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.00245" result="effect1_foregroundBlur_0_4"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.99900001287460327 0.99900001287460327" numOctaves="3" seed="7725" />
+<feDisplacementMap in="effect1_foregroundBlur_0_4" scale="9.8981990814208984" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect2_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>

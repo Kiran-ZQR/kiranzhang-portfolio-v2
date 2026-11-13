@@ -1,0 +1,114 @@
+[
+  {
+    "id": "article",
+    "label": "图文一级页 · 完整内容",
+    "category": "reading",
+    "width": 1125,
+    "height": 7563
+  },
+  {
+    "id": "article-short",
+    "label": "图文一级页 · 另一版本",
+    "category": "reading",
+    "width": 1125,
+    "height": 6267
+  },
+  {
+    "id": "article-detail",
+    "label": "图文二级页 · 完整内容",
+    "category": "reading",
+    "width": 1125,
+    "height": 7809
+  },
+  {
+    "id": "article-detail-short",
+    "label": "图文二级页 · 另一版本",
+    "category": "reading",
+    "width": 1125,
+    "height": 6693
+  },
+  {
+    "id": "personal",
+    "label": "个性化图文 · 完整内容",
+    "category": "reading",
+    "width": 1125,
+    "height": 7476
+  },
+  {
+    "id": "personal-short",
+    "label": "个性化图文 · 另一版本",
+    "category": "reading",
+    "width": 1125,
+    "height": 6207
+  },
+  {
+    "id": "video",
+    "label": "视频二级页",
+    "category": "video",
+    "width": 1125,
+    "height": 3336
+  },
+  {
+    "id": "video-feed",
+    "label": "个性化视频 · Feed",
+    "category": "video",
+    "width": 1125,
+    "height": 3771
+  },
+  {
+    "id": "video-vertical",
+    "label": "个性化竖版视频",
+    "category": "video",
+    "width": 1125,
+    "height": 3594
+  },
+  {
+    "id": "news",
+    "label": "硬资讯 · 完整内容",
+    "category": "news",
+    "width": 1125,
+    "height": 6873
+  },
+  {
+    "id": "news-short",
+    "label": "硬资讯 · 另一版本",
+    "category": "news",
+    "width": 1125,
+    "height": 6177
+  },
+  {
+    "id": "news-video",
+    "label": "硬资讯视频",
+    "category": "news",
+    "width": 1125,
+    "height": 3954
+  },
+  {
+    "id": "extra",
+    "label": "号外编选 · 不带拉动",
+    "category": "edition",
+    "width": 1125,
+    "height": 4119
+  },
+  {
+    "id": "extra-pull",
+    "label": "号外编选 · 带拉动",
+    "category": "edition",
+    "width": 1125,
+    "height": 6882
+  },
+  {
+    "id": "extra-article",
+    "label": "号外非指令文章",
+    "category": "edition",
+    "width": 1125,
+    "height": 3345
+  },
+  {
+    "id": "morning",
+    "label": "早报页",
+    "category": "edition",
+    "width": 1125,
+    "height": 6030
+  }
+]

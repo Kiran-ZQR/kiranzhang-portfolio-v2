@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+__pycache__/
+.preview/
+*.dmp
+dist/
+
+# Local previews and generated packages
+.release/
+outputs/
+work/
+*.zip
+*.log
+Thumbs.db

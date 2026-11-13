@@ -1,0 +1,76 @@
+/* Editorial split rows: independent project artwork. */
+@font-face{font-family:"Instrument Sans";src:url("../fonts/instrument-sans-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-style:normal;font-weight:400 500;font-display:swap}
+#projects{--work-line:#ffffff24;--work-accent:#e6a27d;padding-top:50px;background:#000;font-family:"Instrument Sans","Noto Sans SC","Microsoft YaHei",sans-serif}
+#projects .projects-intro{margin:0;min-height:100px;padding:24px 20px;border:1px solid var(--work-line);border-bottom:0}
+#projects .project-gallery{display:block;gap:0;max-width:none;width:100%}
+#projects .project-row{margin:0 0 100px;border:1px solid var(--work-line);background:#000;perspective:1200px;content-visibility:auto;contain-intrinsic-size:auto 620px}
+#projects .editorial-project{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:580px;aspect-ratio:auto;padding:0;margin:0;width:100%;border:0;border-radius:0;overflow:visible;background:#000;box-shadow:none;scale:1;transform:none;clip-path:none;filter:none;will-change:auto;opacity:0;translate:0 24px;animation:none;transition:opacity .65s ease,translate .8s cubic-bezier(.22,1,.36,1)}
+#projects .editorial-project.is-visible{opacity:1;translate:0 0}
+#projects .editorial-project::before,#projects .editorial-project::after{display:none}
+#projects .project-visual{position:relative;inset:auto;align-self:stretch;width:100%;height:auto;min-height:480px;display:grid;place-items:center start;overflow:hidden;background:#000;border-right:1px solid var(--work-line);perspective:1100px}
+#projects .project-visual::after{display:none}
+#projects .project-visual img{position:relative;inset:auto;justify-self:start;width:200%;max-width:none;height:auto;max-height:none;object-fit:cover;object-position:left center;clip-path:inset(17% 0 0);filter:none;transform-origin:25% 50%;transform:rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg)) scale(1.01);transition:transform .7s cubic-bezier(.22,1,.36,1);will-change:auto}
+#projects .project-number{display:none}
+#projects .project-copy{position:relative;inset:auto;display:flex;flex-direction:column;align-self:stretch;justify-self:stretch;padding:32px 0 0;transform:none;will-change:auto;width:auto;max-width:none;min-width:0;margin:0;background:#000}
+#projects .project-copy h2{margin:0 28px 24px;font:500 clamp(30px,4.1vw,62px)/1.02 "Instrument Sans","Noto Sans SC",sans-serif;letter-spacing:-.045em;color:#f1f1ee;max-width:none}
+#projects .project-copy>p:not(.project-role){font:400 14px/1.7 "Instrument Sans","Noto Sans SC",sans-serif;color:#aaaab1;margin:0 28px 24px;max-width:500px}
+#projects .project-role{position:static;inset:auto;font:400 10px/1.5 "Geist Mono",monospace;letter-spacing:.04em;color:#777780;margin:0 28px 28px;transform:none;padding:0}
+#projects .project-disciplines{list-style:none;margin:auto 0 28px;padding:0;border-top:1px solid var(--work-line)}
+#projects .project-disciplines li{padding:11px 28px;border-bottom:1px solid var(--work-line);font:400 10px "Geist Mono",monospace;letter-spacing:.12em;color:#aaaab1}
+#projects .project-entry{display:flex;align-items:center;justify-content:space-between;min-height:64px;border-top:1px solid var(--work-line);padding:18px 28px;font:500 13px "Instrument Sans",sans-serif;color:#e9e9ee;transition:background .3s}
+#projects .project-row:nth-child(odd) .project-visual{grid-column:2;grid-row:1;border-right:0;border-left:1px solid var(--work-line)}
+#projects .project-row:nth-child(odd) .project-copy{grid-column:1;grid-row:1}
+#projects .project-entry i{font-style:normal;transition:transform .4s}
+#projects .selection-copy{position:relative}
+#projects .selection-copy::after{content:"";position:absolute;inset:-5px;pointer-events:none;opacity:0;box-shadow:inset 0 0 0 1px #ffffff2e;background:linear-gradient(#ff5e9d,#ff5e9d) left top/9px 1px no-repeat,linear-gradient(#ff5e9d,#ff5e9d) left top/1px 9px no-repeat,linear-gradient(#56dfe5,#56dfe5) right top/9px 1px no-repeat,linear-gradient(#56dfe5,#56dfe5) right top/1px 9px no-repeat,linear-gradient(#f4cf55,#f4cf55) left bottom/9px 1px no-repeat,linear-gradient(#f4cf55,#f4cf55) left bottom/1px 9px no-repeat,linear-gradient(#a77bff,#a77bff) right bottom/9px 1px no-repeat,linear-gradient(#a77bff,#a77bff) right bottom/1px 9px no-repeat;transition:opacity .2s}
+#projects .project-disciplines .selection-copy::after{inset:0}
+@media(hover:hover){#projects .selection-copy:hover::after{opacity:1}#projects .editorial-project:hover .project-entry{background:#ffffff09}#projects .editorial-project:hover .project-entry i{transform:translate(3px,-3px)}}
+#projects .editorial-project:focus-visible{outline:2px solid var(--work-accent);outline-offset:5px}#projects .editorial-project:focus-visible h2::after{opacity:1}
+@media(max-width:760px){#projects .editorial-project{grid-template-columns:1fr;min-height:0}#projects .project-visual,#projects .project-row:nth-child(odd) .project-visual{grid-column:1;grid-row:1;min-height:280px;border:0;border-bottom:1px solid var(--work-line)}#projects .project-copy,#projects .project-row:nth-child(odd) .project-copy{grid-column:1;grid-row:2}#projects .project-visual img{width:200%;max-height:none}#projects .project-row{margin-bottom:48px;contain-intrinsic-size:auto 780px}#projects .project-copy h2{font-size:38px}#projects .project-copy{padding-top:26px}}
+@media(prefers-reduced-motion:reduce){#projects .editorial-project{opacity:1;translate:none;transition:none}#projects .project-visual img{transform:none!important;transition:none}#projects .project-entry i{transition:none}}
+
+/* Source images keep their own proportions; no enlarged screenshot crops. */
+#projects .editorial-project{cursor:default}
+#projects .project-row{content-visibility:visible;overflow:visible}
+#projects .project-visual{height:580px;min-height:0;place-items:center;padding:40px;box-sizing:border-box;text-decoration:none}
+#projects .project-visual img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;clip-path:none;transform-origin:center;justify-self:center}
+#projects .visual-1{padding:54px 50px 0;align-items:end}
+#projects .visual-1 img{object-position:center bottom}
+#projects .visual-3{padding:28px}
+#projects .visual-4{padding:38px 60px}
+#projects .academic-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:165fr 116fr 159fr;gap:12px;width:min(100%,447px);aspect-ratio:447/478}
+#projects .academic-mosaic img{width:100%;height:100%;min-height:0;min-width:0}
+#projects .mosaic-1{grid-column:1;grid-row:1}
+#projects .mosaic-2{grid-column:2;grid-row:1/3}
+#projects .mosaic-3{grid-column:1;grid-row:2}
+#projects .mosaic-4{grid-column:1/3;grid-row:3}
+#projects a{color:inherit;text-decoration:none}
+#projects .project-disciplines{cursor:default}
+#projects .project-entry{position:relative;box-sizing:border-box;min-height:82px;overflow:visible;isolation:isolate}
+.case-frame{position:absolute;inset:0;border:1px solid #e6a27d;pointer-events:none;opacity:0;transform:translate(var(--frame-x,0px),var(--frame-y,0px));transition:opacity .2s,transform .22s ease-out;z-index:3}
+.case-frame b{position:absolute;width:7px;height:7px;background:#131313;border:1px solid #e6a27d;transform:translate(-50%,-50%)}
+.case-frame b:nth-child(1){left:0;top:0}.case-frame b:nth-child(2){left:50%;top:0}.case-frame b:nth-child(3){left:100%;top:0}.case-frame b:nth-child(4){left:0;top:50%}.case-frame b:nth-child(5){left:100%;top:50%}.case-frame b:nth-child(6){left:0;top:100%}.case-frame b:nth-child(7){left:50%;top:100%}.case-frame b:nth-child(8){left:100%;top:100%}
+.case-frame em,.case-frame small{position:absolute;background:#e6a27d;color:#171310;font:400 11px/1.3 "Geist Mono",monospace;padding:5px 9px;white-space:nowrap;font-style:normal}
+.case-frame em{left:-1px;bottom:calc(100% + 5px)}.case-frame small{left:50%;top:calc(100% + 5px);transform:translateX(-50%)}
+.case-link:focus-visible .case-frame{opacity:1}
+#projects a:focus-visible{outline:2px solid #e6a27d;outline-offset:4px}
+@media(hover:hover){.case-link:hover .case-frame{opacity:1}#projects .case-link:hover{background:#e6a27d12}}
+.multimedia-index{margin:0;background:#000;color:#eee}
+.multimedia-index #projects{max-width:1440px;margin:0 auto;padding:150px 36px 60px;box-sizing:border-box}
+.multimedia-index .collection-heading{font:400 12px "Geist Mono",monospace;letter-spacing:.12em;color:#999;margin:0 0 32px}
+#projects .visual-installation img{object-fit:cover;border-radius:2px}
+@media(max-width:760px){#projects .project-visual,#projects .project-row:nth-child(odd) .project-visual{height:390px;min-height:0;padding:26px}#projects .visual-1{padding-bottom:0}#projects .visual-3{height:290px}#projects .academic-mosaic{height:100%;width:auto;max-width:100%}#projects .project-visual img{width:100%;max-height:100%}.multimedia-index #projects{padding:125px 18px 40px}}
+@media(prefers-reduced-motion:reduce){.case-frame{transform:none;transition:none}}
+/* Same pink / cyan / yellow / violet control colours as the homepage letters. */
+.case-frame{border-color:transparent;border-image:linear-gradient(110deg,#ff5e9d,#56dfe5 40%,#a77bff 70%,#f4cf55) 1}
+.case-frame b{background:#090909;border-color:var(--handle-color,#56dfe5)}
+.case-frame b:nth-child(1),.case-frame b:nth-child(4){--handle-color:#ff5e9d}
+.case-frame b:nth-child(2),.case-frame b:nth-child(3){--handle-color:#56dfe5}
+.case-frame b:nth-child(5),.case-frame b:nth-child(8){--handle-color:#a77bff}
+.case-frame b:nth-child(6),.case-frame b:nth-child(7){--handle-color:#f4cf55}
+.case-frame em,.case-frame small{background:#111;color:#e9e9ee;border:1px solid transparent;border-image:linear-gradient(110deg,#ff5e9d,#56dfe5,#f4cf55,#a77bff) 1}
+@media(hover:hover){#projects .case-link:hover{background:#ffffff09}}
+#projects a:focus-visible{outline-color:#56dfe5}
+#projects .visual-1{padding:36px!important;place-items:center!important}
+#projects .visual-1 img{width:auto!important;height:auto!important;max-width:82%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}

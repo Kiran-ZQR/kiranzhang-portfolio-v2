@@ -1,0 +1,10 @@
+// Create a clean, auditable source checkout. Never include browser profiles or credentials.
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),target=path.resolve(root,'../.release/kiranzhang-portfolio');
+if(fs.existsSync(target))throw new Error('Release checkout already exists; inspect it before updating.');
+if(!fs.existsSync(path.join(root,'dist/index.html')))throw new Error('Run build-pages.cjs first.');
+fs.cpSync(path.join(root,'dist'),target,{recursive:true});
+for(const name of ['scripts','.github','docs','LICENSE','.gitignore','AGENTS.md'])fs.cpSync(path.join(root,name),path.join(target,name),{recursive:true});
+fs.copyFileSync(path.join(root,'README.md'),path.join(target,'docs/TEMPLATE-README.md'));
+fs.writeFileSync(path.join(target,'README.md'),`# Kiran Zhang — Portfolio\n\nStatic personal portfolio with business and academic case studies, multimedia projects, AIGC galleries, an interactive Conway-life weaving installation, and an embedded original CV PDF.\n\n## Local preview\nServe this directory with a static HTTP server and open index.html. No backend, API key, or npm install is needed. PDF rendering uses the bundled PDF.js library.\n\n## Verify and build\n\n\`\`\`sh\nnode scripts/validate.mjs\nnode scripts/test-weave-state.cjs\nnode scripts/audit-pages.cjs\nnode scripts/build-pages.cjs\n\`\`\`\n\nGitHub Actions publishes the audited dist directory using .github/workflows/pages.yml. Select GitHub Actions in repository Settings → Pages. Links support project-site subpaths.\n\n## Assets and attribution\nOriginal portfolio content belongs to its respective creators. Supplied visual references retain their original rights; this independent portfolio is not associated with the brands in those references. The MIT file applies to the original template code, not third-party reference art or the personal CV. Vendor licenses are retained in assets/vendor. See docs/PAGES-READINESS.md for the publication audit.\n`);
+console.log('Prepared source checkout:',target);

@@ -1,0 +1,14 @@
+/* Textile exhibition palette — local to the weaving artwork. */
+:root{--paper:#fff;--ink:#163c42;--muted:#54777b;--line:#167d812b;--accent:#ee562b}
+body,.category-nav.light,dialog{background:#fff;color:var(--ink)}
+body button.primary{background:#ee562b;border-color:#ee562b;color:#fff}body button.primary:hover{background:#d73663;border-color:#d73663}
+button:hover,.experience-home:hover,.result-home:hover{background:#e6f8f6}
+.primary:hover{color:white}.title-english,.intro-text,.landing-copy .intro-text,.landing-mark,.stage-heading #instruction,#turn-hint,#bench-note,#progress,.elements button span{color:#54777b}
+#turn-value,.dial-arrow,.experience-home,.result-home{color:#087f80}
+.elements button[aria-pressed=true]{background:#e7f7f6;border-color:#087f80}
+#quarter,.dial-label{background:#fff!important}.view-divider{background:#159ec02b}
+#handle-zone{border-color:#159ec080}.thread-opening{background:transparent}.thread-opening p{color:#163c42;bottom:5%}.thread-opening button{background:white;border-color:#087f80;color:#087f80}
+.landing-copy h1{width:420px;max-width:85vw;height:230px;margin:12px 0;background:none;font-size:0}
+.landing-copy h1 canvas{display:block;width:100%;height:100%}.title-english{color:#087f80}
+.thread-opening:before{content:'AN INTERACTIVE WEAVING EXPERIENCE';position:absolute;top:7%;left:0;width:100%;text-align:center;font:10px monospace;letter-spacing:3px;color:#145b60}
+@media(max-width:600px){.landing-copy h1{width:280px;height:149px}.thread-opening p{bottom:90px;font-size:9px}.thread-opening button{bottom:24px}}

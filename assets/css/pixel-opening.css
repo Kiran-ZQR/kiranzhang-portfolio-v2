@@ -1,0 +1,13 @@
+.thread-opening{background:#fff}
+.thread-opening>:not(button),.thread-opening:before{opacity:var(--intro-content-opacity,1)}
+body.skip-intro main,body.skip-intro .multimedia-navigation{animation:loom-arrive 1.2s ease both}
+@keyframes loom-arrive{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){body.skip-intro main,body.skip-intro .multimedia-navigation{animation:none}}
+.pixel-blast-container{position:absolute;inset:0;overflow:hidden}
+.pixel-blast-container canvas{display:block;width:100%;height:100%}
+.pixel-opening-title{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;pointer-events:none;color:#15251c;text-align:center;background:radial-gradient(ellipse at center,#ffffffde 0%,#ffffff9c 20%,transparent 62%)}
+.pixel-opening-title small{font:11px monospace;letter-spacing:5px}
+.pixel-opening-title h1{font:400 clamp(44px,7vw,108px)/1.3 KaiTi,STKaiti,serif;letter-spacing:.12em;margin:24px 0}
+.pixel-opening-title span{font:12px sans-serif;letter-spacing:10px}
+.thread-opening p{pointer-events:none;color:#496052}.thread-opening button{background:#ffffffdb;color:#15251c;z-index:2}
+@media(max-width:600px){.thread-opening p{font-size:8px;letter-spacing:1px;bottom:17%}.thread-opening button{right:20px;bottom:26px}}
