@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.media-pending{clip-path:none}.wordmark .glyph{transform:none!important}}
 
 .hero-traits,.hero-statement{grid-row:1}@media(max-width:800px){.hero-intro{grid-template-rows:auto auto 1fr}.hero-traits{grid-row:1}.hero-statement{grid-row:2}.hero-bottom{grid-row:3}}
+
+#main:focus{outline:none}
