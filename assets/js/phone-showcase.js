@@ -150,7 +150,7 @@
       phones[1].rotation.set(.05, -.36 + open * .55, .16 - open * .10);
       // The crop belongs to the camera framing, not a chopped phone texture.
       const openZoom = camera.aspect < 1 ? .94 : 1.12;
-      camera.zoom = 3 - open * (3 - openZoom); camera.position.y = 1.65 * (1 - open);
+      camera.zoom = 3 - open * (3 - openZoom); camera.position.y = 1.84 * (1 - open);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
       if (Math.abs(target - open) > .001 || (spinning && !isReduced)) wake();
@@ -201,3 +201,4 @@
   addEventListener('pagehide', event => { if (!event.persisted) { disposed = true; renderApi?.dispose(); } });
   setExpanded();
 })();
+
