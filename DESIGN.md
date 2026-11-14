@@ -21,3 +21,7 @@ Visual reference: user-supplied Santalarch screenshots and its public CSS/animat
 ## Reference scope
 
 Adapt the grid, typographic scale, masked entry and orchestrated transition. Do not reuse Santal's logo, wording, project media, fonts or source code. Original project images retain their color. Detail-page reading layouts remain content-led with a shared restrained navigation and type treatment; interactive artwork retains its own colors and controls.
+
+## Tencent cover interaction (2026-11-14)
+
+The first project uses two generic, physically thick Three.js phone objects with the original Tencent comment and AI briefing screen captures. Collapsed framing crops the lower part of the models; hover opens the cover and restores original color. Expand/Collapse provides the same flow on touch and keyboard. Horizontal dragging rotates the pair through front/side/back; automatic rotation is explicit and pausable. The project title and View project link retain navigation ownership. No custom cursor layer: native cursor, with grab/grabbing only on the draggable stage. Reduced motion disables spin and dragging while keeping the expandable color presentation. Offscreen/hidden render work pauses; no-WebGL or context-loss preserves the two-image fallback. Other homepage sections keep the existing layout.
