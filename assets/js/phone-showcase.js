@@ -24,7 +24,7 @@
 
   function loadThree() {
     if (window.THREE) return Promise.resolve(window.THREE);
-    return new Promise((resolve, reject) => {
+    return window.kiranThreePromise ||= new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = 'assets/vendor/three-0.160.1.min.js';
       script.onload = () => window.THREE ? resolve(window.THREE) : reject(new Error('3D runtime unavailable'));
@@ -165,16 +165,16 @@
       }
       const pose = Math.max(0, Math.min(1.08, open));
       // Logo device leads in scale and depth, with safe separation at every pose.
-      phones[0].scale.setScalar(1.09);
-      phones[1].scale.setScalar(.92);
-      phones[0].position.set(-.85-pose*.85, .10, 1.25-pose*.15);
-      phones[1].position.set(1+pose*.78, -.25+pose*.15, -1.15+pose*.15);
-      phones[0].rotation.set(-.045, .14-pose*.30, .14-pose*.10);
-      phones[1].rotation.set(.035, -.16+pose*.32, -.13+pose*.09);
+      phones[0].scale.setScalar(1.00 + pose*.09);
+      phones[1].scale.setScalar(1.00 - pose*.08);
+      phones[0].position.set(-1.17-pose*.53, .18, .55+pose*.55);
+      phones[1].position.set(1.25+pose*.53, -.12+pose*.02, -.55-pose*.45);
+      phones[0].rotation.set(-.045, .06-pose*.22, .16-pose*.12);
+      phones[1].rotation.set(.035, -.06+pose*.22, -.16+pose*.12);
       // The crop belongs to the camera framing, not a chopped phone texture.
       const openZoom = Math.min(1.12, camera.aspect * 1.18);
-      const closedZoom = Math.min(2.4, camera.aspect * 1.6);
-      camera.zoom = closedZoom - open * (closedZoom - openZoom); camera.position.y = 1.10 * (1 - open);
+      const closedZoom = Math.min(2.2, camera.aspect * 1.4);
+      camera.zoom = closedZoom - open * (closedZoom - openZoom); camera.position.y = 1.35 * (1 - open);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
       if (Math.abs(target - open) > .0005 || Math.abs(velocity) > .002) wake();

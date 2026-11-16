@@ -1,9 +1,9 @@
-/* Tencent cover: no caption strip; inspect controls remain icon-only. */
+/* Tencent cover: paired phones with no toolbar. */
 .project-media.phone-showcase{display:block;aspect-ratio:auto;height:clamp(230px,20vw,310px);min-width:0;position:relative;overflow:hidden;overflow-anchor:none;isolation:isolate;background:var(--media);transition:height .85s cubic-bezier(.22,1.16,.36,1);clip-path:none}
 .project-media.phone-showcase.is-expanded{height:clamp(510px,41vw,670px)}
 .phone-stage{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;cursor:pointer;filter:grayscale(1);transition:filter .65s ease}
 .phone-showcase.is-expanded .phone-stage,.phone-showcase:focus-within .phone-stage{filter:grayscale(0)}
-.phone-stage.is-dragging{cursor:pointerbing}.phone-stage>canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;pointer-events:none;transition:opacity .25s}
+.phone-stage>canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;pointer-events:none;transition:opacity .25s}
 .phone-showcase[data-renderer=ready] .phone-stage>canvas{opacity:1}.phone-showcase[data-renderer=ready] .phone-fallback{opacity:0;visibility:hidden}
 
 .phone-fallback{position:absolute;inset:0;pointer-events:none;perspective:950px;transition:opacity .25s}
@@ -13,7 +13,11 @@
 .fallback-logo{position:absolute;left:50%;top:50%;width:44%;aspect-ratio:168/55;transform:translate(-50%,-50%);overflow:hidden}
 .phone-showcase .fallback-device--logo .fallback-logo img{position:absolute;left:-95.238%;top:-700%;width:285.12%!important;height:941.818%!important;max-width:none;object-fit:fill}
 .phone-showcase.is-expanded .fallback-device{top:50px;width:29%}.phone-showcase.is-expanded .fallback-device:first-child{left:17%;transform:rotate(-4deg) rotateY(-8deg)}.phone-showcase.is-expanded .fallback-device:last-child{right:17%;transform:rotate(4deg) rotateY(8deg)}
-@media(max-width:800px){.project-media.phone-showcase{height:240px}.project-media.phone-showcase.is-expanded{height:510px}.phone-actions{top:10px;right:10px}.phone-actions button{width:44px;height:44px}.fallback-device{width:39%;border-width:4px}.fallback-device:first-child{left:14%}.fallback-device:last-child{right:13%}.phone-showcase.is-expanded .fallback-device{top:65px;width:34%}.phone-showcase.is-expanded .fallback-device:first-child{left:11%}.phone-showcase.is-expanded .fallback-device:last-child{right:11%}}
+@media(max-width:800px){.project-media.phone-showcase{height:240px}.project-media.phone-showcase.is-expanded{height:510px}.fallback-device{width:39%;border-width:4px}.fallback-device:first-child{left:14%}.fallback-device:last-child{right:13%}.phone-showcase.is-expanded .fallback-device{top:65px;width:34%}.phone-showcase.is-expanded .fallback-device:first-child{left:11%}.phone-showcase.is-expanded .fallback-device:last-child{right:11%}}
 @media(prefers-reduced-motion:reduce){.project-media.phone-showcase,.phone-stage,.phone-stage>canvas,.phone-fallback,.fallback-device{transition:none!important}}
 
 .fallback-device:first-child{z-index:3;width:40%;left:14%}.fallback-device:last-child{z-index:1;width:34%;right:16%}.phone-showcase.is-expanded .fallback-device:first-child{width:33%;left:14%}.phone-showcase.is-expanded .fallback-device:last-child{width:28%;right:14%}
+
+/* Closed composition follows the paired, outward-leaning reference. */
+.phone-showcase:not(.is-expanded) .fallback-device:first-child{width:34%;left:18%;top:8px;transform:rotate(-9deg)}
+.phone-showcase:not(.is-expanded) .fallback-device:last-child{width:34%;right:18%;top:23px;transform:rotate(9deg)}
