@@ -1,4 +1,4 @@
-.project-media.academic-showcase,.academic-showcase{position:relative;display:block;background:var(--media,#1b1b1b);height:clamp(230px,20vw,310px);overflow:hidden;overflow-anchor:none;isolation:isolate;clip-path:none;transition:height .85s cubic-bezier(.22,1.16,.36,1);cursor:pointer}
+.project-media.academic-showcase,.academic-showcase{position:relative;display:block;aspect-ratio:auto;width:100%;min-width:0;background:var(--media,#1b1b1b);height:clamp(230px,20vw,310px);overflow:hidden;overflow-anchor:none;isolation:isolate;clip-path:none;transition:height .85s cubic-bezier(.22,1.16,.36,1);cursor:pointer}
 .academic-showcase.is-expanded{height:clamp(510px,41vw,670px)}
 .academic-stage{position:absolute;inset:0;filter:grayscale(1);transition:filter .65s;touch-action:pan-y}.academic-showcase.is-expanded .academic-stage{filter:grayscale(0)}
 .academic-stage>canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none}.academic-showcase[data-renderer=ready] canvas{opacity:1}.academic-showcase[data-renderer=ready] .academic-fallback{visibility:hidden}
@@ -6,3 +6,9 @@
 .academic-showcase:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
 @media(max-width:800px){.project-media.academic-showcase,.academic-showcase{height:240px}.academic-showcase.is-expanded{height:510px}}
 @media(prefers-reduced-motion:reduce){.academic-showcase,.academic-stage{transition:none!important}}
+.academic-stage .academic-fallback--ensemble{inset:0;width:100%;height:100%}
+.academic-fallback--ensemble img{position:absolute;object-fit:contain!important;transform:none!important;border-radius:0}
+.academic-fallback--ensemble .ac-static-laptop{width:50%;height:50%;left:22%;top:10%;z-index:1}
+.academic-fallback--ensemble .ac-static-phone{width:20%;height:64%;left:6%;top:30%;z-index:3}
+.academic-fallback--ensemble .ac-static-tablet{width:28%;height:50%;right:3%;top:20%;z-index:2;rotate:90deg}
+.academic-fallback--ensemble .ac-static-vision{width:43%;height:44%;left:38%;bottom:7%;z-index:4}
