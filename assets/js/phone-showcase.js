@@ -3,40 +3,24 @@
   const host = document.querySelector('.phone-showcase');
   if (!host) return;
   const stage = host.querySelector('.phone-stage');
-  const expandButton = host.querySelector('.phone-expand');
-  const spinButton = host.querySelector('.phone-spin');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const hover = matchMedia('(hover: hover) and (pointer: fine)');
-  let hovered = false, pinned = false, expanded = false, spinning = false;
+  let hovered = false, pinned = false, expanded = false;
   let renderApi, loading, inView = false, disposed = false;
   function setExpanded() {
-    const next = hovered || pinned;
-    expanded = next;
-    host.classList.toggle('is-expanded', next);
-    expandButton.setAttribute('aria-expanded', String(next));
-    expandButton.setAttribute('aria-label', next ? '收起样机' : '展开样机');
-    const interactive3D = host.dataset.renderer === 'ready' && !reduced.matches;
-    spinButton.hidden = !next || !interactive3D;
-    if (!next) { spinning = false; spinButton.setAttribute('aria-pressed', 'false'); spinButton.setAttribute('aria-label', '自动旋转'); }
-    renderApi?.update({ expanded, spinning });
+    expanded = hovered || pinned;
+    host.classList.toggle('is-expanded', expanded);
+    host.setAttribute('aria-expanded', String(expanded));
+    renderApi?.update({ expanded });
   }
-  host.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse' && hover.matches) { hovered = true; setExpanded(); } });
+  host.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse' && hover.matches) { hovered = true; setExpanded(); } });
   host.addEventListener('pointerleave', () => { hovered = false; setExpanded(); });
-  // Hover is temporary; an explicit button press pins/unpins the presentation.
-  expandButton.addEventListener('click', () => {
-    if (expanded) { pinned = false; hovered = false; } else pinned = true;
-    setExpanded();
+  host.addEventListener('click', e => { if(e.pointerType === 'mouse' && hover.matches) return; pinned = !pinned; setExpanded(); });
+  host.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pinned = !expanded; hovered = false; setExpanded(); }
+    if(e.key === 'Escape') { pinned = hovered = false; setExpanded(); }
   });
-  spinButton.addEventListener('click', () => {
-    pinned = true; spinning = !spinning;
-    spinButton.setAttribute('aria-pressed', String(spinning));
-    spinButton.setAttribute('aria-label', spinning ? '暂停旋转' : '自动旋转');
-    setExpanded();
-  });
-  host.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { pinned = false; hovered = false; setExpanded(); expandButton.focus({ preventScroll: true }); }
-  });
-  reduced.addEventListener('change', () => { spinning = false; spinButton.setAttribute('aria-pressed', 'false'); spinButton.setAttribute('aria-label', '自动旋转'); renderApi?.reduce(reduced.matches); setExpanded(); });
+  reduced.addEventListener('change', () => { renderApi?.reduce(reduced.matches); setExpanded(); });
 
   function loadThree() {
     if (window.THREE) return Promise.resolve(window.THREE);
@@ -63,7 +47,6 @@
       setExpanded();
     } catch {
       host.dataset.renderer = 'fallback';
-      spinButton.hidden = true;
       renderApi?.dispose();
       renderApi = undefined;
     }
@@ -155,7 +138,7 @@
     const phones = [phone(logoTexture()), phone(screenTexture('assets/briefing/assistant-welcome.webp'))];
     phones.forEach(p => rig.add(p));
     stage.append(renderer.domElement);
-    let frame = 0, visible = false, open = expanded ? 1 : 0, target = open, yaw = 0, pitch = 0, previous = 0, drag = null, isReduced = reduced.matches;
+    let frame = 0, visible = false, open = expanded ? 1 : 0, target = open, velocity = 0, previous = 0, isReduced = reduced.matches;
     let sizeDirty = true, renderWidth = 0, renderHeight = 0;
     const observer = new ResizeObserver(() => { sizeDirty = true; wake(); }); observer.observe(stage);
     function draw(now) {
@@ -173,52 +156,37 @@
         sizeDirty = false;
       }
       const dt = Math.min((now - (previous || now)) / 1000, .05); previous = now;
-      open = isReduced ? target : open + (target - open) * (1 - Math.exp(-dt * 7));
-      if (spinning && !isReduced && target) yaw += dt * .38;
-      rig.rotation.set(pitch, yaw, 0);
-      // The right device is physically in front of the left; the solids never intersect.
-      phones[0].position.set(-1 - open * .7, .12, -.9 + open * .15);
-      phones[1].position.set(1 + open * .7, -.24 + open * .14, .9 - open * .15);
-      phones[0].rotation.set(-.045, .18 - open * .37, .15 - open * .09);
-      phones[1].rotation.set(.035, -.18 + open * .37, -.13 + open * .07);
+      // Damped spring: one restrained overshoot, integrated in small stable steps.
+      if (isReduced) { open = target; velocity = 0; }
+      else for (let t = 0; t < dt; t += 1/120) {
+        const step = Math.min(1/120, dt-t);
+        velocity += ((target-open)*180 - velocity*19)*step;
+        open += velocity*step;
+      }
+      const pose = Math.max(0, Math.min(1.08, open));
+      // Logo device leads in scale and depth, with safe separation at every pose.
+      phones[0].scale.setScalar(1.09);
+      phones[1].scale.setScalar(.92);
+      phones[0].position.set(-.85-pose*.85, .10, 1.25-pose*.15);
+      phones[1].position.set(1+pose*.78, -.25+pose*.15, -1.15+pose*.15);
+      phones[0].rotation.set(-.045, .14-pose*.30, .14-pose*.10);
+      phones[1].rotation.set(.035, -.16+pose*.32, -.13+pose*.09);
       // The crop belongs to the camera framing, not a chopped phone texture.
       const openZoom = Math.min(1.12, camera.aspect * 1.18);
       const closedZoom = Math.min(2.4, camera.aspect * 1.6);
-      camera.zoom = closedZoom - open * (closedZoom - openZoom); camera.position.y = 1.65 * (1 - open);
+      camera.zoom = closedZoom - open * (closedZoom - openZoom); camera.position.y = 1.10 * (1 - open);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
-      if (Math.abs(target - open) > .001 || (spinning && !isReduced)) wake();
+      if (Math.abs(target - open) > .0005 || Math.abs(velocity) > .002) wake();
     }
     function wake() { if (!frame && visible && !document.hidden) frame = requestAnimationFrame(draw); }
-    function resetSpin() {
-      spinning = false; spinButton.setAttribute('aria-pressed', 'false'); spinButton.setAttribute('aria-label', '自动旋转');
-    }
-    function down(event) {
-      if (!expanded || event.button > 0 || isReduced) return;
-      drag = { id: event.pointerId, startX: event.clientX, startY: event.clientY, lastX: event.clientX, lastY: event.clientY, moving: false };
-    }
-    function move(event) {
-      if (!drag || drag.id !== event.pointerId) return;
-      if (!drag.moving) {
-        const dx = event.clientX - drag.startX, dy = event.clientY - drag.startY;
-        if (Math.max(Math.abs(dx), Math.abs(dy)) < 7) return;
-        if (event.pointerType !== 'mouse' && Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
-        drag.moving = true; pinned = true; resetSpin(); stage.setPointerCapture(event.pointerId); stage.classList.add('is-dragging');
-      }
-      yaw += (event.clientX - drag.lastX) * .012;
-      pitch = Math.max(-.38, Math.min(.38, pitch + (event.clientY - drag.lastY) * .005));
-      drag.lastX = event.clientX; drag.lastY = event.clientY; wake();
-    }
-    function up() { drag = null; stage.classList.remove('is-dragging'); }
-    stage.addEventListener('pointerdown', down); stage.addEventListener('pointermove', move);
-    for (const event of ['pointerup', 'pointercancel', 'lostpointercapture']) stage.addEventListener(event, up);
     const visibility = () => { previous = 0; wake(); }; document.addEventListener('visibilitychange', visibility);
-    renderer.domElement.addEventListener('webglcontextlost', event => { event.preventDefault(); host.dataset.renderer = 'fallback'; resetSpin(); renderApi?.visible(false); setExpanded(); });
+    renderer.domElement.addEventListener('webglcontextlost', event => { event.preventDefault(); host.dataset.renderer = 'fallback'; renderApi?.visible(false); setExpanded(); });
     renderer.domElement.addEventListener('webglcontextrestored', () => { host.dataset.renderer = 'ready'; renderApi?.visible(inView); setExpanded(); wake(); });
     return {
       ready: Promise.all(textureLoads),
       prime() { if (frame) cancelAnimationFrame(frame); frame = 0; draw(performance.now()); },
-      update(state) { target = state.expanded ? 1 : 0; if (!state.expanded) { yaw = 0; pitch = 0; } wake(); },
+      update(state) { target = state.expanded ? 1 : 0; wake(); },
       visible(value) { visible = value; previous = 0; if (!value && frame) { cancelAnimationFrame(frame); frame = 0; } else wake(); },
       reduce(value) { isReduced = value; wake(); },
       dispose() { if (frame) cancelAnimationFrame(frame); observer.disconnect(); document.removeEventListener('visibilitychange', visibility); resources.forEach(g => g.dispose()); textures.forEach(t => t.dispose()); materials.forEach(m => m.dispose()); renderer.dispose(); }

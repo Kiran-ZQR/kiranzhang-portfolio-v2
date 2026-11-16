@@ -29,3 +29,6 @@ The first project uses two generic, physically thick Three.js phone objects with
 ### Cover stability correction
 
 Closed phones fan outward with the right device genuinely in front. Maintain a separating depth interval across the complete reveal, not intersecting screen planes. The left display is white with the exact Tencent News logo sampled from the original homepage asset. Remove the caption strip and visible expand/collapse wording; retain accessible icon controls in the upper corner. ResizeObserver only marks dimensions dirty; the next render frame resizes and draws together to avoid clearing the displayed buffer between frames. Preload both textures and draw before revealing WebGL; separate bezel, screen and island depth planes.
+
+## Navigation and cover refinement — 2026-11-16
+Default theme is dark; explicit light choice persists under the v2 theme key. Navigation uses two masked text layers with a vertical 3D roll, followed by a directional curtain and destination heading reveal. Fine mouse pointers use a small difference-blended circle, expanding over controls; touch retains native input. Reduced motion omits choreography. The Tencent logo phone is larger and physically in front; hover unfolds with a damped spring, touch/keyboard toggles the whole cover. Rotation and expansion toolbar controls are removed.

@@ -88,7 +88,7 @@
   }
   toggles.forEach(button => button.addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem('kiran-v2-theme', root.dataset.theme); } catch {}
+    try { localStorage.setItem('kiran-v2-theme-2', root.dataset.theme); } catch {}
     syncTheme();
   }));
   syncTheme();
