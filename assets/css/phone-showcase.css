@@ -21,3 +21,13 @@
 /* Closed composition follows the paired, outward-leaning reference. */
 .phone-showcase:not(.is-expanded) .fallback-device:first-child{width:34%;left:18%;top:8px;transform:rotate(-9deg)}
 .phone-showcase:not(.is-expanded) .fallback-device:last-child{width:34%;right:18%;top:23px;transform:rotate(9deg)}
+/* Studio lighting remains monochrome until the existing hover reveal. */
+.phone-stage{background:radial-gradient(ellipse at 42% 48%,#43554c50,transparent 73%)}
+.academic-stage{background:radial-gradient(ellipse at 52% 42%,#62708036,transparent 74%)}
+.phone-showcase .phone-fallback .fallback-device--logo{left:34%;right:auto;top:16px;width:30%;transform:rotate(15deg);z-index:2}
+.phone-showcase.is-expanded .phone-fallback .fallback-device--logo{left:33%;top:50px;width:30%}
+.tencent-static-card{position:absolute;border:1px solid #ffffff55;border-radius:12px;background:#ecfff4aa;overflow:hidden;box-shadow:0 12px 35px #0002}
+.tencent-static-card img{position:absolute;transform:none!important;max-width:none;object-fit:fill!important}
+.tencent-static-card--ai{left:8%;top:18%;width:40%;aspect-ratio:2;rotate:-5deg;z-index:1}.tencent-static-card--ai img{width:122.1%!important;height:526.32%!important;left:-5.86%;top:-202.11%}
+.tencent-static-card--settings{right:6%;top:35%;width:37%;aspect-ratio:1.54;rotate:3deg;z-index:3}.tencent-static-card--settings img{width:100%!important;height:327.87%!important;left:0;top:-106.56%}
+.tencent-static-card--nav{left:8%;top:72%;width:40%;aspect-ratio:5;rotate:-5deg;z-index:3}.tencent-static-card--nav img{inset:0;width:100%!important;height:100%!important}

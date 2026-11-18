@@ -24,18 +24,23 @@ jobs:
           node-version: '22'
       - name: Import original content once, preserving the new design
         run: node scripts/import-original.mjs
+      - name: Import licensed mockup models once
+        run: node scripts/import-mockups.mjs
       - name: Store the complete independent source
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add .
           if ! git diff --cached --quiet; then
-            git commit -m 'Preserve original portfolio content and assets in v2'
+            git commit -m 'Preserve portfolio source and licensed mockup assets'
             git push origin HEAD:main
           fi
       - name: Validate homepage code and local references
         run: |
           node --check assets/js/v2.js
+          node --check assets/js/phone-showcase.js
+          node --check assets/js/academic-showcase.js
+          node --check assets/vendor/mockup-runtime.js
           node scripts/check-v2.mjs
       - name: Prepare static site
         run: |

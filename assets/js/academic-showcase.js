@@ -15,20 +15,23 @@
     reduced.addEventListener('change',()=>api?.wake());
     async function initialize(){
       if(loading||api||disposed)return;loading=true;
-      try{const T=await loadThree();if(disposed)return;api=createScene(T);await api.ready;if(disposed)return;api.visible(inView);api.prime();host.dataset.renderer='ready';update()}
+      try{const T=await loadThree();if(disposed)return;api=await createScene(T);await api.ready;if(disposed)return;api.visible(inView);api.prime();host.dataset.renderer='ready';update()}
       catch{host.dataset.renderer='fallback';api?.dispose();api=null}
     }
-    function createScene(T){
+    async function createScene(T){
       const renderer=new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.outputColorSpace=T.SRGBColorSpace;
-      const scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,40);camera.position.set(.25,.15,12);
+      let frame=0,visible=false,sizeDirty=true,w=0,h=0,open=expanded?1:0,target=open,velocity=0,previous=0;
+      const scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,40);camera.position.set(.15,1.15,12);
       scene.add(new T.HemisphereLight(0xffffff,0x394452,2.5));for(const [x,y,z,power] of [[-4,6,7,4],[5,1,-4,3]]){let l=new T.DirectionalLight(0xffffff,power);l.position.set(x,y,z);scene.add(l)}
+      const presentation=await import('../vendor/mockup-runtime.js');
+      const environment=presentation.studio(renderer,scene);renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.13;
       const rig=new T.Group();scene.add(rig);const geometries=[],materials=[],textures=[],pending=[];
       const mat=(options)=>{const m=new T.MeshStandardMaterial(options);materials.push(m);return m};
       const silver=mat({color:0xb5bcc5,metalness:.8,roughness:.27}),white=mat({color:0xe8ebe9,metalness:.12,roughness:.32}),fabric=mat({color:0x7d858c,roughness:.92}),black=mat({color:0x0a0d13,metalness:.6,roughness:.2});
       function mesh(g,m,parent=rig){geometries.push(g);const o=new T.Mesh(g,m);parent.add(o);return o}
       function round(w,h,r){const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s}
       function solid(w,h,d,r,m,parent){const g=new T.ExtrudeGeometry(round(w,h,r),{depth:d,bevelEnabled:true,bevelSize:.025,bevelThickness:.025,bevelSegments:3,steps:1,curveSegments:18});g.translate(0,0,-d/2);return mesh(g,m,parent)}
-      function texture(src,topFraction=1){let yes,no;pending.push(new Promise((a,b)=>{yes=a;no=b}));const t=new T.TextureLoader().load(src,()=>{yes();wake()},undefined,no);t.colorSpace=T.SRGBColorSpace;if(typeof topFraction==='object'){const c=topFraction;t.repeat.set(c.w,c.h);t.offset.set(c.x,1-c.y-c.h)}else{t.repeat.y=topFraction;t.offset.y=1-topFraction;}textures.push(t);return t}
+      function texture(src,topFraction=1){let yes,no;pending.push(new Promise((a,b)=>{yes=a;no=b}));const t=new T.TextureLoader().load(src,()=>{yes();wake()},undefined,no);t.colorSpace=T.SRGBColorSpace;if(typeof topFraction==='object'){const c=topFraction;t.repeat.set(c.w,c.h);t.offset.set(c.x,1-c.y-c.h)}else{t.repeat.y=topFraction;t.offset.y=1-topFraction;}t.userData.gltfCrop=typeof topFraction==='object'?topFraction:{x:0,y:0,w:1,h:topFraction};textures.push(t);return t}
       function panel(src,w,h,parent,topFraction=1){const g=new T.Group();parent.add(g);solid(w+.10,h+.10,.13,.15,silver,g);const bezel=solid(w+.055,h+.055,.025,.13,black,g);bezel.position.z=.08;const geometry=new T.ShapeGeometry(round(w,h,.12),20),pos=geometry.attributes.position,uv=geometry.attributes.uv;for(let i=0;i<pos.count;i++)uv.setXY(i,pos.getX(i)/w+.5,pos.getY(i)/h+.5);const material=new T.MeshBasicMaterial({map:texture(src,topFraction),toneMapped:false});materials.push(material);const display=mesh(geometry,material,g);display.position.z=.15;return g}
       function visorShape(w,h){
         const s=new T.Shape(),x=w/2,y=h/2;
@@ -62,19 +65,16 @@
         for(const x of [-2.03,2.03]){const arm=mesh(new T.BoxGeometry(.19,.38,1.30),white,g);arm.position.set(x,.16,-.47)}
         const crown=mesh(new T.CylinderGeometry(.15,.15,.07,24),silver,g);crown.position.set(1.32,.98,-.05);return g;
       }
-      const laptop=new T.Group();rig.add(laptop);
-      const screen=panel('assets/academic/profiled-board.reading.webp',3.8,2.38,laptop,{x:0,y:0,w:.575,h:.25});screen.position.set(0,.80,-.48);screen.rotation.x=-.10;
-      const deck=solid(4.1,2.36,.12,.12,silver,laptop);deck.rotation.x=-Math.PI/2;deck.position.set(0,-.48,.59);
-      const keyboard=solid(3.25,1.02,.025,.065,black,laptop);keyboard.rotation.x=-Math.PI/2;keyboard.position.set(0,-.40,.31);
-      for(let row=0;row<4;row++)for(let col=0;col<12;col++){const key=mesh(new T.BoxGeometry(.20,.012,.16),fabric,laptop);key.position.set(-1.43+col*.26,-.34,-.04+row*.22)}
-      const pad=solid(1.30,.62,.012,.06,fabric,laptop);pad.rotation.x=-Math.PI/2;pad.position.set(0,-.405,1.15);
-      const phone=panel('assets/academic/ar-nature-board.reading.webp',1.38,2.92,rig,{x:.595,y:.531,w:.060,h:.094});
-      const island=solid(.42,.07,.018,.035,black,phone);island.position.set(0,1.32,.18);
+      const laptop=await presentation.device('laptop',{width:5.55,map:texture('assets/academic/profiled-board.reading.webp',{x:0,y:0,w:.575,h:.25})});rig.add(laptop);
+      const phone=await presentation.device('phone',{height:3.22,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
       const tablet=panel('assets/academic/lead-me-01.reading.webp',2.12,2.96,rig,{x:.025,y:.607,w:.215,h:.387});
       const cameraDot=mesh(new T.CircleGeometry(.035,16),black,tablet);cameraDot.position.set(0,1.45,.18);
-      phone.scale.setScalar(.95);tablet.scale.setScalar(1.1);
+      tablet.scale.setScalar(1.1);
+      const back=new T.Group();tablet.add(back);back.rotation.y=Math.PI;
+      const cameraPlate=solid(.32,.48,.06,.10,black,back);cameraPlate.position.set(.83,1.18,.12);
+      for(const y of [1.07,1.29]){const lens=mesh(new T.CircleGeometry(.078,20),black,back);lens.position.set(.83,y,.165)}
       const vision=headset();
-      stage.append(renderer.domElement);let frame=0,visible=false,sizeDirty=true,w=0,h=0,open=expanded?1:0,target=open,velocity=0,previous=0;
+      stage.append(renderer.domElement);
       const resize=new ResizeObserver(()=>{sizeDirty=true;wake()});resize.observe(stage);
       function draw(now){frame=0;if(!visible||document.hidden)return;
         if(sizeDirty){const nw=stage.clientWidth,nh=stage.clientHeight;if(!nw||!nh)return;if(nw!==w||nh!==h){w=nw;h=nh;renderer.setSize(w,h,false);camera.aspect=w/h}sizeDirty=false}
@@ -82,18 +82,18 @@
         if(reduced.matches){open=target;velocity=0}else for(let t=0;t<dt;t+=1/120){let d=Math.min(1/120,dt-t);velocity+=((target-open)*180-velocity*19)*d;open+=velocity*d}
         const p=Math.max(0,Math.min(1.08,open));
         rig.rotation.set(.06*(1-p),-.06*(1-p),-.025*(1-p));
-        laptop.position.set(-.35-p*.10,.45+p*.20,-1.3);laptop.rotation.set(.27,-.08-p*.05,0);laptop.scale.setScalar(.95);
-        phone.position.set(-2.0-p*.65,-.22-p*.10,1.1);phone.rotation.set(-.025,.16-p*.10,.12-p*.05);
-        tablet.position.set(2.85+p*.15,.22+p*.30,-.65);tablet.rotation.set(0,-.20-p*.06,-.09+p*.04);
-        vision.position.set(.40+p*.20,-1.15-p*.15,1.55);vision.rotation.set(.20,-.24-p*.12,.03);vision.scale.setScalar(.65);
-        const closedZoom=Math.min(1.8,camera.aspect*.90),openZoom=Math.min(1.00,camera.aspect*.80);
-        camera.zoom=closedZoom+(openZoom-closedZoom)*p;camera.lookAt(.25,.1,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
+        laptop.position.set(.18-p*.12,-.35-p*.05,.30);laptop.rotation.set(.06,-.43+p*.12,-.025);
+        phone.position.set(2.42+p*.72,.58+p*.55,.20);phone.rotation.set(-.045,-.36,-.12+p*.04);
+        tablet.position.set(-1.84-p*.70,-.38-p*.18,-3.10);tablet.rotation.set(.16,2.92,-.20);
+        vision.position.set(-2.65-p*.34,1.65+p*.18,-.25);vision.rotation.set(.25,-.32,.08);vision.scale.setScalar(.37);
+        const closedZoom=Math.min(1.22,camera.aspect*.82),openZoom=Math.min(.90,camera.aspect*.76);
+        camera.zoom=closedZoom+(openZoom-closedZoom)*p;camera.lookAt(.15,-.15,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
         if(Math.abs(target-open)>.0005||Math.abs(velocity)>.002)wake();
       }
       function wake(){if(!frame&&visible&&!document.hidden)frame=requestAnimationFrame(draw)}
       const visibility=()=>{previous=0;wake()};document.addEventListener('visibilitychange',visibility);
       renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();host.dataset.renderer='fallback';visible=false});renderer.domElement.addEventListener('webglcontextrestored',()=>{host.dataset.renderer='ready';visible=inView;wake()});
-      return{ready:Promise.all(pending),wake,prime(){if(frame)cancelAnimationFrame(frame);frame=0;draw(performance.now())},update(value){target=value?1:0;wake()},visible(value){visible=value;previous=0;if(!value&&frame){cancelAnimationFrame(frame);frame=0}else wake()},dispose(){if(frame)cancelAnimationFrame(frame);resize.disconnect();document.removeEventListener('visibilitychange',visibility);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());renderer.dispose()}};
+      return{ready:Promise.all(pending),wake,prime(){if(frame)cancelAnimationFrame(frame);frame=0;draw(performance.now())},update(value){target=value?1:0;wake()},visible(value){visible=value;previous=0;if(!value&&frame){cancelAnimationFrame(frame);frame=0}else wake()},dispose(){if(frame)cancelAnimationFrame(frame);resize.disconnect();environment.dispose();document.removeEventListener('visibilitychange',visibility);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());renderer.dispose()}};
     }
     const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(inView)initialize();api?.visible(inView)},{rootMargin:'150px 0px'});observer.observe(host);
     addEventListener('pagehide',e=>{if(!e.persisted){disposed=true;observer.disconnect();api?.dispose()}});

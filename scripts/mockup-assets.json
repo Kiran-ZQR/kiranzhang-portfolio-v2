@@ -1,0 +1,12 @@
+[
+  {
+    "path": "assets/models/iphone-17-pro-max.glb",
+    "url": "https://api.github.com/repos/imshaikot/app-preview-craft-skill/git/blobs/e3d14d1172e45df22e67df3218a4e9fcaa0bf1d0",
+    "sha256": "5207fa66e02c44b5dcb94b733860911a84792e41dd3b3696678cfe42f215979e"
+  },
+  {
+    "path": "assets/models/macbook-pro-16.glb",
+    "url": "https://api.github.com/repos/imshaikot/app-preview-craft-skill/git/blobs/36469caf1429273d6c7a30e9df8415deabf8a80f",
+    "sha256": "0fe4b20eeb997bb0f7db546c1a33099a95224413edee2ad21b321ac53768483d"
+  }
+]

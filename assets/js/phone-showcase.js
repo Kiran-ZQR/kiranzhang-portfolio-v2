@@ -38,7 +38,7 @@
     try {
       const T = await loadThree();
       if (disposed) return;
-      renderApi = createScene(T);
+      renderApi = await createScene(T);
       await renderApi.ready;
       if (disposed) return;
       renderApi.visible(inView);
@@ -52,11 +52,13 @@
     }
   }
 
-  function createScene(T) {
+  async function createScene(T) {
     const renderer = new T.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' });
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75));
     renderer.outputColorSpace = T.SRGBColorSpace;
     renderer.setClearColor(0, 0);
+    let frame = 0, visible = false, open = expanded ? 1 : 0, target = open, velocity = 0, previous = 0, isReduced = reduced.matches;
+    let sizeDirty = true, renderWidth = 0, renderHeight = 0;
     const scene = new T.Scene();
     const camera = new T.PerspectiveCamera(32, 1, 1, 40);
     camera.position.set(0, .1, 15);
@@ -64,6 +66,9 @@
     const key = new T.DirectionalLight(0xffffff, 3.4); key.position.set(-5, 7, 9); scene.add(key);
     const fill = new T.DirectionalLight(0xcfd9ea, 2.1); fill.position.set(5, 1, -6); scene.add(fill);
     const rig = new T.Group(); scene.add(rig);
+    const presentation=await import('../vendor/mockup-runtime.js');
+    const environment=presentation.studio(renderer,scene);
+    renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
     const resources = [], textures = [], materials = [];
     const metal = new T.MeshStandardMaterial({ color: 0x51545a, metalness: .82, roughness: .29 });
     const bezel = new T.MeshStandardMaterial({ color: 0x090a0b, metalness: .35, roughness: .24 });
@@ -113,33 +118,22 @@
       }));
       return texture;
     }
-    function phone(image) {
-      const group = new T.Group();
-      const shell = new T.ExtrudeGeometry(shape(2.75, 5.85, .43), { depth: .23, bevelEnabled: true, bevelThickness: .028, bevelSize: .025, bevelSegments: 3, steps: 1, curveSegments: 14 });
-      shell.translate(0, 0, -.115); resources.push(shell); group.add(new T.Mesh(shell, metal));
-      const front = new T.Mesh(flat(2.7, 5.8, .40), bezel); front.position.z = .17; group.add(front);
-      const screenMaterial = new T.MeshBasicMaterial({ map: image, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }); materials.push(screenMaterial);
-      const screen = new T.Mesh(flat(2.57, 5.64, .34), screenMaterial); screen.position.z = .195; group.add(screen);
-      const island = new T.Mesh(flat(.76, .17, .085), bezel); island.position.set(0, 2.56, .22); group.add(island);
-      const back = new T.Group(); back.rotation.y = Math.PI; group.add(back);
-      const plate = new T.Mesh(flat(2.68, 5.78, .4), rear); plate.position.z = .15; back.add(plate);
-      const bump = new T.Mesh(flat(1.02, 1.08, .22), metal); bump.position.set(-.66, 2.04, .18); back.add(bump);
-      for (const [x, y] of [[-.9, 2.28], [-.45, 2.04], [-.9, 1.8]]) {
-        const ringGeometry = new T.CylinderGeometry(.19, .19, .08, 24); ringGeometry.rotateX(Math.PI / 2); resources.push(ringGeometry);
-        const ring = new T.Mesh(ringGeometry, metal); ring.position.set(x, y, .23); back.add(ring);
-        const glassGeometry = new T.CircleGeometry(.145, 24); resources.push(glassGeometry);
-        const glass = new T.Mesh(glassGeometry, lens); glass.position.set(x, y, .273); back.add(glass);
-      }
-      addBox(group, .055, .53, .10, 1.4, .9, 0, metal);
-      addBox(group, .055, .37, .10, -1.4, 1.05, 0, metal);
-      addBox(group, .055, .37, .10, -1.4, .5, 0, metal);
-      return group;
+    const logo=logoTexture();await Promise.all(textureLoads);
+    const device=await presentation.device('phone',{height:5.85,map:logo,finish:0x8c959e});rig.add(device);
+    function card(src,crop,w,h){
+      const g=new T.Group();rig.add(g);const glass=new T.MeshPhysicalMaterial({color:0xecfff4,metalness:.05,roughness:.25,transparent:true,opacity:.63,transmission:.12,thickness:.08,ior:1.38,side:T.DoubleSide,depthWrite:false});materials.push(glass);
+      const surface=new T.Mesh(flat(w+.12,h+.12,.16),glass);g.add(surface);
+      const map=screenTexture(src);map.repeat.set(crop.w,crop.h);map.offset.set(crop.x,1-crop.y-crop.h);
+      const content=new T.MeshBasicMaterial({map,transparent:true,opacity:.88,toneMapped:false,depthWrite:false});materials.push(content);
+      const plane=new T.Mesh(flat(w,h,.12),content);plane.position.z=.018;g.add(plane);
+      const border=new T.LineLoop(new T.BufferGeometry().setFromPoints(shape(w+.12,h+.12,.16).getPoints(12).map(v=>new T.Vector3(v.x,v.y,0))),new T.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.32}));border.position.z=.025;g.add(border);resources.push(border.geometry);materials.push(border.material);return g;
     }
-    const phones = [phone(logoTexture()), phone(screenTexture('assets/briefing/assistant-welcome.webp'))];
-    phones.forEach(p => rig.add(p));
+    const cards=[
+      card('assets/briefing/assistant-welcome.webp',{x:.048,y:.384,w:.819,h:.190},3.65,1.82),
+      card('assets/briefing/preferences.webp',{x:0,y:.325,w:1,h:.305},3.05,1.98),
+      card('assets/briefing/radio-nav-live.webp',{x:0,y:0,w:1,h:1},3.65,.72)
+    ];
     stage.append(renderer.domElement);
-    let frame = 0, visible = false, open = expanded ? 1 : 0, target = open, velocity = 0, previous = 0, isReduced = reduced.matches;
-    let sizeDirty = true, renderWidth = 0, renderHeight = 0;
     const observer = new ResizeObserver(() => { sizeDirty = true; wake(); }); observer.observe(stage);
     function draw(now) {
       frame = 0;
@@ -164,17 +158,15 @@
         open += velocity*step;
       }
       const pose = Math.max(0, Math.min(1.08, open));
-      // Logo device leads in scale and depth, with safe separation at every pose.
-      phones[0].scale.setScalar(1.00 + pose*.09);
-      phones[1].scale.setScalar(1.00 - pose*.08);
-      phones[0].position.set(-1.17-pose*.53, .18, .55+pose*.55);
-      phones[1].position.set(1.25+pose*.53, -.12+pose*.02, -.55-pose*.45);
-      phones[0].rotation.set(-.045, .06-pose*.22, .16-pose*.12);
-      phones[1].rotation.set(.035, -.06+pose*.22, -.16+pose*.12);
-      // The crop belongs to the camera framing, not a chopped phone texture.
-      const openZoom = Math.min(1.12, camera.aspect * 1.18);
-      const closedZoom = Math.min(2.2, camera.aspect * 1.4);
-      camera.zoom = closedZoom - open * (closedZoom - openZoom); camera.position.y = 1.35 * (1 - open);
+      const narrow=renderWidth<550,spread=narrow?.64:1;
+      cards.forEach(c=>c.scale.setScalar(narrow?.72:1));
+      device.position.set(-.15-pose*.15,.12,.30);device.rotation.set(.08,-.50+pose*.12,-.30+pose*.05);
+      cards[0].position.set((-1.9-pose*.52)*spread,1.45+pose*.30,-1.15);cards[0].rotation.set(.03,.23,.10);
+      cards[1].position.set((1.75+pose*.50)*spread,.10+pose*.12,1.95);cards[1].rotation.set(-.02,-.22,-.06);
+      cards[2].position.set((-1.95-pose*.35)*spread,-1.72-pose*.18,1.40);cards[2].rotation.set(.02,.16,.07);
+      const openZoom = Math.min(.98, camera.aspect * (narrow?1.35:.80));
+      const closedZoom = Math.min(1.80, camera.aspect * 1.03);
+      camera.zoom = closedZoom - pose * (closedZoom - openZoom);camera.position.y=.45*(1-pose);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
       if (Math.abs(target - open) > .0005 || Math.abs(velocity) > .002) wake();
@@ -189,7 +181,7 @@
       update(state) { target = state.expanded ? 1 : 0; wake(); },
       visible(value) { visible = value; previous = 0; if (!value && frame) { cancelAnimationFrame(frame); frame = 0; } else wake(); },
       reduce(value) { isReduced = value; wake(); },
-      dispose() { if (frame) cancelAnimationFrame(frame); observer.disconnect(); document.removeEventListener('visibilitychange', visibility); resources.forEach(g => g.dispose()); textures.forEach(t => t.dispose()); materials.forEach(m => m.dispose()); renderer.dispose(); }
+      dispose() { if (frame) cancelAnimationFrame(frame); observer.disconnect(); environment.dispose(); document.removeEventListener('visibilitychange', visibility); resources.forEach(g => g.dispose()); textures.forEach(t => t.dispose()); materials.forEach(m => m.dispose()); renderer.dispose(); }
     };
   }
   if ('IntersectionObserver' in window) {
