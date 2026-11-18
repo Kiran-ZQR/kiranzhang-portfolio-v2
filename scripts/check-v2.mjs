@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 const home = fs.readFileSync('index.html', 'utf8');
 const errors = [];
-for (const marker of ['aria-label="kiranzhang"', 'id="loader"', 'id="projects"', 'id="contact"', 'assets/js/v2.js']) {
+for (const marker of ['aria-label="KiranZhang"', 'id="loader"', 'id="projects"', 'id="contact"', 'assets/js/v2.js']) {
   if (!home.includes(marker)) errors.push(`Missing homepage requirement: ${marker}`);
 }
 // Follow actual source/href attributes, not inactive source-template asset manifests.
