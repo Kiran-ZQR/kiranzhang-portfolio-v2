@@ -21,7 +21,7 @@
     async function createScene(T){
       const renderer=new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.outputColorSpace=T.SRGBColorSpace;
       let frame=0,visible=false,sizeDirty=true,w=0,h=0,open=expanded?1:0,target=open,velocity=0,previous=0;
-      const scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,40);camera.position.set(.15,1.15,12);
+      const scene=new T.Scene(),camera=new T.PerspectiveCamera(10.8617361253,1,.1,100);camera.position.set(0,0,12);
       scene.add(new T.HemisphereLight(0xffffff,0x394452,2.5));for(const [x,y,z,power] of [[-4,6,7,4],[5,1,-4,3]]){let l=new T.DirectionalLight(0xffffff,power);l.position.set(x,y,z);scene.add(l)}
       const presentation=await import('../vendor/mockup-runtime.js');
       const environment=presentation.studio(renderer,scene);renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.13;
@@ -66,13 +66,14 @@
         const crown=mesh(new T.CylinderGeometry(.15,.15,.07,24),silver,g);crown.position.set(1.32,.98,-.05);return g;
       }
       const laptop=await presentation.device('laptop',{width:5.55,map:texture('assets/academic/profiled-board.reading.webp',{x:0,y:0,w:.575,h:.25})});rig.add(laptop);
-      const phone=await presentation.device('phone',{height:3.22,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
+      const phone=await presentation.device('phone',{height:2.15,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
+      const phoneRear=await presentation.device('phone',{height:2.15,finish:0x98b1a6});rig.add(phoneRear);
       const tablet=panel('assets/academic/lead-me-01.reading.webp',2.12,2.96,rig,{x:.025,y:.607,w:.215,h:.387});
       const cameraDot=mesh(new T.CircleGeometry(.035,16),black,tablet);cameraDot.position.set(0,1.45,.18);
-      tablet.scale.setScalar(1.1);
+      tablet.scale.setScalar(1.10);
       const back=new T.Group();tablet.add(back);back.rotation.y=Math.PI;
-      const cameraPlate=solid(.32,.48,.06,.10,black,back);cameraPlate.position.set(.83,1.18,.12);
-      for(const y of [1.07,1.29]){const lens=mesh(new T.CircleGeometry(.078,20),black,back);lens.position.set(.83,y,.165)}
+      const cameraPlate=solid(.32,.48,.06,.10,black,back);cameraPlate.position.set(-.83,1.18,.12);
+      for(const y of [1.07,1.29]){const lens=mesh(new T.CircleGeometry(.078,20),black,back);lens.position.set(-.83,y,.165)}
       const vision=headset();
       stage.append(renderer.domElement);
       const resize=new ResizeObserver(()=>{sizeDirty=true;wake()});resize.observe(stage);
@@ -81,13 +82,16 @@
         const dt=Math.min((now-(previous||now))/1000,.05);previous=now;
         if(reduced.matches){open=target;velocity=0}else for(let t=0;t<dt;t+=1/120){let d=Math.min(1/120,dt-t);velocity+=((target-open)*180-velocity*19)*d;open+=velocity*d}
         const p=Math.max(0,Math.min(1.08,open));
-        rig.rotation.set(.06*(1-p),-.06*(1-p),-.025*(1-p));
-        laptop.position.set(.18-p*.12,-.35-p*.05,.30);laptop.rotation.set(.06,-.43+p*.12,-.025);
-        phone.position.set(2.42+p*.72,.58+p*.55,.20);phone.rotation.set(-.045,-.36,-.12+p*.04);
-        tablet.position.set(-1.84-p*.70,-.38-p*.18,-3.10);tablet.rotation.set(.16,2.92,-.20);
-        vision.position.set(-2.65-p*.34,1.65+p*.18,-.25);vision.rotation.set(.25,-.32,.08);vision.scale.setScalar(.37);
-        const closedZoom=Math.min(1.22,camera.aspect*.82),openZoom=Math.min(.90,camera.aspect*.76);
-        camera.zoom=closedZoom+(openZoom-closedZoom)*p;camera.lookAt(.15,-.15,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
+        // Fixed reference-poster composition in a 610 × 395 product-crop coordinate space.
+        // Hover changes the framing, never redistributes the devices into a new arrangement.
+        rig.rotation.set(0,0,0);
+        const poster=(object,x,y,z)=>{const span=2*(12-z)*Math.tan(camera.fov*Math.PI/360);object.position.set((x/610-.5)*span*(610/395),(.5-y/395)*span,z)};
+        laptop.position.set(-.6347195863,-.4043121550,-20.0974227606);laptop.rotation.set(.537608172,-.790030050,.569517507);
+        poster(tablet,145,267,-24);tablet.rotation.set(-.63,2.82,1.70);
+        poster(phone,468,207,-18.8);phone.rotation.set(.02,-.25,.10);
+        poster(phoneRear,519,218,-20.0);phoneRear.rotation.set(.05,Math.PI+.28,-.12);
+        poster(vision,532,234,-18.0);vision.rotation.set(.28,-.50,-.20);vision.scale.setScalar(.24);
+        camera.zoom=Math.min(1,camera.aspect/(610/395))*(1+.012*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
         if(Math.abs(target-open)>.0005||Math.abs(velocity)>.002)wake();
       }
       function wake(){if(!frame&&visible&&!document.hidden)frame=requestAnimationFrame(draw)}
