@@ -23,7 +23,7 @@
       let frame=0,visible=false,sizeDirty=true,w=0,h=0,open=expanded?1:0,target=open,velocity=0,previous=0;
       const scene=new T.Scene(),camera=new T.PerspectiveCamera(10.8617361253,1,.1,100);camera.position.set(0,0,12);
       scene.add(new T.HemisphereLight(0xffffff,0x394452,2.5));for(const [x,y,z,power] of [[-4,6,7,4],[5,1,-4,3]]){let l=new T.DirectionalLight(0xffffff,power);l.position.set(x,y,z);scene.add(l)}
-      const presentation=await import('../vendor/mockup-runtime.js');
+      const presentation=await import('../vendor/mockup-runtime.js?v=20261119');
       const environment=presentation.studio(renderer,scene);renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.13;
       const rig=new T.Group();scene.add(rig);const geometries=[],materials=[],textures=[],pending=[];
       const mat=(options)=>{const m=new T.MeshStandardMaterial(options);materials.push(m);return m};
