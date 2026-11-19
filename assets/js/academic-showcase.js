@@ -59,7 +59,7 @@
         poster(phone,520,218,-14.0);phone.rotation.set(.02,-.25,.10);
         poster(phoneRear,545,228,-15.5);phoneRear.rotation.set(.05,Math.PI+.28,-.12);
         poster(vision,133,155,-18.0);vision.rotation.set(.08,-.15,-.12);vision.scale.setScalar(visionScale);
-        camera.zoom=Math.min(1.08,camera.aspect/(610/395))*(1+.025*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
+        camera.zoom=Math.min(1,camera.aspect/(610/395))*(.82+.20*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
         if(Math.abs(target-open)>.0005||Math.abs(velocity)>.002)wake();
       }
       function wake(){if(!frame&&visible&&!document.hidden)frame=requestAnimationFrame(draw)}

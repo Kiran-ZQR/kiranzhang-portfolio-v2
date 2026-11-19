@@ -166,11 +166,11 @@
       const narrow=renderWidth<550,spread=narrow?.79:1;
       cards.forEach(c=>c.scale.setScalar(narrow?.84:1));
       // Reference 04: a near-frontal device with detached, staggered UI cards.
-      device.position.set(0,-.22,0);device.rotation.set(.025,.26,-.055);
-      cards[0].position.set(-1.76*spread,1.18,1.25);cards[0].rotation.set(.02,.13,.075);
-      cards[1].position.set(1.78*spread,-1.14,1.60);cards[1].rotation.set(-.025,-.16,-.08);
-      const openZoom=Math.min(1.05,camera.aspect*1.08),closedZoom=Math.min(1.58,camera.aspect*.98);
-      camera.zoom=closedZoom+(openZoom-closedZoom)*pose;camera.position.y=.60*(1-pose);
+      device.position.set(.78,-.18,0);device.rotation.set(.04,.29,.085);
+      cards[0].position.set(-2.12*spread,.91,1.25);cards[0].rotation.set(.02,.10,.025);
+      cards[1].position.set(-2.12*spread,-1.24,1.25);cards[1].rotation.set(.02,.10,.025);
+      const openZoom=Math.min(1.05,camera.aspect*1.40),closedZoom=Math.min(1.13,camera.aspect*1.08);
+      camera.zoom=closedZoom+(openZoom-closedZoom)*pose;camera.position.y=.12*(1-pose);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
       if (Math.abs(target - open) > .0005 || Math.abs(velocity) > .002) wake();
