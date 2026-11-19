@@ -66,7 +66,7 @@
     const key = new T.DirectionalLight(0xffffff, 3.4); key.position.set(-5, 7, 9); scene.add(key);
     const fill = new T.DirectionalLight(0xcfd9ea, 2.1); fill.position.set(5, 1, -6); scene.add(fill);
     const rig = new T.Group(); scene.add(rig);
-    const presentation=await import('../vendor/mockup-runtime.js');
+    const presentation=await import('../vendor/mockup-runtime.js?v=20261119');
     const environment=presentation.studio(renderer,scene);
     renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
     const resources = [], textures = [], materials = [];
@@ -103,7 +103,11 @@
     }
     function logoTexture() {
       const canvas = document.createElement('canvas'); canvas.width = 900; canvas.height = 1949;
-      const context = canvas.getContext('2d'); context.fillStyle = '#fff'; context.fillRect(0, 0, 900, 1949);
+      const context = canvas.getContext('2d');context.fillStyle='#080a0d';context.fillRect(0,0,900,1949);context.fillStyle='#fff';context.beginPath();context.roundRect(15,15,870,1919,110);context.fill();
+      context.fillStyle='#111';context.font='600 36px Arial';context.fillText('9:41',76,100);
+      for(let i=0;i<4;i++)context.fillRect(710+i*15,101-i*9,10,15+i*9);
+      context.lineWidth=4;context.strokeStyle='#111';context.strokeRect(791,65,54,27);context.fillRect(849,73,4,12);context.fillRect(796,70,40,17);
+      context.beginPath();context.roundRect(330,1891,240,12,6);context.fill();
       const texture = new T.CanvasTexture(canvas); texture.colorSpace = T.SRGBColorSpace;
       textures.push(texture);
       textureLoads.push(new Promise((resolve, reject) => {
@@ -119,20 +123,21 @@
       return texture;
     }
     const logo=logoTexture();await Promise.all(textureLoads);
-    const device=await presentation.device('phone',{height:5.85,map:logo,finish:0x8c959e});rig.add(device);
+    const device=await presentation.device('phone',{height:6.15,map:logo,finish:0xaeb4bb});rig.add(device);
     function card(src,crop,w,h){
-      const g=new T.Group();rig.add(g);const glass=new T.MeshPhysicalMaterial({color:0xecfff4,metalness:.05,roughness:.25,transparent:true,opacity:.63,transmission:.12,thickness:.08,ior:1.38,side:T.DoubleSide,depthWrite:false});materials.push(glass);
+      const g=new T.Group();rig.add(g);const glass=new T.MeshPhysicalMaterial({color:0xffffff,metalness:.08,roughness:.19,transparent:true,opacity:.96,transmission:0,thickness:.08,ior:1.38,side:T.DoubleSide,depthWrite:false});materials.push(glass);
       const surface=new T.Mesh(flat(w+.12,h+.12,.38),glass);g.add(surface);
-      const map=screenTexture(src);map.repeat.set(crop.w,crop.h);map.offset.set(crop.x,1-crop.y-crop.h);
-      const content=new T.MeshBasicMaterial({map,transparent:true,opacity:.88,toneMapped:false,depthWrite:false});materials.push(content);
+      const map=typeof src==='string'?screenTexture(src):src;map.repeat.set(crop.w,crop.h);map.offset.set(crop.x,1-crop.y-crop.h);
+      const content=new T.MeshBasicMaterial({map,transparent:true,opacity:1,toneMapped:false,depthWrite:false});materials.push(content);
       const plane=new T.Mesh(flat(w,h,.33),content);plane.position.z=.018;g.add(plane);
       const border=new T.LineLoop(new T.BufferGeometry().setFromPoints(shape(w+.12,h+.12,.38).getPoints(12).map(v=>new T.Vector3(v.x,v.y,0))),new T.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.32}));border.position.z=.025;g.add(border);resources.push(border.geometry);materials.push(border.material);return g;
     }
-    const cards=[
-      card('assets/briefing/assistant-welcome.webp',{x:.048,y:.384,w:.819,h:.190},3.65,1.82),
-      card('assets/briefing/preferences.webp',{x:0,y:.325,w:1,h:.305},3.05,1.98),
-      card('assets/briefing/assistant-welcome.webp',{x:.048,y:.656,w:.9,h:.20},3.65,1.76)
-    ];
+    function component(kind){
+      const canvas=document.createElement('canvas');canvas.width=600;canvas.height=720;const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,600,720);ctx.fillStyle='#161b24';ctx.font='500 48px "Microsoft YaHei",Arial';ctx.fillText(kind==='avatar'?'AI 早报定制':'设置偏好',44,86);
+      const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;textures.push(map);
+      textureLoads.push(new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{ctx.save();ctx.beginPath();ctx.roundRect(40,140,520,530,38);ctx.clip();if(kind==='avatar')ctx.drawImage(img,95,750,330,370,40,140,520,530);else{ctx.fillStyle='#f7f8fa';ctx.fillRect(40,140,520,530);ctx.drawImage(img,38,763,825,96,55,230,490,57);ctx.drawImage(img,38,918,825,108,55,390,490,64)}ctx.restore();map.needsUpdate=true;resolve();wake()};img.onerror=reject;img.src=kind==='avatar'?'assets/briefing/assistant-welcome.webp':'assets/briefing/preferences.webp'}));return map;
+    }
+    const cards=[card(component('avatar'),{x:0,y:0,w:1,h:1},1.52,1.82),card(component('preferences'),{x:0,y:0,w:1,h:1},1.55,1.86)];
     stage.append(renderer.domElement);
     const observer = new ResizeObserver(() => { sizeDirty = true; wake(); }); observer.observe(stage);
     function draw(now) {
@@ -158,15 +163,14 @@
         open += velocity*step;
       }
       const pose = Math.max(0, Math.min(1.08, open));
-      const narrow=renderWidth<550,spread=narrow?.64:1;
-      cards.forEach(c=>c.scale.setScalar(narrow?.74:1));
-      // The poster's phone leans upper-left, with its left titanium rail visible.
-      device.position.set(-.10,-.45,0);device.rotation.set(.08,.48,.38);
-      cards[0].position.set(-2.03*spread,.95,-1.35);cards[0].rotation.set(.05,.25,.26);
-      cards[1].position.set(2.02*spread,-.05,1.65);cards[1].rotation.set(.03,-.48,.34);
-      cards[2].position.set(3.50*spread,.45,.95);cards[2].rotation.set(.03,-.57,.34);cards[2].scale.multiplyScalar(.92);
-      const openZoom=Math.min(1.04,camera.aspect*(narrow?1.25:.80)),closedZoom=Math.min(1.85,camera.aspect*1.02);
-      camera.zoom=closedZoom+(openZoom-closedZoom)*pose;camera.position.y=.65*(1-pose);
+      const narrow=renderWidth<550,spread=narrow?.79:1;
+      cards.forEach(c=>c.scale.setScalar(narrow?.84:1));
+      // Reference 04: a near-frontal device with detached, staggered UI cards.
+      device.position.set(0,-.22,0);device.rotation.set(.025,.26,-.055);
+      cards[0].position.set(-1.76*spread,1.18,1.25);cards[0].rotation.set(.02,.13,.075);
+      cards[1].position.set(1.78*spread,-1.14,1.60);cards[1].rotation.set(-.025,-.16,-.08);
+      const openZoom=Math.min(1.05,camera.aspect*1.08),closedZoom=Math.min(1.58,camera.aspect*.98);
+      camera.zoom=closedZoom+(openZoom-closedZoom)*pose;camera.position.y=.60*(1-pose);
       camera.lookAt(0, camera.position.y, 0); camera.updateProjectionMatrix();
       renderer.render(scene, camera);
       if (Math.abs(target - open) > .0005 || Math.abs(velocity) > .002) wake();

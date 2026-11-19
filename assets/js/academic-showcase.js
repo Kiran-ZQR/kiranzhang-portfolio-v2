@@ -34,8 +34,8 @@
       function texture(src,topFraction=1){let yes,no;pending.push(new Promise((a,b)=>{yes=a;no=b}));const t=new T.TextureLoader().load(src,()=>{yes();wake()},undefined,no);t.colorSpace=T.SRGBColorSpace;if(typeof topFraction==='object'){const c=topFraction;t.repeat.set(c.w,c.h);t.offset.set(c.x,1-c.y-c.h)}else{t.repeat.y=topFraction;t.offset.y=1-topFraction;}t.userData.gltfCrop=typeof topFraction==='object'?topFraction:{x:0,y:0,w:1,h:topFraction};textures.push(t);return t}
       function panel(src,w,h,parent,topFraction=1){const g=new T.Group();parent.add(g);solid(w+.10,h+.10,.13,.15,silver,g);const bezel=solid(w+.055,h+.055,.025,.13,black,g);bezel.position.z=.08;const geometry=new T.ShapeGeometry(round(w,h,.12),20),pos=geometry.attributes.position,uv=geometry.attributes.uv;for(let i=0;i<pos.count;i++)uv.setXY(i,pos.getX(i)/w+.5,pos.getY(i)/h+.5);const material=new T.MeshBasicMaterial({map:texture(src,topFraction),toneMapped:false});materials.push(material);const display=mesh(geometry,material,g);display.position.z=.15;return g}
       const laptop=await presentation.device('laptop',{width:5.55,map:texture('assets/academic/profiled-board.reading.webp',{x:.23,y:.005,w:.29,h:.115})});rig.add(laptop);
-      const phone=await presentation.device('phone',{height:2.15,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
-      const phoneRear=await presentation.device('phone',{height:2.15,finish:0x98b1a6});rig.add(phoneRear);
+      const phone=await presentation.device('phone',{height:1.95,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
+      const phoneRear=await presentation.device('phone',{height:1.85,finish:0x98b1a6});rig.add(phoneRear);
       const tablet=panel('assets/academic/lead-me-01.reading.webp',2.12,2.96,rig,{x:.025,y:.607,w:.215,h:.387});
       const cameraDot=mesh(new T.CircleGeometry(.035,16),black,tablet);cameraDot.position.set(0,1.45,.18);
       tablet.scale.setScalar(1.10);
@@ -56,8 +56,8 @@
         const poster=(object,x,y,z)=>{const span=2*(12-z)*Math.tan(camera.fov*Math.PI/360);object.position.set((x/610-.5)*span*(610/395),(.5-y/395)*span,z)};
         laptop.position.set(-.6347195863,-.4043121550,-20.0974227606);laptop.rotation.set(.537608172,-.790030050,.569517507);
         tablet.position.set(-3.0633529008,-1.5940745461,-23.7326957412);tablet.rotation.set(-2.3856920533901773,0.3788635241589102,1.2869312188456223);
-        poster(phone,468,207,-18.8);phone.rotation.set(.02,-.25,.10);
-        poster(phoneRear,519,218,-20.0);phoneRear.rotation.set(.05,Math.PI+.28,-.12);
+        poster(phone,520,218,-14.0);phone.rotation.set(.02,-.25,.10);
+        poster(phoneRear,545,228,-15.5);phoneRear.rotation.set(.05,Math.PI+.28,-.12);
         poster(vision,133,155,-18.0);vision.rotation.set(.08,-.15,-.12);vision.scale.setScalar(visionScale);
         camera.zoom=Math.min(1.08,camera.aspect/(610/395))*(1+.025*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
         if(Math.abs(target-open)>.0005||Math.abs(velocity)>.002)wake();

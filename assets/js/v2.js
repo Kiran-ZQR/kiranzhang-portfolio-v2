@@ -103,7 +103,7 @@
   function updateScroll() {
     scheduled = false;
     const y = window.scrollY;
-    if (!motion.matches) document.querySelector('.hero-intro').style.setProperty('--diagonal-shift', `${Math.min(y * .1, 80)}px`);
+
     let section = 'home';
     if (document.getElementById('projects').getBoundingClientRect().top <= 140) section = 'projects';
     if (document.getElementById('contact').getBoundingClientRect().top <= innerHeight * .5) section = 'contact';
