@@ -31,10 +31,14 @@
 .tencent-static-card--ai{left:8%;top:18%;width:40%;aspect-ratio:2;rotate:-5deg;z-index:1}.tencent-static-card--ai img{width:122.1%!important;height:526.32%!important;left:-5.86%;top:-202.11%}
 .tencent-static-card--settings{right:6%;top:35%;width:37%;aspect-ratio:1.54;rotate:3deg;z-index:3}.tencent-static-card--settings img{width:100%!important;height:327.87%!important;left:0;top:-106.56%}
 .tencent-static-card--nav{left:8%;top:72%;width:40%;aspect-ratio:5;rotate:-5deg;z-index:3}.tencent-static-card--nav img{inset:0;width:100%!important;height:100%!important}
-/* Shared soft blue diffusion, sampled from the supplied banking-app reference. */
-.phone-stage,.academic-showcase .academic-stage{background:radial-gradient(ellipse at 7% 78%,#effaff 0%,#e0f0ffb8 14%,transparent 50%),radial-gradient(ellipse at 89% 9%,#3f8ed9 0%,#4b94dc9c 24%,transparent 65%),radial-gradient(ellipse at 42% 28%,#b1dbf2 0%,transparent 53%),linear-gradient(125deg,#b0d3ed,#629ddd 62%,#9dc4eb);filter:none!important}
-.phone-stage>canvas,.academic-stage>canvas{filter:grayscale(1) drop-shadow(0 20px 26px #183f6c24);transition:filter .65s ease;z-index:1}
-.phone-showcase.is-expanded .phone-stage>canvas,.academic-showcase.is-expanded .academic-stage>canvas{filter:grayscale(0) drop-shadow(0 20px 26px #183f6c24)}
-.phone-fallback,.academic-fallback{filter:grayscale(1)}.is-expanded .phone-fallback,.is-expanded .academic-fallback{filter:grayscale(0)}
+/* Product studio: a dark neutral field, broad backlight and a quiet reflected light pool. */
+.phone-stage,.academic-showcase .academic-stage{background:#080a0f;filter:grayscale(1)!important;transition:filter .9s cubic-bezier(.22,1,.36,1)}
+.phone-showcase.is-expanded .phone-stage,.academic-showcase.is-expanded .academic-stage{filter:grayscale(0)!important}
+.phone-stage:before,.academic-stage:before{content:"";position:absolute;inset:-15%;pointer-events:none;background:radial-gradient(ellipse 43% 45% at 50% 47%,#b6bcfa8c 0%,#636eaf6b 30%,#303d694f 55%,transparent 80%),radial-gradient(ellipse 40% 24% at 58% 62%,#3c4f9c70 0%,transparent 76%),radial-gradient(ellipse 28% 42% at 29% 43%,#6d739f36 0%,transparent 75%);filter:blur(26px)}
+.phone-stage:after,.academic-stage:after{content:"";position:absolute;left:8%;right:8%;bottom:6%;height:17%;pointer-events:none;background:radial-gradient(ellipse at center,#a9b7da36 0%,#6f7a9d20 33%,transparent 70%);filter:blur(16px)}
+.phone-stage>canvas,.academic-stage>canvas{filter:drop-shadow(0 20px 24px #0006);z-index:1;transition:none}
+.phone-showcase.is-expanded .phone-stage>canvas,.academic-showcase.is-expanded .academic-stage>canvas{filter:drop-shadow(0 20px 24px #0006)}
+.phone-fallback,.academic-fallback{filter:none}.is-expanded .phone-fallback,.is-expanded .academic-fallback{filter:none}
 .phone-showcase .phone-fallback .fallback-device--logo{left:35%;width:30%;transform:rotate(3deg);top:16px}.phone-showcase.is-expanded .phone-fallback .fallback-device--logo{left:35%;width:30%;top:45px}
 .tencent-static-card--ai{left:6%;top:27%;width:34%;rotate:-4deg}.tencent-static-card--settings{right:5%;top:66%;width:30%;aspect-ratio:3.4;rotate:4deg}.tencent-static-card--nav{display:none}
+@media(prefers-reduced-motion:reduce){.phone-stage,.academic-showcase .academic-stage{transition:none}}

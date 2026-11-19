@@ -2,9 +2,9 @@
 .hero-scroll{position:relative}.hero-stage{position:relative}.hero-next,.hero-seam{display:none}.hero-intro:before{display:none}
 .hero-scene-ready .hero-stage{position:sticky;overflow:hidden;isolation:isolate}
 .hero-scene-ready .hero-intro{position:absolute;inset:0;height:100%;min-height:0}
-.hero-scene-ready .hero-next{display:block;position:absolute;inset:0;visibility:hidden;overflow:hidden}.hero-next-wipe{position:absolute;inset:0;background:var(--paper);clip-path:polygon(0 0,0 0,0 100%,0 100%)}.hero-next-copy{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%)}
+.hero-scene-ready .hero-next{display:block;position:absolute;inset:0;visibility:hidden;overflow:hidden;clip-path:polygon(0 0,0 0,0 100%,0 100%)}.hero-next-wipe{position:absolute;inset:0;background:var(--paper)}.hero-next-copy{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center}
 .hero-next-wipe:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(12.5% - 1px),var(--line) calc(12.5% - 1px),var(--line) 12.5%);opacity:.35}
-.hero-next-title{position:relative;grid-column:3 / 7;text-align:right;font-size:clamp(56px,7.2vw,142px);font-weight:400;line-height:.96;letter-spacing:-.065em;margin:0;will-change:transform}
+.hero-next-title{position:relative;grid-column:2 / 6;text-align:right;font-size:clamp(56px,7.2vw,142px);font-weight:400;line-height:.96;letter-spacing:-.065em;margin:0;will-change:transform}
 .hero-next .hero-next-link{position:absolute;bottom:24px;right:var(--pad);font-size:12px;padding:12px 0;display:flex;align-items:center;gap:25px}
 .hero-scene-ready .hero-seam{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3}.hero-seam line{stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.8}
 @media(max-width:800px){.hero-next-title{grid-column:2 / 8;font-size:clamp(46px,11vw,82px)}.hero-next .hero-next-link{bottom:20px}.hero-scene-ready .hero-intro{padding-top:45px}.hero-bottom{margin-top:30px}}
