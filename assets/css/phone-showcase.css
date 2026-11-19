@@ -34,3 +34,8 @@
 /* Poster reference backdrops; grayscale is applied to the entire stage at rest. */
 .phone-stage{background:radial-gradient(ellipse at 4% 0%,#f3ffdd 0,transparent 46%),radial-gradient(ellipse at 94% 40%,#d3ff8866 0,transparent 45%),linear-gradient(130deg,#baff54,#89ef2d 58%,#b1fc4d)}
 .academic-stage{background:radial-gradient(ellipse at 85% 5%,#fffff6 0,transparent 65%),linear-gradient(115deg,#f3faff,#eefbf6)}
+
+/* Match the reference poster’s oversized mint/cyan lettering behind the product cluster. */
+.academic-poster-type{position:absolute;left:10%;top:50%;width:86%;transform:translateY(-50%) skewX(-12deg);font:800 clamp(58px,7.9vw,150px)/1.15 Helvetica,Arial,sans-serif;letter-spacing:-.07em;text-transform:uppercase;color:transparent;background:linear-gradient(130deg,#b5f9d9,#6eebae 48%,#61cddd);background-clip:text;-webkit-background-clip:text;pointer-events:none;opacity:.72}
+.academic-poster-type span{display:block}.academic-stage>canvas{z-index:1}
+@media(max-width:800px){.academic-poster-type{font-size:15vw}}

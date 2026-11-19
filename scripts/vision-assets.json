@@ -1,0 +1,539 @@
+{
+  "sha256": "f0bc922bcfdf6621f7338fe962ecb75bb828b97992e09064da642e8cb4dd5cce",
+  "files": [
+    {
+      "path": "license.txt",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/license.txt",
+      "format": "raw",
+      "sha256": "b8ff61e6526d9e31a34f88d03092300a0c1dacbd9d062eab1aca75b3b0d1e5ec"
+    },
+    {
+      "path": "scene.bin",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/scene.bin",
+      "format": "raw",
+      "sha256": "de86b7a3407e82a1d315ce284db1236bbd4b56d3015544cda3fdfbc218876502"
+    },
+    {
+      "path": "scene.gltf",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/scene.gltf",
+      "format": "raw",
+      "sha256": "2812b7a11031e0550286887cf35f073a103ca43d58e098bbb3219971ff27e95d"
+    },
+    {
+      "path": "textures/AjnVirXQeiPgFmd_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/AjnVirXQeiPgFmd_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "7d5c7dba4bb28677b003e4879ff6c326a1789c1fa8ff2e3d575d3f6755ce419d"
+    },
+    {
+      "path": "textures/AjnVirXQeiPgFmd_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/AjnVirXQeiPgFmd_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "d89adaebe12dfd723cd400aa0bb79db17f569b75df7e3e1e638aaa7650d5a486"
+    },
+    {
+      "path": "textures/AjnVirXQeiPgFmd_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/AjnVirXQeiPgFmd_normal.jpeg",
+      "format": "raw",
+      "sha256": "156ee00d3dd2684a1497f12f6f9255ccd51ca5deaf19a77146a8568a068920b6"
+    },
+    {
+      "path": "textures/CzTcyZGBTOTEuIC_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/CzTcyZGBTOTEuIC_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "f7a8da7b92814e69f0ddde9dc95e421fde59caec56b91e6649813e3960cbe888"
+    },
+    {
+      "path": "textures/FEdJjbtHQhrLkPc_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/FEdJjbtHQhrLkPc_emissive.jpeg",
+      "format": "raw",
+      "sha256": "b733bb499ceedb37cdb8de5d039f59a3482caf1d7153a8bdbd784000355aa5bf"
+    },
+    {
+      "path": "textures/FEdJjbtHQhrLkPc_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/FEdJjbtHQhrLkPc_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "c89ea6a6a4b9609b105376c2a097154e9cad8f5b442cd980a3ce7e516fdceaff"
+    },
+    {
+      "path": "textures/FFhjkYvBaxmGeMa_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/FFhjkYvBaxmGeMa_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "85984b50fbb0749b4a5ccdeb5be15e406532c3f92aee57d77ff8ca5f1a63db44"
+    },
+    {
+      "path": "textures/FFhjkYvBaxmGeMa_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/FFhjkYvBaxmGeMa_normal.jpeg",
+      "format": "raw",
+      "sha256": "f30397e1c246833f6c8b50b5aade65b857d5f0bd6ee74aa56804f8597dd754ad"
+    },
+    {
+      "path": "textures/GevKBvqYjYnmUWP_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/GevKBvqYjYnmUWP_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "62dabaaf029dc1ee3cfdd6a4d7989d30f6e63895b5640fc29eceefb311b658d9"
+    },
+    {
+      "path": "textures/GvidsfHBLmyLFLj_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/GvidsfHBLmyLFLj_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "e802752ef0e58510f944ac00e28331a23e302c98aa0d35a2794b8d3e4aaacff5"
+    },
+    {
+      "path": "textures/GvidsfHBLmyLFLj_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/GvidsfHBLmyLFLj_normal.jpeg",
+      "format": "raw",
+      "sha256": "d310aa4d88197300cb8f57769c66ca90af97640724da9e3514b238b43ac73221"
+    },
+    {
+      "path": "textures/HAvYQJgmRpVYpqr_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/HAvYQJgmRpVYpqr_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "c89ea6a6a4b9609b105376c2a097154e9cad8f5b442cd980a3ce7e516fdceaff"
+    },
+    {
+      "path": "textures/IUXXlUlgvhvFPzz_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/IUXXlUlgvhvFPzz_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "f7a8da7b92814e69f0ddde9dc95e421fde59caec56b91e6649813e3960cbe888"
+    },
+    {
+      "path": "textures/JvGMyHWKpFKorez_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/JvGMyHWKpFKorez_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "87b4c55ecc3c0ad6e02e5eaa585d115c5bcb6a3f3f547b149d5c53829c61d69d"
+    },
+    {
+      "path": "textures/JvGMyHWKpFKorez_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/JvGMyHWKpFKorez_emissive.jpeg",
+      "format": "raw",
+      "sha256": "944f15c839dbee5a41ef4eaaf95450d24cb925b8bc2f26f532995c14bb745b9e"
+    },
+    {
+      "path": "textures/JvGMyHWKpFKorez_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/JvGMyHWKpFKorez_normal.jpeg",
+      "format": "raw",
+      "sha256": "7f0f8d063f2b603e3a4832a36fcc86ca43cbb2dd3fc62089a621bb3234fcdc73"
+    },
+    {
+      "path": "textures/LCFAOHKyQkTpEQF_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LCFAOHKyQkTpEQF_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "59432c289956f6d2ecaa07b7876f820e66463f832bb97f872c0ee2cca9b5184f"
+    },
+    {
+      "path": "textures/LCFAOHKyQkTpEQF_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LCFAOHKyQkTpEQF_emissive.jpeg",
+      "format": "raw",
+      "sha256": "029193cc56762fb55e9872bedf82f791838d0791b65b0c1166adb99f3f0ffd9c"
+    },
+    {
+      "path": "textures/LlnrRvRtBSKKJtZ_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LlnrRvRtBSKKJtZ_emissive.jpeg",
+      "format": "raw",
+      "sha256": "b50d8bc53981030a3536eab13ebb645ce6e2d41d8f5fb4e8f8a2635693d4be4d"
+    },
+    {
+      "path": "textures/LlnrRvRtBSKKJtZ_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LlnrRvRtBSKKJtZ_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8475eb25d2ef3f8fd82a01318bff646554a49bc2d5b329a7f5bdb2ae6a34db35"
+    },
+    {
+      "path": "textures/LrbPxjZrLaPVhbL_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LrbPxjZrLaPVhbL_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "94923d8b60ad90dbb9ffa6bcbbe5f01f0e5f2a74fd7483db15f1244b35a26907"
+    },
+    {
+      "path": "textures/LrbPxjZrLaPVhbL_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/LrbPxjZrLaPVhbL_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "a881d9ada7e1a692411a8fbd66c9ded01db08ae893128fb447d9bc6aa525dd33"
+    },
+    {
+      "path": "textures/NHDhsOMHMgThpCN_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NHDhsOMHMgThpCN_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "1c9cecd8d2671e1ef9060f4255d72e88c3e8bcabbd30651404200a24d7fd5bcc"
+    },
+    {
+      "path": "textures/NHDhsOMHMgThpCN_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NHDhsOMHMgThpCN_specularf0.png",
+      "format": "raw",
+      "sha256": "69f55fcaaf6ca4daeef88dd428b25a363623ebbbb9b82e00dcb0bf2f0a17efc5"
+    },
+    {
+      "path": "textures/NJTstBdwEqVPDBG_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NJTstBdwEqVPDBG_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "4fe9f768257f37118c1614d41b3914da797f5c7ad35216851cfd6532a84c3edd"
+    },
+    {
+      "path": "textures/NJTstBdwEqVPDBG_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NJTstBdwEqVPDBG_emissive.jpeg",
+      "format": "raw",
+      "sha256": "706916e3543e86d58bf663b1168ec96c3241c73d09b6733b93c9b78255cdfe3c"
+    },
+    {
+      "path": "textures/NJTstBdwEqVPDBG_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NJTstBdwEqVPDBG_normal.jpeg",
+      "format": "raw",
+      "sha256": "61f87c46dd04ade89a475b6f8bcc5fd4dfc85ccb94eb7fd8cedc5211caececa9"
+    },
+    {
+      "path": "textures/NLXCMSpYzHeRKCy_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/NLXCMSpYzHeRKCy_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "c6883beaf9f94ec9a9752e2e2670785ad37d2d4b7b080653eac402ff25874cd9"
+    },
+    {
+      "path": "textures/OcjoBBhHkqmGEeg_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/OcjoBBhHkqmGEeg_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "c89ea6a6a4b9609b105376c2a097154e9cad8f5b442cd980a3ce7e516fdceaff"
+    },
+    {
+      "path": "textures/QqwPOMufQnLHpVb_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/QqwPOMufQnLHpVb_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "c89ea6a6a4b9609b105376c2a097154e9cad8f5b442cd980a3ce7e516fdceaff"
+    },
+    {
+      "path": "textures/RWqkxBAMyYvCfAW_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/RWqkxBAMyYvCfAW_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "620cd3c144dccf06ac21245d47984fbe9dc03e4abb0d23333bea52e268901d77"
+    },
+    {
+      "path": "textures/RWqkxBAMyYvCfAW_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/RWqkxBAMyYvCfAW_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "b27d01c927fb7abe9a6008ef49d69e787642f6d38de0c33f2d5acd3f68511654"
+    },
+    {
+      "path": "textures/RWqkxBAMyYvCfAW_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/RWqkxBAMyYvCfAW_normal.jpeg",
+      "format": "raw",
+      "sha256": "2d9ec1596cce0d26a3dbf64b13316296aee2a89b72aa52dda328a0d077415701"
+    },
+    {
+      "path": "textures/RWqkxBAMyYvCfAW_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/RWqkxBAMyYvCfAW_specularf0.png",
+      "format": "raw",
+      "sha256": "eec1467827f6e0c924f85f4acc95e9bcaa19b9acf2e5cf2bb0208a437bd4edde"
+    },
+    {
+      "path": "textures/WicotZnvNvRZKUL_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/WicotZnvNvRZKUL_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "3e147923ec716bf3376da470d9caac04515c3b642ac0dd0a914519a46e109af9"
+    },
+    {
+      "path": "textures/WicotZnvNvRZKUL_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/WicotZnvNvRZKUL_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "f44731b24f88a2b55191efbc2e72679c660c4fa802e5c33c8cdc1118b2bec07e"
+    },
+    {
+      "path": "textures/WicotZnvNvRZKUL_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/WicotZnvNvRZKUL_normal.jpeg",
+      "format": "raw",
+      "sha256": "2f1e7332c53c1ef657bee632aa90507fc12ecc83c0dfa219346d57721271e096"
+    },
+    {
+      "path": "textures/XHmyiGBFGvanMAr_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/XHmyiGBFGvanMAr_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "47a13374273d1d0539b182acd8e1dc204e65775b66e634cfcf5b680a3ee2bbc7"
+    },
+    {
+      "path": "textures/XNhEODEcVemrRSu_baseColor.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/XNhEODEcVemrRSu_baseColor.png",
+      "format": "raw",
+      "sha256": "fe3ff57a5907a72e83e276366ea334411b6cf280c5cb1cdc2f88bb62524d2f41"
+    },
+    {
+      "path": "textures/XNhEODEcVemrRSu_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/XNhEODEcVemrRSu_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "3a0a808605b8d0ab9601b433bf78b7bae1dc31cf642946181d95b750a203ea77"
+    },
+    {
+      "path": "textures/XNhEODEcVemrRSu_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/XNhEODEcVemrRSu_normal.jpeg",
+      "format": "raw",
+      "sha256": "d3eb0133048c6fa45a258df34df1fae0b9c3e9f27db3066bcb716e1a5a74c094"
+    },
+    {
+      "path": "textures/ZwEHHHBVBsIGFLj_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ZwEHHHBVBsIGFLj_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "b937b981f3acf050a49d724be2ca9e9183536ba188b059604763ca99fafd1b5b"
+    },
+    {
+      "path": "textures/ZwEHHHBVBsIGFLj_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ZwEHHHBVBsIGFLj_emissive.jpeg",
+      "format": "raw",
+      "sha256": "dada6ddbdf45e45e7d375829e2d22442f87ab5709b8755eff34ca9fe66d55c5d"
+    },
+    {
+      "path": "textures/ZwEHHHBVBsIGFLj_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ZwEHHHBVBsIGFLj_normal.jpeg",
+      "format": "raw",
+      "sha256": "9bbfe8ad2a9ac65bc3bf7fe752bb2e5eec89c434c14ecd8f1b5da243fa23e69c"
+    },
+    {
+      "path": "textures/dFHMyPBpPqeTjiL_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/dFHMyPBpPqeTjiL_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "4c96f97693e6e6ca271712ca20e62730f041416fb6b996ea7db33ba5a69a757c"
+    },
+    {
+      "path": "textures/dFHMyPBpPqeTjiL_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/dFHMyPBpPqeTjiL_emissive.jpeg",
+      "format": "raw",
+      "sha256": "c6d72ec74cccc0c44e2ab85e568c6238a945d0517cfafb1c3d2507d51d995400"
+    },
+    {
+      "path": "textures/fBnoCDaWrdqLbCS_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/fBnoCDaWrdqLbCS_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "4ea42ea7422e51198f28672eb9b50bb6f70f2550b7895ccfaecffe49e99fe804"
+    },
+    {
+      "path": "textures/fBnoCDaWrdqLbCS_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/fBnoCDaWrdqLbCS_emissive.jpeg",
+      "format": "raw",
+      "sha256": "5335c1f5c170530322e09f886e102be6eec20bd98a2fd5964ece4cb22b6de882"
+    },
+    {
+      "path": "textures/fBnoCDaWrdqLbCS_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/fBnoCDaWrdqLbCS_normal.jpeg",
+      "format": "raw",
+      "sha256": "e7faff616de6ce118a9f383e3591af47e24fa548bbb06f2de33fca97746775c7"
+    },
+    {
+      "path": "textures/gFHmZYZAcTzegfV_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/gFHmZYZAcTzegfV_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8501858646c26412cf421ec1ff8a5b4804eb2a181fd3d6593b37221f546a4c7f"
+    },
+    {
+      "path": "textures/hQMaJbjPDPOUdry_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/hQMaJbjPDPOUdry_emissive.jpeg",
+      "format": "raw",
+      "sha256": "6aaa20d384e0fa08eeb444577c318c6039aec6f72441b3f4eaca3b01f026a1ae"
+    },
+    {
+      "path": "textures/hjAUwLwBADKDzhk_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/hjAUwLwBADKDzhk_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "bc1c97a232c541209e00f570dd9b810247176ff0a0bcf603288d5153aaa49145"
+    },
+    {
+      "path": "textures/kEEsgKvKWifaKeg_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/kEEsgKvKWifaKeg_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "fa4b83787e19f46f726d1319f1ee199030b8f9e81cc7d52ed75170748fcd365b"
+    },
+    {
+      "path": "textures/kEEsgKvKWifaKeg_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/kEEsgKvKWifaKeg_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "b9a98c90a1dce4984341a6a1cecfd0cca232d3b1061b43ff7e297c2261d3562e"
+    },
+    {
+      "path": "textures/hzzIZvnSVXHRIpk_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/hzzIZvnSVXHRIpk_normal.jpeg",
+      "format": "raw",
+      "sha256": "5fc77476a39e1768cc6fae4f7e93838b1c9b027fb88d85807e7f87b6e7e720cc"
+    },
+    {
+      "path": "textures/hzzIZvnSVXHRIpk_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/hzzIZvnSVXHRIpk_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "7a6767c570f370810ee67c59d77a3be7715b6fe2c66a9a86f7613d878ff2f73c"
+    },
+    {
+      "path": "textures/hzzIZvnSVXHRIpk_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/hzzIZvnSVXHRIpk_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "4f015f4b6260ff9836a19b1d6b34efd6b1e7e02f11bb54d009f93abebc348dcb"
+    },
+    {
+      "path": "textures/lagreFFLwlIcTJO_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/lagreFFLwlIcTJO_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8501858646c26412cf421ec1ff8a5b4804eb2a181fd3d6593b37221f546a4c7f"
+    },
+    {
+      "path": "textures/kPwwriYXUEalYIj_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/kPwwriYXUEalYIj_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8143d66944401f40cbdaf4cdb93020de6e955bc765fc7186c15ea40d7bd62844"
+    },
+    {
+      "path": "textures/msHgsHSWlHxyhfo_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/msHgsHSWlHxyhfo_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8818c25e9ebc31c1c69c291afd78a9418f3a205d6b8a6899c50809646232bfa4"
+    },
+    {
+      "path": "textures/nirjontYTAixgEJ_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/nirjontYTAixgEJ_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "0c1b5482f9b093ca790e96959ec7a989a75fe35819f8853aad6c4804a5dcd0ac"
+    },
+    {
+      "path": "textures/nirjontYTAixgEJ_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/nirjontYTAixgEJ_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "1d7e8bf4a937a861cde891ebdd9e92bb264608ef6bb2b4b00d7bf677b7076760"
+    },
+    {
+      "path": "textures/lZazJJAwgeaFFzW_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/lZazJJAwgeaFFzW_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "d5706641dc7cf08acb0302f64de96886ca6c0617e5f2f84896881a6569cfa6fb"
+    },
+    {
+      "path": "textures/oRyqyBedXgltlyh_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/oRyqyBedXgltlyh_normal.jpeg",
+      "format": "raw",
+      "sha256": "7fea794e477ed0b74e01ef1ec4281a9ca260e319c996da602e5a735d7c934138"
+    },
+    {
+      "path": "textures/oRyqyBedXgltlyh_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/oRyqyBedXgltlyh_specularf0.png",
+      "format": "raw",
+      "sha256": "a2e4ee1ffd8ed630af7666cc6bb6b7c2b185ca3da19b52178da29d580a6e9897"
+    },
+    {
+      "path": "textures/pMiARQLBeNgKOAx_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/pMiARQLBeNgKOAx_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "1eaac354a5c3c205236d11e23e631d472d64c31ca43d50653ed525af4451b234"
+    },
+    {
+      "path": "textures/nirjontYTAixgEJ_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/nirjontYTAixgEJ_normal.jpeg",
+      "format": "raw",
+      "sha256": "e98d8bb675542e1911f0a1554907f3dcb75afd11a17b3d3c772bba2845568786"
+    },
+    {
+      "path": "textures/pMiARQLBeNgKOAx_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/pMiARQLBeNgKOAx_emissive.jpeg",
+      "format": "raw",
+      "sha256": "47d73db35bea560fc5d7e87785a09cfa4e0d24302ec95da61494093c5eeb612a"
+    },
+    {
+      "path": "textures/oRyqyBedXgltlyh_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/oRyqyBedXgltlyh_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "8b4a520581369c2136a24ba72ed561891e669663d1b332236c107c42ab4d5cae"
+    },
+    {
+      "path": "textures/svoioOWqcyuDHRV_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/svoioOWqcyuDHRV_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "8818c25e9ebc31c1c69c291afd78a9418f3a205d6b8a6899c50809646232bfa4"
+    },
+    {
+      "path": "textures/svoioOWqcyuDHRV_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/svoioOWqcyuDHRV_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "d29ab873a0c070e8681928783c5df12d55e485963949f2c96bc9d2f824e18eca"
+    },
+    {
+      "path": "textures/sWxIuDoQFWtTiiB_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/sWxIuDoQFWtTiiB_specularf0.png",
+      "format": "raw",
+      "sha256": "ad104ca802c078ad72a3e23f684dc323e9e06959182f918d7695b1ba23266c63"
+    },
+    {
+      "path": "textures/pMiARQLBeNgKOAx_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/pMiARQLBeNgKOAx_specularf0.png",
+      "format": "raw",
+      "sha256": "59469d83a7dbd3cc814c8899154105d12bff9ae4718cb5b1cc2ffca922577ba4"
+    },
+    {
+      "path": "textures/sWxIuDoQFWtTiiB_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/sWxIuDoQFWtTiiB_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "0adabbd1fed0888c505c2a39d5ffd6378a1b640ed57ae1b0baa9de1735c1412d"
+    },
+    {
+      "path": "textures/snsykSygkWSDIlk_emissive.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/snsykSygkWSDIlk_emissive.jpeg",
+      "format": "raw",
+      "sha256": "602785892a4c1508f842a0f1ad9818e0c20190c584541b726eb484007b74df66"
+    },
+    {
+      "path": "textures/uCIAdpMWlBjnYvL_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/uCIAdpMWlBjnYvL_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "a5127847bb8586d71c8678fcc809910d609124fee6a8fa95f46115951686926f"
+    },
+    {
+      "path": "textures/svovjBXowKlgbKD_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/svovjBXowKlgbKD_specularf0.png",
+      "format": "raw",
+      "sha256": "6b2fc0b4e30cc128adea6589e5a9052159788c1e98410d3c423acfaaeaf53393"
+    },
+    {
+      "path": "textures/svovjBXowKlgbKD_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/svovjBXowKlgbKD_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "eea572f37e655accab621438ebf297db79f3960a7aa123a09e8fe9742d5bcccd"
+    },
+    {
+      "path": "textures/xYIhbFReGzikXuj_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/xYIhbFReGzikXuj_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "05e2676320dfd79d56196b8bce8ef9f7301c318188782bc88a4a2e7b818a5f56"
+    },
+    {
+      "path": "textures/xYIhbFReGzikXuj_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/xYIhbFReGzikXuj_normal.jpeg",
+      "format": "raw",
+      "sha256": "492e029ffa2ca9d88b6c37dbcd98bda6dacf8adbfdbdcda4c69728bceb00cc43"
+    },
+    {
+      "path": "textures/xYIhbFReGzikXuj_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/xYIhbFReGzikXuj_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "94127d7a73607a0d7e3ae4b4370817872634b90588586d3bab1b90e807aed1d7"
+    },
+    {
+      "path": "textures/xYIhbFReGzikXuj_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/xYIhbFReGzikXuj_specularf0.png",
+      "format": "raw",
+      "sha256": "69f55fcaaf6ca4daeef88dd428b25a363623ebbbb9b82e00dcb0bf2f0a17efc5"
+    },
+    {
+      "path": "textures/ySrzecxrjVirfze_specularf0.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ySrzecxrjVirfze_specularf0.png",
+      "format": "raw",
+      "sha256": "69f55fcaaf6ca4daeef88dd428b25a363623ebbbb9b82e00dcb0bf2f0a17efc5"
+    },
+    {
+      "path": "textures/ySrzecxrjVirfze_normal.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ySrzecxrjVirfze_normal.jpeg",
+      "format": "raw",
+      "sha256": "350e283351401c4d99d99846fc15d8be48eef66548951bc72c216acaa2c113e8"
+    },
+    {
+      "path": "textures/ySrzecxrjVirfze_baseColor.jpeg",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ySrzecxrjVirfze_baseColor.jpeg",
+      "format": "raw",
+      "sha256": "5a94617a4517a92af613e73b58df0da7cbb50ac0ef7b8e80fe4811c438bb6f36"
+    },
+    {
+      "path": "textures/ySrzecxrjVirfze_metallicRoughness.png",
+      "url": "https://raw.githubusercontent.com/Yash-Shinde-24/ThreeJS-Quickstart/eae53465280fdeedff6f9a324550dcdce881995a/models/apple_vision_pro/textures/ySrzecxrjVirfze_metallicRoughness.png",
+      "format": "raw",
+      "sha256": "2cd9387b83fa6bb082f57fe1432dbd36dfd532506adfc2e029f5d1bf01cedc05"
+    }
+  ]
+}

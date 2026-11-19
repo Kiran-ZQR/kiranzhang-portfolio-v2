@@ -33,48 +33,16 @@
       function solid(w,h,d,r,m,parent){const g=new T.ExtrudeGeometry(round(w,h,r),{depth:d,bevelEnabled:true,bevelSize:.025,bevelThickness:.025,bevelSegments:3,steps:1,curveSegments:18});g.translate(0,0,-d/2);return mesh(g,m,parent)}
       function texture(src,topFraction=1){let yes,no;pending.push(new Promise((a,b)=>{yes=a;no=b}));const t=new T.TextureLoader().load(src,()=>{yes();wake()},undefined,no);t.colorSpace=T.SRGBColorSpace;if(typeof topFraction==='object'){const c=topFraction;t.repeat.set(c.w,c.h);t.offset.set(c.x,1-c.y-c.h)}else{t.repeat.y=topFraction;t.offset.y=1-topFraction;}t.userData.gltfCrop=typeof topFraction==='object'?topFraction:{x:0,y:0,w:1,h:topFraction};textures.push(t);return t}
       function panel(src,w,h,parent,topFraction=1){const g=new T.Group();parent.add(g);solid(w+.10,h+.10,.13,.15,silver,g);const bezel=solid(w+.055,h+.055,.025,.13,black,g);bezel.position.z=.08;const geometry=new T.ShapeGeometry(round(w,h,.12),20),pos=geometry.attributes.position,uv=geometry.attributes.uv;for(let i=0;i<pos.count;i++)uv.setXY(i,pos.getX(i)/w+.5,pos.getY(i)/h+.5);const material=new T.MeshBasicMaterial({map:texture(src,topFraction),toneMapped:false});materials.push(material);const display=mesh(geometry,material,g);display.position.z=.15;return g}
-      function visorShape(w,h){
-        const s=new T.Shape(),x=w/2,y=h/2;
-        s.moveTo(-x+.65,y);s.lineTo(x-.65,y);s.quadraticCurveTo(x,y,x,y-.62);
-        s.lineTo(x,-y+.58);s.quadraticCurveTo(x,-y,x-.68,-y);
-        s.quadraticCurveTo(.55,-y, .32,-y+.26);s.quadraticCurveTo(0,-y+.48,-.32,-y+.26);
-        s.quadraticCurveTo(-.55,-y,-x+.68,-y);s.quadraticCurveTo(-x,-y,-x,-y+.58);
-        s.lineTo(-x,y-.62);s.quadraticCurveTo(-x,y,-x+.65,y);return s;
-      }
-      function visor(w,h,d,m,parent){
-        const geo=new T.ExtrudeGeometry(visorShape(w,h),{depth:d,bevelEnabled:true,bevelSize:.035,bevelThickness:.035,bevelSegments:4,steps:1,curveSegments:22});
-        geo.translate(0,0,-d/2);const pos=geo.attributes.position;for(let i=0;i<pos.count;i++){const x=pos.getX(i);pos.setZ(i,pos.getZ(i)-x*x*.055)}geo.computeVertexNormals();return mesh(geo,m,parent);
-      }
-      function headset(){
-        const g=new T.Group();rig.add(g);visor(4.1,1.88,.55,silver,g);
-        const face=visor(3.98,1.77,.13,black,g);face.position.z=.34;
-        const c=document.createElement('canvas');c.width=512;c.height=256;const ctx=c.getContext('2d');
-        const grad=ctx.createLinearGradient(0,0,512,256);grad.addColorStop(0,'#26333c');grad.addColorStop(.34,'#4e4658');grad.addColorStop(.70,'#171e29');grad.addColorStop(1,'#33545b');ctx.fillStyle=grad;ctx.fillRect(0,0,512,256);
-        const glow=ctx.createRadialGradient(120,0,0,120,0,310);glow.addColorStop(0,'#e8eefa99');glow.addColorStop(1,'#e8eefa00');ctx.fillStyle=glow;ctx.fillRect(0,0,512,256);
-        const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;textures.push(t);const glassMat=mat({map:t,metalness:.48,roughness:.18});const glassGeo=new T.PlaneGeometry(3.82,1.64,64,24),positions=glassGeo.attributes.position,uvs=glassGeo.attributes.uv;
-        for(let i=0;i<positions.count;i++){
-          const u=uvs.getX(i),v=uvs.getY(i),y=(v-.5)*1.64,corner=Math.max(0,Math.abs(y)-(.82-.46));
-          const half=1.91-.46+Math.sqrt(Math.max(0,.46*.46-corner*corner));
-          const x=(u*2-1)*half,ny=y+.26*Math.exp(-Math.pow(x/.34,2))*Math.pow(1-v,4);
-          positions.setXYZ(i,x,ny,-x*x*.055);
-        }
-        glassGeo.computeVertexNormals();const glass=mesh(glassGeo,glassMat,g);glass.position.z=.52;
-        for(const x of [-1.42,-.78,.78,1.42]){const lens=mesh(new T.SphereGeometry(.07,16,12),black,g);lens.scale.z=.10;lens.position.set(x,-.47,.48-x*x*.055)}
-        const seal=visor(3.98,1.74,.52,fabric,g);seal.position.z=-.44;
-        const strap=mesh(new T.TorusGeometry(1.42,.21,16,80),white,g);strap.rotation.x=Math.PI/2;strap.scale.set(1.25,1,.82);strap.position.set(0,.15,-1.80);
-        for(const x of [-2.03,2.03]){const arm=mesh(new T.BoxGeometry(.19,.38,1.30),white,g);arm.position.set(x,.16,-.47)}
-        const crown=mesh(new T.CylinderGeometry(.15,.15,.07,24),silver,g);crown.position.set(1.32,.98,-.05);return g;
-      }
-      const laptop=await presentation.device('laptop',{width:5.55,map:texture('assets/academic/profiled-board.reading.webp',{x:0,y:0,w:.575,h:.25})});rig.add(laptop);
+      const laptop=await presentation.device('laptop',{width:5.55,map:texture('assets/academic/profiled-board.reading.webp',{x:.23,y:.005,w:.29,h:.115})});rig.add(laptop);
       const phone=await presentation.device('phone',{height:2.15,map:texture('assets/academic/ar-nature-board.reading.webp',{x:.595,y:.531,w:.060,h:.094}),finish:0x71847c});rig.add(phone);
       const phoneRear=await presentation.device('phone',{height:2.15,finish:0x98b1a6});rig.add(phoneRear);
       const tablet=panel('assets/academic/lead-me-01.reading.webp',2.12,2.96,rig,{x:.025,y:.607,w:.215,h:.387});
       const cameraDot=mesh(new T.CircleGeometry(.035,16),black,tablet);cameraDot.position.set(0,1.45,.18);
       tablet.scale.setScalar(1.10);
       const back=new T.Group();tablet.add(back);back.rotation.y=Math.PI;
-      const cameraPlate=solid(.32,.48,.06,.10,black,back);cameraPlate.position.set(-.83,1.18,.12);
-      for(const y of [1.07,1.29]){const lens=mesh(new T.CircleGeometry(.078,20),black,back);lens.position.set(-.83,y,.165)}
-      const vision=headset();
+      const cameraPlate=solid(.32,.48,.06,.10,black,back);cameraPlate.position.set(.83,-1.18,.12);
+      for(const y of [-1.07,-1.29]){const lens=mesh(new T.CircleGeometry(.078,20),black,back);lens.position.set(.83,y,.165)}
+      const vision=await presentation.device('vision',{width:2.65});rig.add(vision);const visionScale=vision.scale.x;
       stage.append(renderer.domElement);
       const resize=new ResizeObserver(()=>{sizeDirty=true;wake()});resize.observe(stage);
       function draw(now){frame=0;if(!visible||document.hidden)return;
@@ -87,11 +55,11 @@
         rig.rotation.set(0,0,0);
         const poster=(object,x,y,z)=>{const span=2*(12-z)*Math.tan(camera.fov*Math.PI/360);object.position.set((x/610-.5)*span*(610/395),(.5-y/395)*span,z)};
         laptop.position.set(-.6347195863,-.4043121550,-20.0974227606);laptop.rotation.set(.537608172,-.790030050,.569517507);
-        poster(tablet,145,267,-24);tablet.rotation.set(-.63,2.82,1.70);
+        tablet.position.set(-3.0633529008,-1.5940745461,-23.7326957412);tablet.rotation.set(-2.3856920533901773,0.3788635241589102,1.2869312188456223);
         poster(phone,468,207,-18.8);phone.rotation.set(.02,-.25,.10);
         poster(phoneRear,519,218,-20.0);phoneRear.rotation.set(.05,Math.PI+.28,-.12);
-        poster(vision,532,234,-18.0);vision.rotation.set(.28,-.50,-.20);vision.scale.setScalar(.24);
-        camera.zoom=Math.min(1,camera.aspect/(610/395))*(1+.012*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
+        poster(vision,133,155,-18.0);vision.rotation.set(.08,-.15,-.12);vision.scale.setScalar(visionScale);
+        camera.zoom=Math.min(1.08,camera.aspect/(610/395))*(1+.025*p);camera.lookAt(0,0,0);camera.updateProjectionMatrix();renderer.render(scene,camera);
         if(Math.abs(target-open)>.0005||Math.abs(velocity)>.002)wake();
       }
       function wake(){if(!frame&&visible&&!document.hidden)frame=requestAnimationFrame(draw)}

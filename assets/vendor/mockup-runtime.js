@@ -1,7 +1,7 @@
 import {GLTFLoader} from './GLTFLoader.js';
 import {MeshoptDecoder} from './meshopt_decoder.module.js';
 const T=window.THREE,loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),cache=new Map();
-const defs={phone:{file:'iphone-17-pro-max.glb',rotate:[0,Math.PI/2,0],screen:'screen.001',body:['basecolor.001','metalframe.002','backpanel.001','Material.005']},laptop:{file:'macbook-pro-16.glb',rotate:[0,0,0],screen:'sfCQkHOWyrsLmor',body:[]}};
+const defs={vision:{file:'vision-pro.glb',rotate:[0,-Math.PI/2,0],body:[]},phone:{file:'iphone-17-pro-max.glb',rotate:[0,Math.PI/2,0],screen:'screen.001',body:['basecolor.001','metalframe.002','backpanel.001','Material.005']},laptop:{file:'macbook-pro-16.glb',rotate:[0,0,0],screen:'sfCQkHOWyrsLmor',body:[]}};
 export async function device(kind,{height,width,map,finish=0x89939e}={}){
   const d=defs[kind];if(!cache.has(kind))cache.set(kind,loader.loadAsync('assets/models/'+d.file));
   const gltf=await cache.get(kind),source=gltf.scene.clone(true),orient=new T.Group();orient.add(source);orient.rotation.set(...d.rotate);orient.updateMatrixWorld(true);
