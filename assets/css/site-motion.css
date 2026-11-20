@@ -5,8 +5,13 @@
 a:hover>.nav-roll>span:first-child,a:focus-visible>.nav-roll>span:first-child{transform:translateY(-110%) rotateX(70deg);opacity:0}
 a:hover>.nav-roll>span+span,a:focus-visible>.nav-roll>span+span{transform:translateY(0) rotateX(0);opacity:1}
 .v2-global a:hover{text-decoration:none}
-.route-curtain{position:fixed;inset:0;z-index:9000;background:var(--ink,#efefef);pointer-events:none;transform:scaleY(0);transform-origin:bottom;display:flex;align-items:center;justify-content:center;color:var(--paper,#101010);font:400 clamp(45px,9vw,150px)/1 Helvetica,Arial,sans-serif;letter-spacing:-.06em}
-html.route-arriving .route-curtain{transform:scaleY(1)}
+.route-curtain{position:fixed;inset:0;z-index:9000;pointer-events:none;visibility:hidden;overflow:hidden}
+.route-curtain.is-active,html.route-arriving .route-curtain{visibility:visible;pointer-events:auto}
+.route-panel{position:absolute;left:0;right:0;height:calc(50% + 1px);background:var(--paper,#101010);will-change:transform}
+.route-panel--top{top:0;transform:translateY(-101%);border-bottom:1px solid var(--line)}
+.route-panel--bottom{bottom:0;transform:translateY(101%);border-top:1px solid var(--line)}
+html.route-arriving .route-panel{transform:translateY(0)}
+.route-line{position:absolute;left:50%;top:50%;width:145vmax;height:1px;background:var(--ink);opacity:0;transform-origin:center}
 .site-cursor{position:fixed;left:0;top:0;z-index:10000;width:10px;height:10px;background:white;border-radius:50%;pointer-events:none;mix-blend-mode:difference;opacity:0;translate:-50% -50%;transition:width .25s,height .25s,opacity .15s}
 .site-cursor.is-active{opacity:1}.site-cursor.is-link{width:30px;height:30px}
 @media(hover:hover) and (pointer:fine){html.has-circle-cursor,html.has-circle-cursor *{cursor:none!important}}

@@ -9,3 +9,9 @@
 .hero-scene-ready .hero-seam{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3}.hero-seam line{stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.8}
 @media(max-width:800px){.hero-next-title{grid-column:2 / 8;font-size:clamp(46px,11vw,82px)}.hero-next .hero-next-link{bottom:20px}.hero-scene-ready .hero-intro{padding-top:45px}.hero-bottom{margin-top:30px}}
 @media(prefers-reduced-motion:reduce){.hero-scroll{height:auto!important}.hero-stage{position:relative!important;height:auto!important;top:auto!important}.hero-intro{position:relative!important;min-height:calc(100svh - 17vw - 58px)!important}.hero-next,.hero-seam{display:none!important}}
+
+/* Pixel-space rotation keeps the pivot centered at every aspect ratio. */
+.hero-motion-lines{display:none}.hero-scene-ready .hero-motion-lines{display:block;position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.hero-rotor{position:absolute;left:50%;top:50%;height:1px;background:var(--line);transform-origin:center;will-change:transform}
+.hero-shutter-edge{position:absolute;left:0;right:0;height:1px;background:var(--line);opacity:0}
+@media(prefers-reduced-motion:reduce){.hero-motion-lines{display:none!important}}

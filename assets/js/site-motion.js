@@ -11,7 +11,10 @@
     for(let i=0;i<2;i++){const span=document.createElement('span');span.textContent=text;wrap.append(span)}
     a.replaceChildren(wrap);
   });
-  const curtain = document.createElement('div'); curtain.className='route-curtain';curtain.setAttribute('aria-hidden','true');document.body.append(curtain);
+  const curtain = document.createElement('div'); curtain.className='route-curtain';curtain.setAttribute('aria-hidden','true');
+  const topPanel=document.createElement('div'),bottomPanel=document.createElement('div'),routeLine=document.createElement('i');
+  topPanel.className='route-panel route-panel--top';bottomPanel.className='route-panel route-panel--bottom';routeLine.className='route-line';
+  curtain.append(topPanel,bottomPanel,routeLine);document.body.append(curtain);
   const animate = (el,frames,options) => el.animate(frames,{duration:500,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards',...options});
   function reveal(target) {
     if(reduced.matches) return;
@@ -21,10 +24,14 @@
     });
   }
   async function uncover(target) {
-    curtain.style.transformOrigin='top';
+    curtain.classList.add('is-active');
     reveal(target);
-    await animate(curtain,[{transform:'scaleY(1)'},{transform:'scaleY(0)'}],{duration:600}).finished;
-    curtain.textContent='';root.classList.remove('route-arriving');
+    routeLine.getAnimations().forEach(a=>a.cancel());routeLine.style.opacity='0';
+    await Promise.all([
+      animate(topPanel,[{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:700}).finished,
+      animate(bottomPanel,[{transform:'translateY(0)'},{transform:'translateY(101%)'}],{duration:700}).finished
+    ]);
+    curtain.classList.remove('is-active');root.classList.remove('route-arriving');
   }
   if(session.get('kiran-route')) {
     session.remove('kiran-route');
@@ -44,9 +51,14 @@
     if(reduced.matches)return;
     e.preventDefault();if(navigating)return;navigating=true;
     try{
-      curtain.textContent=a.closest('.main-nav,.v2-global') ? a.getAttribute('aria-label')||a.textContent.trim() : '';
-      curtain.style.transformOrigin='bottom';
-      await animate(curtain,[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],{duration:420}).finished;
+      curtain.classList.add('is-active');
+      const diagonal=Math.atan2(innerHeight,innerWidth)*180/Math.PI;
+      routeLine.style.opacity='1';
+      animate(routeLine,[{transform:'translate(-50%,-50%) rotate('+diagonal+'deg)',opacity:0},{opacity:1,offset:.15},{transform:'translate(-50%,-50%) rotate('+(diagonal+360)+'deg)',opacity:1,offset:.8},{transform:'translate(-50%,-50%) rotate(360deg)',opacity:0}],{duration:650});
+      await Promise.all([
+        animate(topPanel,[{transform:'translateY(-101%)'},{transform:'translateY(0)'}],{duration:650}).finished,
+        animate(bottomPanel,[{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:650}).finished
+      ]);
       if(target){
         const nav=document.querySelector('.main-nav,.v2-global');
         const top=url.hash==='#home'?0:target.getBoundingClientRect().top+scrollY-(nav?.offsetHeight||68)-22;
@@ -55,9 +67,9 @@
         target.setAttribute('tabindex','-1');target.focus({preventScroll:true});
         await uncover(target);navigating=false;
       }else{session.set('kiran-route','1');location.assign(url.href)}
-    }catch{navigating=false;curtain.style.transform='scaleY(0)';location.assign(url.href)}
+    }catch{navigating=false;curtain.classList.remove('is-active');root.classList.remove('route-arriving');location.assign(url.href)}
   });
-  addEventListener('pageshow',e=>{if(e.persisted){navigating=false;curtain.getAnimations().forEach(a=>a.cancel());curtain.style.transform='scaleY(0)';root.classList.remove('route-arriving')}});
+  addEventListener('pageshow',e=>{if(e.persisted){navigating=false;curtain.querySelectorAll('*').forEach(el=>el.getAnimations().forEach(a=>a.cancel()));curtain.classList.remove('is-active');root.classList.remove('route-arriving')}});
   // Native pointer remains on touch devices and until the first real pointer event.
   const cursor=document.createElement('div');cursor.className='site-cursor';cursor.setAttribute('aria-hidden','true');document.body.append(cursor);
   document.addEventListener('pointermove',e=>{
