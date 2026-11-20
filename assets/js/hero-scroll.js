@@ -16,7 +16,8 @@
     stage.style.height=h+'px';scene.style.marginTop=-opening+'px';
     // The source composition uses one viewport for its opening, then continues
     // its typography below it. Both pieces of text share one translating plane.
-    const mobile=w<=800,descriptionTop=mobile?.53*h:.4925*h;
+    const mobile=w<=800,gap=Math.max(64,Math.min(150,h*.12));
+    const descriptionTop=mobile?Math.max(.53*h,opening+100):Math.max(.4925*h,opening+gap);
     stage.style.setProperty('--description-top',descriptionTop+'px');
     stage.style.setProperty('--description-height',(h-descriptionTop)+'px');
     stage.style.setProperty('--heading-gap',(mobile?.17:.195)*h+'px');
@@ -24,6 +25,7 @@
     const travel=Math.max(0,story.scrollHeight-h);
     scene.style.height=(h+travel)+'px';
     const y=clamp(-scene.getBoundingClientRect().top/Math.max(1,travel))*travel;
+    document.documentElement.classList.toggle('hero-nav-overlay',scene.getBoundingClientRect().bottom>nav.offsetHeight+24);
     // Calibrated to the source: diagonal from the viewport aspect ratio, ending
     // at a horizontal 50% boundary after 65% of one viewport has been scrolled.
     const start=Math.atan2(h,w)*180/Math.PI-180,progress=clamp(y/(h*.65)),angle=start*(1-progress);
