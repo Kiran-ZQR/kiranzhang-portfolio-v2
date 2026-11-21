@@ -4,7 +4,7 @@
   const categories=[
     {name:'Tencent News Internship',href:'tencent-news.html',items:[['主客态体验','tencent-news-details.html'],['下拉刷新','tencent-news-refresh.html'],['上滑引导','tencent-news-guide.html'],['直播置顶','tencent-news-live.html'],['推广海报','tencent-news-promotion.html'],['日夜间适配','tencent-news-daynight.html'],['评论互动','tencent-news-comments.html'],['AI 定制早报','tencent-news-ai-briefing.html'],['AI 海报裁切','tencent-news-crop.html'],['AI 精品工具','tencent-news-ai-tools.html']]},
     {name:'Academic Projects',href:'academic-projects.html',items:[['SADRA','academic-sadra.html'],['FurSure','academic-fursure.html'],['PROFILED','academic-profiled.html'],['Star Farm','academic-star-farm.html'],['Lead Me','academic-lead-me.html']]},
-    {name:'Multimedia Design',href:'multimedia-projects.html',items:[['五元编织','life-weave.html'],['SentAIment','sentaiment.html'],['织布机模型','loom-model.html']]},
+    {name:'Multimedia Design',href:'multimedia-projects.html',items:[['五元编织','life-weave.html'],['SentAIment','sentaiment.html']]},
     {name:'Other Works',href:'aigc.html',items:[['The Fortress','aigc-fortress.html'],['The Rococo','aigc-rococo.html'],['角色场景','aigc-worlds.html'],['视觉实验','aigc-experiments.html']]}
   ];
   const category=categories.find(c=>c.href===file||c.items.some(i=>i[1]===file)),item=category?.items.find(i=>i[1]===file),isIndex=category?.href===file;
@@ -46,29 +46,6 @@
   global.after(context);document.body.classList.add('inner-navigation-ready');
   const measure=()=>{const globalHeight=global.getBoundingClientRect().height;document.documentElement.style.setProperty('--inner-global-height',globalHeight+'px');document.documentElement.style.setProperty('--inner-nav-height',(globalHeight+context.getBoundingClientRect().height)+'px')};
   if('ResizeObserver'in window){const observer=new ResizeObserver(measure);observer.observe(global);observer.observe(context)}measure();
-  // The header picker and reading-end sequence use this same sibling list.
-  const oldSequence=document.querySelector('.project-sequence');
-  const completionMount=file==='life-weave.html'?oldSequence?.parentElement:null;
-  document.querySelectorAll('.project-back,.project-sequence,.project-next,.project-sibling-nav,.academic-footer,.case-footer,.collection-back,.work-two-back').forEach(el=>el.remove());
-  if(item){
-    const index=siblings.indexOf(item),previous=siblings[index-1],next=siblings[index+1];
-    const footer=document.createElement('footer');footer.className='reading-footer';footer.setAttribute('aria-label','项目阅读结束导航');
-    const meta=document.createElement('div');meta.className='reading-footer-meta';
-    const back=makeLink('返回 '+groupName,categoryListHref);back.className='reading-return';
-    const position=document.createElement('span');position.className='reading-position';position.textContent=String(index+1).padStart(2,'0')+' / '+String(siblings.length).padStart(2,'0');
-    meta.append(back,position);footer.append(meta);
-    const sequence=document.createElement('nav');sequence.className='reading-sequence';sequence.setAttribute('aria-label','继续浏览'+groupName);
-    const projectLink=(entry,direction)=>{
-      const a=makeLink('',entry[1]);a.className='reading-project reading-project--'+direction;a.dataset.projectDirection=direction;
-      const label=document.createElement('span');label.className='reading-direction';label.textContent=direction==='next'?'下一项目':'上一项目';
-      const name=document.createElement('span');name.className='reading-project-name';name.textContent=entry[0];
-      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 32 32');svg.setAttribute('aria-hidden','true');
-      const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',direction==='next'?'M5 16h22M18 7l9 9-9 9':'M27 16H5M14 7l-9 9 9 9');svg.append(path);a.append(label,name,svg);return a;
-    };
-    if(previous)sequence.append(projectLink(previous,'previous'));
-    if(next)sequence.append(projectLink(next,'next'));
-    else{const end=document.createElement('p');end.className='reading-complete';end.textContent='已读完本组项目';sequence.append(end)}
-    footer.append(sequence);
-    if(completionMount)completionMount.append(footer);else(document.querySelector('main')||document.body).append(footer);
-  }
+  // Page hierarchy lives in the header; keep artwork endings free of extra navigation.
+  document.querySelectorAll('.project-back,.project-sequence,.reading-footer,.project-next,.project-sibling-nav,.academic-footer,.case-footer,.collection-back,.work-two-back').forEach(el=>el.remove());
 })();

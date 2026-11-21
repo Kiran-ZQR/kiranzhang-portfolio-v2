@@ -34,16 +34,7 @@
   links.addEventListener('click',event=>{if(event.target.closest('a'))setOpen(false)});
  }
  document.querySelectorAll('.project-next,.project-sibling-nav,.academic-footer,.case-footer,.collection-back,.work-two-back').forEach(el=>el.remove());
- const main=document.querySelector('main');const back=document.createElement('a');back.className='project-back sequence-link';back.href=group.list;back.innerHTML='<span class="sequence-label">ALL PROJECTS</span><span>返回项目列表</span><i aria-hidden="true">↗</i>';document.body.append(back);
- // Supplementary boards must precede the final navigation, not sit below it.
+ const main=document.querySelector('main');
+ // Preserve original project boards without injecting a second navigation system.
  document.querySelectorAll('body>.project-original-boards').forEach(board=>main?.append(board));
- // Keep the current project reachable in the scrollable mobile navigation.
- switcher?.querySelector('[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
- const previous=group.items[index-1],next=group.items[index+1];const footer=document.createElement('footer');footer.className='project-sequence';
- if(previous){const prev=document.createElement('a');prev.className='sequence-link';prev.href=previous[1];prev.innerHTML='<span class="sequence-label">PREVIOUS PROJECT</span><span>'+previous[0]+'</span><i aria-hidden="true">↖</i>';footer.append(prev);}
- const link=document.createElement('a');link.className='sequence-link';link.href=next?next[1]:group.list;
- link.innerHTML='<span class="sequence-label">'+(next?'NEXT PROJECT':'ALL PROJECTS')+'</span><span>'+(next?next[0]:'返回项目列表')+'</span><i aria-hidden="true">↗</i>';
- footer.append(link);
- if(file==='life-weave.html'){document.querySelector('#completion .result-actions')?.append(footer);back?.classList.add('weave-back');}else{main?.append(footer);}
 })();
-
