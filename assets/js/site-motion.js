@@ -15,23 +15,34 @@
   const topPanel=document.createElement('div'),bottomPanel=document.createElement('div'),routeLine=document.createElement('i');
   topPanel.className='route-panel route-panel--top';bottomPanel.className='route-panel route-panel--bottom';routeLine.className='route-line';
   curtain.append(topPanel,bottomPanel,routeLine);document.body.append(curtain);
-  const animate = (el,frames,options) => el.animate(frames,{duration:500,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards',...options});
+  const animate = (el,frames,options) => el.animate(frames,{duration:700,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards',...options});
+  const nextPaint=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  async function arrivalReady(target){
+    // Let the destination's deferred navigation and content scripts finish layout.
+    await nextPaint();
+    const visibleImages=[...target.querySelectorAll('img')].filter(img=>{const r=img.getBoundingClientRect();return r.width&&r.height&&r.bottom>0&&r.top<innerHeight}).slice(0,4);
+    let timeout;
+    try{await Promise.race([Promise.allSettled([document.fonts.ready,...visibleImages.map(img=>img.decode())]),new Promise(resolve=>{timeout=setTimeout(resolve,1600)})])}finally{clearTimeout(timeout)}
+    await nextPaint();
+  }
   function reveal(target) {
     if(reduced.matches) return;
-    target.querySelectorAll('h1,h2,h3,.hero-statement,.project-media,.ab-mission').forEach((el,i)=> {
-      if(el.getBoundingClientRect().top > innerHeight) return;
-      el.animate([{clipPath:'inset(100% 0 0 0)',transform:'translateY(26px)'},{clipPath:'inset(0)',transform:'translateY(0)'}],{duration:850,delay:Math.min(i*55,220),easing:'cubic-bezier(.22,1,.36,1)'});
-    });
+    // One coherent arrival avoids separate heading masks snapping through artwork.
+    target.animate([{opacity:.55},{opacity:1}],{duration:1050,easing:'cubic-bezier(.16,1,.3,1)'});
   }
   async function uncover(target) {
     curtain.classList.add('is-active');
+    curtain.dataset.phase='preparing';
+    await arrivalReady(target);
+    if(reduced.matches){curtain.classList.remove('is-active');root.classList.remove('route-arriving');return}
+    curtain.dataset.phase='opening';
     reveal(target);
     routeLine.getAnimations().forEach(a=>a.cancel());routeLine.style.opacity='0';
     await Promise.all([
-      animate(topPanel,[{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:700}).finished,
-      animate(bottomPanel,[{transform:'translateY(0)'},{transform:'translateY(101%)'}],{duration:700}).finished
+      animate(topPanel,[{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:1100,easing:'cubic-bezier(.16,1,.3,1)'}).finished,
+      animate(bottomPanel,[{transform:'translateY(0)'},{transform:'translateY(101%)'}],{duration:1100,easing:'cubic-bezier(.16,1,.3,1)'}).finished
     ]);
-    curtain.classList.remove('is-active');root.classList.remove('route-arriving');
+    curtain.classList.remove('is-active');curtain.dataset.phase='idle';root.classList.remove('route-arriving');
   }
   if(session.get('kiran-route')) {
     session.remove('kiran-route');
@@ -52,16 +63,18 @@
     e.preventDefault();if(navigating)return;navigating=true;
     try{
       curtain.classList.add('is-active');
-      const diagonal=Math.atan2(innerHeight,innerWidth)*180/Math.PI;
+      curtain.dataset.phase='closing';
       routeLine.style.opacity='1';
-      animate(routeLine,[{transform:'translate(-50%,-50%) rotate('+diagonal+'deg)',opacity:0},{opacity:1,offset:.15},{transform:'translate(-50%,-50%) rotate('+(diagonal+360)+'deg)',opacity:1,offset:.8},{transform:'translate(-50%,-50%) rotate(360deg)',opacity:0}],{duration:650});
+      animate(routeLine,[{transform:'translate(-50%,-50%) scaleX(0)',opacity:0},{transform:'translate(-50%,-50%) scaleX(1)',opacity:.65}],{duration:700});
       await Promise.all([
-        animate(topPanel,[{transform:'translateY(-101%)'},{transform:'translateY(0)'}],{duration:650}).finished,
-        animate(bottomPanel,[{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:650}).finished
+        animate(topPanel,[{transform:'translateY(-101%)'},{transform:'translateY(0)'}],{duration:700}).finished,
+        animate(bottomPanel,[{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:700}).finished
       ]);
+      document.querySelectorAll('.inner-picker[open]').forEach(picker=>picker.open=false);
       if(target){
         const nav=document.querySelector('.main-nav,.v2-global');
-        const top=url.hash==='#home'?0:target.getBoundingClientRect().top+scrollY-(nav?.offsetHeight||68)-22;
+        const navHeight=parseFloat(getComputedStyle(root).getPropertyValue('--inner-nav-height'))||(nav?.offsetHeight||68);
+        const top=url.hash==='#home'?0:target.getBoundingClientRect().top+scrollY-navHeight-22;
         scrollTo({top:Math.max(0,top),behavior:'instant'});
         history.pushState(null,'',url.hash);
         target.setAttribute('tabindex','-1');target.focus({preventScroll:true});
@@ -69,6 +82,10 @@
       }else{session.set('kiran-route','1');location.assign(url.href)}
     }catch{navigating=false;curtain.classList.remove('is-active');root.classList.remove('route-arriving');location.assign(url.href)}
   });
+  // Warm only a real hovered/focused project destination; no background route crawl.
+  const warmed=new Set();
+  const warm=event=>{const a=event.target.closest('a[data-project-direction],.inner-picker-menu a');if(!a)return;const url=new URL(a.href,location.href);if(url.origin!==location.origin||url.pathname===location.pathname||warmed.has(url.href))return;warmed.add(url.href);const hint=document.createElement('link');hint.rel='prefetch';hint.as='document';hint.href=url.href;document.head.append(hint)};
+  document.addEventListener('pointerover',warm,{passive:true});document.addEventListener('focusin',warm);
   addEventListener('pageshow',e=>{if(e.persisted){navigating=false;curtain.querySelectorAll('*').forEach(el=>el.getAnimations().forEach(a=>a.cancel()));curtain.classList.remove('is-active');root.classList.remove('route-arriving')}});
   // Native pointer remains on touch devices and until the first real pointer event.
   const cursor=document.createElement('div');cursor.className='site-cursor';cursor.setAttribute('aria-hidden','true');document.body.append(cursor);
