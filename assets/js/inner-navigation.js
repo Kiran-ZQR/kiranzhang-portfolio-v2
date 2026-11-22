@@ -27,7 +27,6 @@
       else for(const [name,hash] of [['迭代需求','business'],['探索需求','explore']])local.append(makeLink(name,category.href+'#'+hash,(hash==='explore')===!!exploratory));
     }else category.items.forEach(([name,href])=>local.append(makeLink(name,href,href===file)));
     global.append(local);
-    if(isIndex){const back=makeLink('全部分类','index.html#projects');back.className='inner-all';global.append(back)}
   }
   document.querySelectorAll('.unified-navigation,.case-header,.multimedia-navigation,.case-switcher-wrap,body>.category-nav,.inner-context,.ec-toc').forEach(el=>el.remove());
   document.body.classList.add('inner-navigation-ready');

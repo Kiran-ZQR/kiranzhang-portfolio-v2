@@ -77,3 +77,6 @@ All project category and detail pages share one 80px contextual row (72px mobile
 Each case ends with one forward destination and a small collection return link. Forward stays within the Tencent subgroup or current category; the final case returns to the collection. Loom remains excluded. Existing curtain navigation retains its measured arrival and reduced-motion fallback. Category tab changes animate as one coherent 750ms group.
 
 Reference: Driezie work page source shows a compact brand/menu header and individual project scene cards with their own captions; applied the separation of global/local navigation and individual artwork composition, without copying its brand or media. The supplied PDF informs restrained framing, cool paper, generous space and artwork-first hierarchy. Verified four collections and 21 case headers/end routes, desktop 1440x1000 and mobile 390x844.
+
+## Restore indexed previews — 2026-11-22
+User prefers the previous left preview/right project index arrangement. Restore that composition, hover/focus preview switching, keyboard index navigation and single-click project entry for all four collections. Retain complete images using contain, including paired screens and mobile thumbnails; retire all custom source crops. Keep the latest single contextual header and case forward path, removing the extra 全部分类 link.
