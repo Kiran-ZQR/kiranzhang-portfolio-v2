@@ -4,8 +4,8 @@
   const categories=[
     {name:'Tencent News Internship',href:'tencent-news.html',items:[['主客态体验','tencent-news-details.html'],['下拉刷新','tencent-news-refresh.html'],['上滑引导','tencent-news-guide.html'],['直播置顶','tencent-news-live.html'],['推广海报','tencent-news-promotion.html'],['日夜间适配','tencent-news-daynight.html'],['评论互动','tencent-news-comments.html'],['AI 定制早报','tencent-news-ai-briefing.html'],['AI 海报裁切','tencent-news-crop.html'],['AI 精品工具','tencent-news-ai-tools.html']]},
     {name:'Academic Projects',href:'academic-projects.html',items:[['SADRA','academic-sadra.html'],['FurSure','academic-fursure.html'],['PROFILED','academic-profiled.html'],['Star Farm','academic-star-farm.html'],['Lead Me','academic-lead-me.html']]},
-    {name:'Multimedia Design',href:'multimedia-projects.html',items:[['五元编织','life-weave.html'],['SentAIment','sentaiment.html']]},
-    {name:'Other Works',href:'aigc.html',items:[['The Fortress','aigc-fortress.html'],['The Rococo','aigc-rococo.html'],['角色场景','aigc-worlds.html'],['视觉实验','aigc-experiments.html']]}
+    {name:'Multimedia Design',href:'multimedia-projects.html',items:[['五元编织','life-weave.html'],['SentAIment','sentaiment.html'],['Mute the Ocean','multimedia-ocean.html'],['Information Cocoon','multimedia-cocoon.html'],['Seize the Day','multimedia-seize.html']]},
+    {name:'Other Works',href:'aigc.html',items:[['The Fortress','aigc-fortress.html'],['The Rococo','aigc-rococo.html'],['角色场景','aigc-worlds.html'],['视觉实验','aigc-experiments.html'],['Xiaomi IoT','xiaomi-iot.html']]}
   ];
   const category=categories.find(c=>c.href===file||c.items.some(i=>i[1]===file)),item=category?.items.find(i=>i[1]===file),isIndex=category?.href===file;
   const isTencent=category?.href==='tencent-news.html',exploratory=isTencent&&item&&category.items.indexOf(item)>7;
@@ -27,6 +27,7 @@
       else for(const [name,hash] of [['迭代需求','business'],['探索需求','explore']])local.append(makeLink(name,category.href+'#'+hash,(hash==='explore')===!!exploratory));
     }else category.items.forEach(([name,href])=>local.append(makeLink(name,href,href===file)));
     global.append(local);
+    requestAnimationFrame(()=>{const active=local.querySelector("[aria-current]");if(active&&local.scrollWidth>local.clientWidth)local.scrollLeft=Math.max(0,active.offsetLeft-local.offsetLeft-(local.clientWidth-active.offsetWidth)/2)});
   }
   document.querySelectorAll('.unified-navigation,.case-header,.multimedia-navigation,.case-switcher-wrap,body>.category-nav,.inner-context,.ec-toc').forEach(el=>el.remove());
   document.body.classList.add('inner-navigation-ready');

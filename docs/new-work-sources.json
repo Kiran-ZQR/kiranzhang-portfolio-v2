@@ -1,0 +1,39 @@
+[
+  {
+    "file": "multimedia-ocean.html",
+    "title": "Mute the Ocean",
+    "sourceFile": "P8KZ1mUvLWHn4wOuy5kFim",
+    "sourceNodes": [
+      "2270:23895",
+      "2270:23901"
+    ],
+    "note": "Original Figma artwork exported for portfolio presentation; prose translated and condensed from the source. No claim of a working product demo."
+  },
+  {
+    "file": "multimedia-cocoon.html",
+    "title": "Information Cocoon",
+    "sourceFile": "P8KZ1mUvLWHn4wOuy5kFim",
+    "sourceNodes": [
+      "2270:23942"
+    ],
+    "note": "Original Figma artwork exported for portfolio presentation; prose translated and condensed from the source. No claim of a working product demo."
+  },
+  {
+    "file": "multimedia-seize.html",
+    "title": "Seize the Day",
+    "sourceFile": "P8KZ1mUvLWHn4wOuy5kFim",
+    "sourceNodes": [
+      "2270:23942"
+    ],
+    "note": "Original Figma artwork exported for portfolio presentation; prose translated and condensed from the source. No claim of a working product demo."
+  },
+  {
+    "file": "xiaomi-iot.html",
+    "title": "Xiaomi IoT",
+    "sourceFile": "P8KZ1mUvLWHn4wOuy5kFim",
+    "sourceNodes": [
+      "2270:4366"
+    ],
+    "note": "Original Figma artwork exported for portfolio presentation; prose translated and condensed from the source. No claim of a working product demo."
+  }
+]

@@ -1,39 +1,12 @@
 (() => {
-  'use strict';
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
-  const mission = document.querySelector('.ab-mission');
-  // Keep a single readable heading for assistive technology; animate only its visual copy.
-  const text = mission.textContent;
-  mission.setAttribute('aria-label', text);
-  const visual = document.createElement('span');
-  visual.setAttribute('aria-hidden', 'true');
-  const words = /[\u4e00-\u9fff]/.test(text) ? Array.from(text) : text.split(/(\s+)/);
-  const spans = words.map(word => {
-    if (/^\s+$/.test(word)) return document.createTextNode(word);
-    const span = document.createElement('span');
-    span.className = 'ab-word'; span.textContent = word; return span;
-  });
-  visual.append(...spans); mission.replaceChildren(visual);
-  const letters = spans.filter(node => node.nodeType === 1);
-  let scheduled = false;
-  const paint = () => {
-    scheduled = false;
-    const rect = mission.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, (innerHeight * .4 - rect.top) / (rect.height + innerHeight * .18)));
-    letters.forEach((letter, i) => letter.classList.toggle('is-lit', i / letters.length <= progress));
-  };
-  const schedule = () => { if (!scheduled) { scheduled = true; requestAnimationFrame(paint); } };
-  addEventListener('scroll', schedule, {passive: true}); addEventListener('resize', schedule);
-  const sections = document.querySelectorAll('.ab-reveal');
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  }, {threshold: 0, rootMargin: '0px 0px -40px 0px'});
-  sections.forEach(section => observer.observe(section));
-  document.documentElement.classList.add('ab-motion');
-  paint();
+'use strict';const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+const arrowKeys=(buttons,select)=>buttons.forEach((button,i)=>{button.addEventListener('click',()=>select(i));button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(i+(event.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;buttons[next].focus();select(next)})});
+const views=[{title:'Empathetic.',description:'从人的感受出发，连接技术与日常体验。',image:'assets/home-projects/human-machine.png',alt:'人的手与机械手相接',caption:'Human × technology',label:'查看体验设计',href:'tencent-news.html'},{title:'Inventive.',description:'以交互和叙事，让想法在屏幕之外发生。',image:'assets/new-work/seize.webp',alt:'只争朝夕静态雕塑装置',caption:'Time × memory',label:'查看叙事与装置',href:'multimedia-projects.html'},{title:'Analytical.',description:'在视觉与原型中，探索 AI 和新的表达方式。',image:'assets/new-work/xiaomi-dark.webp',alt:'小米 IoT 官网深色视觉方案',caption:'Form × systems',label:'查看视觉探索',href:'xiaomi-iot.html'}];
+const buttons=[...document.querySelectorAll('[data-view]')],panel=document.querySelector('#about-view'),art=document.querySelector('.about-lens-art figure');let viewRevision=0;
+async function showView(i){const revision=++viewRevision,v=views[i],image=new Image();image.src=v.image;try{await image.decode()}catch{}if(revision!==viewRevision)return;buttons.forEach((b,j)=>{b.setAttribute('aria-selected',String(i===j));b.tabIndex=i===j?0:-1});panel.setAttribute('aria-labelledby',buttons[i].id);panel.querySelector('h3').textContent=v.title;panel.querySelector('p').textContent=v.description;const link=panel.querySelector('a'),svg=link.querySelector('svg');link.replaceChildren(document.createTextNode(v.label+' '),svg);link.href=v.href;const img=art.querySelector('img');img.src=v.image;img.alt=v.alt;art.querySelector('figcaption').textContent=v.caption;if(!reduced.matches)art.animate([{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0 0 0)'}],{duration:900,easing:'cubic-bezier(.16,1,.3,1)'});}
+arrowKeys(buttons,showView);
+const careers=[{image:'assets/index-previews/cp-cover.webp',alt:'腾讯新闻微信插件体验设计',href:'tencent-news.html',description:'参与微信插件的主客态体验与交互页面交付，探索 AI 海报裁切、小工具原型及协作方法。'},{image:'assets/new-work/xiaomi-dark.webp',alt:'小米 IoT 官网视觉与动效方案',href:'xiaomi-iot.html',description:'参与 IoT 页面动效与视觉表达探索，细化信息层级及交互细节。'}],careerButtons=[...document.querySelectorAll('[data-career]')],careerPanel=document.querySelector('#career-panel');let careerRevision=0;
+async function showCareer(i){const revision=++careerRevision,c=careers[i],image=new Image();image.src=c.image;try{await image.decode()}catch{}if(revision!==careerRevision)return;careerButtons.forEach((b,j)=>{b.setAttribute('aria-selected',String(i===j));b.tabIndex=i===j?0:-1});careerPanel.setAttribute('aria-labelledby',careerButtons[i].id);careerPanel.querySelectorAll('a').forEach(a=>a.href=c.href);const img=careerPanel.querySelector('img');img.src=c.image;img.alt=c.alt;careerPanel.querySelector('p').textContent=c.description;if(!reduced.matches)careerPanel.animate([{opacity:.45},{opacity:1}],{duration:750,easing:'cubic-bezier(.16,1,.3,1)'});}
+arrowKeys(careerButtons,showCareer);
+const surface=document.querySelector('.about-lens-art');if(!reduced.matches&&matchMedia('(hover:hover) and (pointer:fine)').matches){let raf=0,x=0,y=0;surface.addEventListener('pointermove',e=>{const rect=surface.getBoundingClientRect();x=(e.clientX-rect.left)/rect.width-.5;y=(e.clientY-rect.top)/rect.height-.5;if(!raf)raf=requestAnimationFrame(()=>{raf=0;art.style.setProperty('--tilt-x',(x*7)+'deg');art.style.setProperty('--tilt-y',(-y*7)+'deg')})});surface.addEventListener('pointerleave',()=>{art.style.setProperty('--tilt-x','0deg');art.style.setProperty('--tilt-y','0deg')});}
 })();
-

@@ -80,3 +80,9 @@ Reference: Driezie work page source shows a compact brand/menu header and indivi
 
 ## Restore indexed previews — 2026-11-22
 User prefers the previous left preview/right project index arrangement. Restore that composition, hover/focus preview switching, keyboard index navigation and single-click project entry for all four collections. Retain complete images using contain, including paired screens and mobile thumbnails; retire all custom source crops. Keep the latest single contextual header and case forward path, removing the extra 全部分类 link.
+
+## About studio and additional projects — 2026-11-22
+
+About retains the site's black/paper typography and all factual career/education content. Its first view pairs large About lettering with an editable three-view lens: experience, narrative, experiment. Each real tab changes the image, title, description and destination together after decode; the transition is one 900ms image wipe, with bounded pointer perspective on the artwork only. No autoplay or hidden-until-script content. Career tabs pair Tencent/Xiaomi history with its actual project artwork and a direct project link. Education stays readable as two timeline rows; three original installation photographs form the explorations section. Touch uses native horizontal scrolling in that gallery, and reduced motion disables wipe/tilt.
+
+Add Mute the Ocean, Information Cocoon and Seize the Day to Multimedia Design; add Xiaomi IoT to Other Works, as confirmed by the user. Preserve the preferred left preview/right index on category pages. Each new case uses the shared contextual header, complete original Figma artwork, concise source-based explanation, keyboard/Escape image enlargement and the same-category next/return route. Figma original file and node provenance are recorded in docs/new-work-sources.json. Assets are stored locally as WebP, with no temporary Figma URLs at runtime.
