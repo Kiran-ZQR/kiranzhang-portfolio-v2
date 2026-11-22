@@ -10,42 +10,40 @@
   const category=categories.find(c=>c.href===file||c.items.some(i=>i[1]===file)),item=category?.items.find(i=>i[1]===file),isIndex=category?.href===file;
   const isTencent=category?.href==='tencent-news.html',exploratory=isTencent&&item&&category.items.indexOf(item)>7;
   const siblings=category?(isTencent&&item?category.items.slice(exploratory?8:0,exploratory?10:8):category.items):[];
-  const groupName=isTencent&&item?(exploratory?'Explore Requirements':'Business Requirements'):category?.name;
-  const labels={'about.html':'About','resume.html':'Resume','review.html':'素材库','model-credits.html':'3D credits'};
   const makeLink=(name,href,current=false)=>{const a=document.createElement('a');a.href=href;a.textContent=name;if(current)a.setAttribute('aria-current','page');return a};
   let global=document.querySelector('.v2-global');
   if(!global){global=document.createElement('nav');global.className='v2-global';document.body.prepend(global)}
   global.setAttribute('role','navigation');global.setAttribute('aria-label','网站主导航');global.replaceChildren();
   const brand=makeLink('KiranZhang','index.html#home');brand.className='v2-brand';global.append(brand);
-  for(const [name,href]of [['Home','index.html#home'],['Projects','index.html#projects'],['About','about.html'],['Resume','resume.html'],['Contact','index.html#contact']])global.append(makeLink(name,href,name==='Projects'?!!category:href===file));
+  if(!category)for(const [name,href]of [['Home','index.html#home'],['Projects','index.html#projects'],['About','about.html'],['Resume','resume.html'],['Contact','index.html#contact']])global.append(makeLink(name,href,href===file));
   // Move live tab buttons so existing tab state and keyboard handlers survive.
   const tabs=isIndex?[...document.querySelectorAll('[data-grid-tab]')]:[];
-  const context=document.createElement('div');context.className='inner-context';
-  const row=document.createElement('div');row.className='inner-context-row';
-  const crumbs=document.createElement('nav');crumbs.className='inner-breadcrumb';crumbs.setAttribute('aria-label','当前位置');
-  const addCrumb=(name,href)=>{if(crumbs.children.length){const separator=document.createElement('span');separator.className='inner-crumb-separator';separator.textContent='/';separator.setAttribute('aria-hidden','true');crumbs.append(separator)}if(href)crumbs.append(makeLink(name,href));else{const current=document.createElement('span');current.className='inner-current';current.setAttribute('aria-current','page');current.textContent=name;crumbs.append(current)}};
-  const categoryListHref=category?.href+(item&&category.href==='tencent-news.html'?(category.items.indexOf(item)>7?'#explore':'#business'):'');
-  if(category){addCrumb('Projects','index.html#projects');addCrumb(category.name,item?category.href:undefined);if(item){if(isTencent)addCrumb(groupName,categoryListHref);addCrumb(item[0])}}
-  else{addCrumb('Home','index.html#home');addCrumb(labels[file]||document.title.split('—')[0].trim())}
-  row.append(crumbs);
   if(category){
-    const picker=document.createElement('details');picker.className='inner-picker';
-    const summary=document.createElement('summary');summary.textContent=isIndex?'切换分类':'切换同组项目';
-    const indicator=document.createElement('span');indicator.className='inner-picker-symbol';indicator.setAttribute('aria-hidden','true');summary.append(indicator);picker.append(summary);
-    const menu=document.createElement('nav');menu.className='inner-picker-menu';menu.setAttribute('aria-label',isIndex?'作品分类':groupName+' 项目');
-    const items=isIndex?categories.map(c=>[c.name,c.href]):siblings;
-    items.forEach(([name,href])=>menu.append(makeLink(name,href,href===file)));
-    picker.append(menu);row.append(picker);
-    picker.addEventListener('keydown',event=>{if(event.key==='Escape'){picker.open=false;summary.focus()}});
-    document.addEventListener('pointerdown',event=>{if(!picker.contains(event.target))picker.open=false});
-    picker.addEventListener('focusout',()=>requestAnimationFrame(()=>{if(!picker.contains(document.activeElement))picker.open=false}));
+    global.classList.add('project-nav');
+    const group=makeLink(category.name,category.href,isIndex);group.className='inner-group-home';global.append(group);
+    const local=document.createElement('nav');local.className='inner-local';local.setAttribute('aria-label',isTencent?'腾讯实习需求分组':'当前分类项目');
+    if(isTencent){
+      if(tabs.length){local.setAttribute('role','tablist');tabs.forEach(tab=>{tab.className='inner-tab';tab.textContent=tab.dataset.gridTab==='business'?'迭代需求':'探索需求';tab.removeAttribute('data-index');local.append(tab)})}
+      else for(const [name,hash] of [['迭代需求','business'],['探索需求','explore']])local.append(makeLink(name,category.href+'#'+hash,(hash==='explore')===!!exploratory));
+    }else category.items.forEach(([name,href])=>local.append(makeLink(name,href,href===file)));
+    global.append(local);
+    if(isIndex){const back=makeLink('全部分类','index.html#projects');back.className='inner-all';global.append(back)}
   }
-  context.append(row);
-  if(tabs.length){const tabbar=document.createElement('nav');tabbar.className='inner-tabs';tabbar.setAttribute('role','tablist');tabbar.setAttribute('aria-label','腾讯实习内容分组');tabs.forEach(tab=>{tab.className='inner-tab'+(tab.getAttribute('aria-selected')==='true'?' is-active':'');tab.removeAttribute('data-index');tabbar.append(tab)});context.append(tabbar)}
-  document.querySelectorAll('.unified-navigation,.case-header,.multimedia-navigation,.case-switcher-wrap,body>.category-nav').forEach(el=>el.remove());
-  global.after(context);document.body.classList.add('inner-navigation-ready');
-  const measure=()=>{const globalHeight=global.getBoundingClientRect().height;document.documentElement.style.setProperty('--inner-global-height',globalHeight+'px');document.documentElement.style.setProperty('--inner-nav-height',(globalHeight+context.getBoundingClientRect().height)+'px')};
-  if('ResizeObserver'in window){const observer=new ResizeObserver(measure);observer.observe(global);observer.observe(context)}measure();
-  // Page hierarchy lives in the header; keep artwork endings free of extra navigation.
+  document.querySelectorAll('.unified-navigation,.case-header,.multimedia-navigation,.case-switcher-wrap,body>.category-nav,.inner-context,.ec-toc').forEach(el=>el.remove());
+  document.body.classList.add('inner-navigation-ready');
+  const measure=()=>{const height=global.getBoundingClientRect().height;document.documentElement.style.setProperty('--inner-global-height',height+'px');document.documentElement.style.setProperty('--inner-nav-height',height+'px')};
+  if('ResizeObserver'in window)new ResizeObserver(measure).observe(global);measure();
+  // One local header and one forward route at the end of each case.
   document.querySelectorAll('.project-back,.project-sequence,.reading-footer,.project-next,.project-sibling-nav,.academic-footer,.case-footer,.collection-back,.work-two-back').forEach(el=>el.remove());
+  const categoryListHref=category?.href+(isTencent?(exploratory?"#explore":"#business"):"");
+  if(item){
+    const next=siblings[siblings.findIndex(entry=>entry[1]===file)+1];
+    const footer=document.createElement('footer');footer.className='case-forward';
+    const list=makeLink('返回 '+category.name,categoryListHref);list.className='case-forward-back';footer.append(list);
+    const forward=makeLink('',next?next[1]:categoryListHref);forward.className='case-forward-link';
+    const label=document.createElement('span');label.className='case-forward-label';label.textContent=next?'下一个项目':'浏览本类项目';
+    const title=document.createElement('span');title.className='case-forward-title';title.textContent=next?next[0]:category.name;
+    const arrow=document.createElement('span');arrow.className='case-forward-arrow';arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');forward.append(label,title,arrow);footer.append(forward);
+    const main=document.querySelector('main');if(main)main.after(footer);else document.body.append(footer);
+  }
 })();

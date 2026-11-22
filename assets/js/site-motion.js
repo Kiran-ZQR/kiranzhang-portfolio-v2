@@ -84,7 +84,7 @@
   });
   // Warm only a real hovered/focused project destination; no background route crawl.
   const warmed=new Set();
-  const warm=event=>{const a=event.target.closest('.collection-index a,.collection-open,.inner-picker-menu a');if(!a)return;const url=new URL(a.href,location.href);if(url.origin!==location.origin||url.pathname===location.pathname||warmed.has(url.href))return;warmed.add(url.href);const hint=document.createElement('link');hint.rel='prefetch';hint.as='document';hint.href=url.href;document.head.append(hint)};
+  const warm=event=>{const a=event.target.closest('.collection-card>a,.case-forward-link,.inner-local a');if(!a)return;const url=new URL(a.href,location.href);if(url.origin!==location.origin||url.pathname===location.pathname||warmed.has(url.href))return;warmed.add(url.href);const hint=document.createElement('link');hint.rel='prefetch';hint.as='document';hint.href=url.href;document.head.append(hint)};
   document.addEventListener('pointerover',warm,{passive:true});document.addEventListener('focusin',warm);
   addEventListener('pageshow',e=>{if(e.persisted){navigating=false;curtain.querySelectorAll('*').forEach(el=>el.getAnimations().forEach(a=>a.cancel()));curtain.classList.remove('is-active');root.classList.remove('route-arriving')}});
   // Native pointer remains on touch devices and until the first real pointer event.
