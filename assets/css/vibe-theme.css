@@ -1,0 +1,3 @@
+/* This case study has its own light art direction, independent of the home theme. */
+html[data-theme]{--paper:#f7f8fc;--ink:#24242a;--muted:#686f82;--line:#dce0eb;color-scheme:light;background:var(--paper)}
+body.vibe-page{color:var(--ink);background:var(--paper)}
